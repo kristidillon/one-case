@@ -88,8 +88,9 @@ section{padding:clamp(96px,13vw,168px) 0}
 .hero h1 em{font-style:normal;color:var(--muted);font-weight:500}
 
 /* ---------- pain scenes ---------- */
-.scenes{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 36px;margin-top:56px}
-@media(max-width:820px){.scenes{grid-template-columns:1fr;gap:34px}}
+.scenes{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 30px;margin-top:56px}
+@media(max-width:1000px){.scenes{grid-template-columns:repeat(2,1fr);gap:34px}}
+@media(max-width:560px){.scenes{grid-template-columns:1fr}}
 .scene .time{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.02em;font-variant-numeric:tabular-nums}
 .scene h3{margin-top:10px}
 .scene p{margin-top:12px;color:var(--ink-2);max-width:34ch}
@@ -137,8 +138,9 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.08)}
 .assume summary{display:inline-block;font-size:14px;color:var(--muted);cursor:pointer;list-style:none;padding:6px 12px;border-radius:999px}
 .assume summary::-webkit-details-marker{display:none}
 .assume summary:hover{color:var(--ink);background:rgba(0,0,0,.04)}
-.assume-body{margin:14px auto 0;max-width:760px;background:var(--white);border-radius:18px;padding:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:left}
-@media(max-width:720px){.assume-body{grid-template-columns:1fr}}
+.assume-body{margin:14px auto 0;max-width:820px;background:var(--white);border-radius:18px;padding:22px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:left}
+@media(max-width:820px){.assume-body{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.assume-body{grid-template-columns:1fr}}
 .assume-body label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
 .assume-body input{width:100%;font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--hair);border-radius:10px;background:var(--ground);color:var(--ink);font-variant-numeric:tabular-nums}
 .assume-body input:focus{outline:none;border-color:var(--accent);background:#fff}
@@ -328,7 +330,7 @@ footer .rep{color:var(--ink);font-weight:500}
       <a href="#scanner">Scanner</a>
       <a href="#try">Try one case</a>
     </div>
-    <a class="btn btn-dark btn-sm" id="navCta" href="mailto:Kristi.Dillon@meetdandy.com?subject=Our%20first%20case%20the%20Dandy%20way">Start Here</a>
+    <a class="btn btn-dark btn-sm" id="navCta" href="mailto:kristi.dillon@meetdandy.com?subject=Our%20first%20case%20the%20Dandy%20way">Start Here</a>
   </div>
 </nav>
 
@@ -353,7 +355,7 @@ footer .rep{color:var(--ink);font-weight:500}
   <div class="wrap">
     <div class="narrow center">
       <h2 class="rv">Where the day actually goes.</h2>
-      <p class="lede rv d1">Three moments every practice recognizes. None of them show up on the lab bill.</p>
+      <p class="lede rv d1">Four moments every practice recognizes. None of them show up on the lab bill — until the last one costs you an employee.</p>
     </div>
     <div class="scenes">
       <div class="scene rv">
@@ -373,6 +375,12 @@ footer .rep{color:var(--ink);font-weight:500}
         <h3>The case you can't see.</h3>
         <p>Impression boxed, courier gone, silence. If the margin was unclear, you'll find out when the lab calls — and the clock starts over.</p>
         <div class="cost">Two weeks in a temp. Sometimes three.</div>
+      </div>
+      <div class="scene rv d3">
+        <div class="time">Friday · every Friday</div>
+        <h3>The team that's done absorbing it.</h3>
+        <p>Remakes, re-temps and lab calls don't land evenly — they land on the same two or three people, every week, on top of everything else on their plate.</p>
+        <div class="cost">Burnout you don't see coming. Turnover you pay for twice.</div>
       </div>
     </div>
   </div>
@@ -423,21 +431,39 @@ footer .rep{color:var(--ink);font-weight:500}
             </div>
             <input type="range" id="chairval_r" min="100" max="1500" step="25" value="500" aria-label="Chair hour value in dollars">
           </div>
+
+          <div class="field">
+            <div class="field-top">
+              <div><label for="staffhrs">Staff hours a week chasing cases</label><div class="sub">Calling the lab, tracking down status, rebooking remakes</div></div>
+              <div class="val"><input id="staffhrs" type="number" min="0" max="20" value="4" inputmode="numeric"><span class="unit">hrs/wk</span></div>
+            </div>
+            <input type="range" id="staffhrs_r" min="0" max="20" value="4" aria-label="Staff hours per week chasing cases">
+          </div>
+
+          <div class="field">
+            <div class="field-top">
+              <div><label for="staffwage">What that staff time costs</label><div class="sub">Average loaded hourly wage for the team doing the chasing</div></div>
+              <div class="val"><span class="unit">$</span><input id="staffwage" type="number" min="15" max="75" value="28" inputmode="numeric"></div>
+            </div>
+            <input type="range" id="staffwage_r" min="15" max="75" value="28" aria-label="Staff hourly wage in dollars">
+          </div>
         </div>
 
         <div class="result">
           <div>
-            <div class="lbl">Chair time lost per year</div>
+            <div class="lbl">Chair + staff time lost per year</div>
             <div class="big"><span id="rDollars">$0</span></div>
-            <p class="explain">From remakes you'd avoid and minutes you'd get back at the seat — at your hourly value.</p>
+            <p class="explain">From remakes you'd avoid, minutes back at the seat, and staff hours no longer spent chasing a case — at your own numbers.</p>
           </div>
           <div class="stats">
             <div class="stat"><b id="rHours">0</b><span>chair hours reclaimed a year</span></div>
             <div class="stat"><b id="rRemakes">0</b><span>remakes you wouldn't do</span></div>
+            <div class="stat"><b id="rStaffHours">0</b><span>staff hours reclaimed a year</span></div>
+            <div class="stat"><b id="rStaffCost">$0</b><span>front-desk cost avoided a year</span></div>
           </div>
           <div class="monthly">
             <div class="dot" aria-hidden="true"></div>
-            <p>Every month at the current pace costs about <b id="rMonthly">$0</b> in chair time — before the next remake.</p>
+            <p>Every month at the current pace costs about <b id="rMonthly">$0</b> in chair and staff time — before you count what chasing cases does to whoever's doing the chasing.</p>
           </div>
         </div>
       </div>
@@ -449,7 +475,9 @@ footer .rep{color:var(--ink);font-weight:500}
         <div><label for="tremake">Remake rate the Dandy way (%)</label><input id="tremake" type="number" min="0" max="20" step="0.5" value="2"></div>
         <div><label for="tadjust">Adjustment time the Dandy way (min)</label><input id="tadjust" type="number" min="0" max="30" value="5"></div>
         <div><label for="remakehrs">Chair hours a remake costs you</label><input id="remakehrs" type="number" min="0" max="5" step="0.25" value="1.5"></div>
+        <div><label for="tstaffhrs">Staff hours chasing cases, the Dandy way</label><input id="tstaffhrs" type="number" min="0" max="10" step="0.25" value="0.5"></div>
         <p class="assume-note" id="formula"></p>
+        <p class="assume-note">This doesn't price turnover itself — replacing and retraining a front-desk or chairside hire runs weeks of lost productivity on top of the hours above. We're not putting a number on that here; you already know what it cost you last time.</p>
       </div>
     </details>
   </div>
@@ -484,7 +512,7 @@ footer .rep{color:var(--ink);font-weight:500}
       <div class="pillar rv">
         <div class="k">Minutes</div>
         <h3>Problems caught before the patient leaves</h3>
-        <p>AI reviews the scan for unclear margins and undercuts on the spot — not a week later by phone.</p>
+        <p>AI reviews every scan for unclear margins, insufficient occlusal clearance and undercuts in real time, flagging a re-scan while the patient is still in the chair — not a week later by phone.</p>
       </div>
       <div class="pillar rv d1">
         <div class="k">Days</div>
@@ -494,7 +522,7 @@ footer .rep{color:var(--ink);font-weight:500}
       <div class="pillar rv d2">
         <div class="k">98%</div>
         <h3>Success rate at the seat</h3>
-        <p>Restorations made to a verified scan seat the way they were designed to — fewer surprises, fewer remakes.</p>
+        <p>Every restoration is built from an AI-verified scan, not a poured model — independently the highest accuracy rate on the market, and the reason fit issues stop being a coin flip.</p>
       </div>
     </div>
   </div>
@@ -529,6 +557,7 @@ footer .rep{color:var(--ink);font-weight:500}
         <li><b>You send</b><span>One scan — prep, opposing, and bite. No impression, no pour, no courier.</span></li>
         <li><b>You see</b><span>AI margin check in minutes, a design proposal to approve from your phone, and live status through shipping.</span></li>
         <li><b>At the seat</b><span>A restoration made to a verified scan — fewer adjustments, fewer remakes.</span></li>
+        <li><b>Analog today</b><span>Impression, pour, box, courier, hope the margin held — you find out at day 3, not minute three.</span></li>
       </ul>
       <p class="tt">5 business days · shipping included</p>
     </div>
@@ -542,6 +571,7 @@ footer .rep{color:var(--ink);font-weight:500}
         <li><b>You send</b><span>Scans of the arches and bite records. Existing dentures can be scanned as a reference for the setup.</span></li>
         <li><b>You see</b><span>A digital setup to review and approve; case status on screen for you and the front desk.</span></li>
         <li><b>At the seat</b><span>Fit and esthetics that match what you approved — and a stored file for a fast replacement if one is ever lost.</span></li>
+        <li><b>Analog today</b><span>Wax rim try-ins on the schedule, a lost denture means starting the whole set over from a model that may not exist anymore.</span></li>
       </ul>
       <p class="tt">2-appointment dentures · 5–9 business days</p>
     </div>
@@ -555,6 +585,7 @@ footer .rep{color:var(--ink);font-weight:500}
         <li><b>You send</b><span>A scan of the arch, the opposing, and the bite. Rests and guide planes are visible on screen before you submit.</span></li>
         <li><b>You see</b><span>The framework design to approve, then live status through fabrication and shipping.</span></li>
         <li><b>At the seat</b><span>A partial that seats along the path you planned — less chairside grinding, fewer return visits.</span></li>
+        <li><b>Analog today</b><span>Undercuts and guide planes get judged by feel on a model — surprises show up as a clasp you're bending chairside.</span></li>
       </ul>
       <p class="tt">Straight to finish · 6–12 business days</p>
     </div>
@@ -568,6 +599,7 @@ footer .rep{color:var(--ink);font-weight:500}
         <li><b>You send</b><span>A scan with the scan body seated, the opposing, and the bite — plus the implant system and platform.</span></li>
         <li><b>You see</b><span>A design proposal showing emergence and contacts to approve before production; status on screen the whole way.</span></li>
         <li><b>At the seat</b><span>A restoration that fits the implant position you scanned — or we remake it free.</span></li>
+        <li><b>Analog today</b><span>An open-tray impression around a scan body, hoping nothing shifted before the model was poured — or it's back to surgery-day photos and a guess.</span></li>
       </ul>
       <p class="tt">Model, analog, screw, scan body included · 14 business days</p>
     </div>
@@ -581,6 +613,7 @@ footer .rep{color:var(--ink);font-weight:500}
         <li><b>You send</b><span>Scans with scan bodies seated, the opposing, and bite records; existing prosthesis as a reference if you have one.</span></li>
         <li><b>You see</b><span>The setup and attachment plan to review, then live tracking through fabrication and delivery.</span></li>
         <li><b>At the seat</b><span>A prosthesis matched to the implant positions in your scan — a delivery, not a rescue.</span></li>
+        <li><b>Analog today</b><span>Attachment housings picked at the delivery appointment, not planned before — the chairside fix-it session becomes the norm.</span></li>
       </ul>
       <p class="tt">Guide, immediate denture and final overdenture · one plan</p>
     </div>
@@ -726,7 +759,7 @@ footer .rep{color:var(--ink);font-weight:500}
       <div><b>Nothing hidden</b><span>Shipping both ways, software, training and scanner tips for life.</span></div>
     </div>
     <div class="try-cta rv d3">
-      <a class="btn btn-accent btn-lg" id="ctaBtn" href="mailto:Kristi.Dillon@meetdandy.com?subject=Our%20first%20case%20the%20Dandy%20way">Send your first case</a>
+      <a class="btn btn-accent btn-lg" id="ctaBtn" href="mailto:kristi.dillon@meetdandy.com?subject=Our%20first%20case%20the%20Dandy%20way">Send your first case</a>
       <p id="ctaSub">Or reply to the email this came from — we'll set up your first case together.</p>
       <div class="contact" id="contact">
         <div class="av" id="cAv">KD</div>
@@ -734,7 +767,7 @@ footer .rep{color:var(--ink);font-weight:500}
           <div class="nm" id="cName">Kristi Dillon, BS, RDH</div>
           <div class="ti" id="cTitle">Account Executive, Dandy</div>
           <div class="lines">
-            <a id="cEmail" href="mailto:Kristi.Dillon@meetdandy.com?subject=Our%20first%20case%20the%20Dandy%20way"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3" width="13" height="10" rx="2"/><path d="M2 4.5l6 4 6-4"/></svg><span>Kristi.Dillon@meetdandy.com</span></a>
+            <a id="cEmail" href="mailto:kristi.dillon@meetdandy.com?subject=Our%20first%20case%20the%20Dandy%20way"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3" width="13" height="10" rx="2"/><path d="M2 4.5l6 4 6-4"/></svg><span>kristi.dillon@meetdandy.com</span></a>
             <a id="cPhone" href="tel:+16464238981"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2.5h2.5l1.2 3-1.5 1.1a9 9 0 004.2 4.2l1.1-1.5 3 1.2V13a1.5 1.5 0 01-1.6 1.5A11.5 11.5 0 011.5 4.1 1.5 1.5 0 013 2.5z"/></svg><span>Direct: 646-423-8981</span></a>
           </div>
         </div>
@@ -765,16 +798,25 @@ footer .rep{color:var(--ink);font-weight:500}
 
     <details>
       <summary>L1 · open the wound (scenes section)</summary>
-      <div class="say"><q>Which one of these three is your Tuesday?</q></div>
+      <div class="say"><q>Which one of these four is your Tuesday?</q></div>
       <div class="say"><q>Walk me through the last seat that went sideways — what did that do to the rest of the day?</q></div>
       <div class="do"><b>Do:</b> point at the screen, not at them. Mirror their last 3 words, then silence 4+ seconds.</div>
       <div class="why">Narrative transportation + mirroring — their own story lowers counter-arguing; the mirror gets detail without interrogation.</div>
     </details>
 
     <details>
+      <summary>L1b · the team absorbing it (scene 4)</summary>
+      <div class="say"><q>Who actually chases the lab when a case goes quiet — is that the same one or two people every time?</q></div>
+      <div class="say"><q>When's the last time someone on your team said something about how much of their day goes to redoing or re-explaining a case?</q></div>
+      <div class="do"><b>Do:</b> this is a status-quo reframe, not a challenge question — you're not asking what's wrong, you're asking them to notice what they've stopped noticing. Let the silence sit; don't rescue it with a follow-up.</div>
+      <div class="why">Knuth-style reframe — "what challenges are you facing" invites a rehearsed non-answer; making them re-see a normalized pattern creates real dissonance with the status quo.</div>
+    </details>
+
+    <details>
       <summary>L2 · quantify (calculator)</summary>
       <div class="say"><q>Let's not use my defaults — roughly how many C&amp;B units a month? And of those, how many come back needing more than a quick adjustment?</q></div>
       <div class="say"><q>What's an hour of chair time worth here — five hundred? Seven?</q> <em>(bracket high; they'll correct you)</em></div>
+      <div class="say"><q>And roughly how many hours a week does someone spend chasing a case that's gone quiet?</q></div>
       <div class="do"><b>Do:</b> hand them the slider if in person. Read the big number out loud once, then stop talking.</div>
       <div class="why">Bracketing + endowment — numbers they enter are theirs, not a vendor's claim; the monthly line is loss framing (losses weigh ~2× gains).</div>
     </details>
@@ -799,6 +841,7 @@ footer .rep{color:var(--ink);font-weight:500}
       <div class="say"><b>"We're happy with our lab."</b><br><q>It sounds like the relationship matters more than the turnaround — that's fair. This isn't a switch; it's one case next to theirs.</q></div>
       <div class="say"><b>"We don't have a scanner."</b><br><q>Seems like that's the real blocker, not the lab. What would it take to get one case scanned?</q> <em>(then walk through the scanner path per current program terms)</em></div>
       <div class="say"><b>"Not now."</b><br><q>What's the cost of waiting a quarter?</q> — point at the monthly line.</div>
+      <div class="say"><b>"My team's fine, they're just busy."</b><br><q>Busy doing what, though — is it the treatment, or is it chasing a case that already left the building?</q> <em>(then point at the staff-hours stat, not the dollar figure — let them do the math on what "busy" is costing)</em></div>
       <div class="do"><b>Do:</b> label, pause, then calibrated "what/how." Never "why."</div>
       <div class="why">Labeling defuses the emotion behind the objection; calibrated questions give them control while they solve it.</div>
     </details>
@@ -831,7 +874,7 @@ const CONFIG = {
   repName: 'Kristi Dillon',
   repCreds: 'BS, RDH',
   repTitle: 'Account Executive, Dandy',
-  repEmail: 'Kristi.Dillon@meetdandy.com',
+  repEmail: 'kristi.dillon@meetdandy.com',
   repPhone: '646-423-8981',          // direct line — becomes a tap-to-call link
   ctaHref: '',                       // optional booking link; overrides the email CTA
 
@@ -887,7 +930,7 @@ const CONFIG = {
 
 // ---------- calculator ----------
 const $=id=>document.getElementById(id);
-const pairs=[['units','units_r'],['remake','remake_r'],['adjust','adjust_r'],['chairval','chairval_r']];
+const pairs=[['units','units_r'],['remake','remake_r'],['adjust','adjust_r'],['chairval','chairval_r'],['staffhrs','staffhrs_r'],['staffwage','staffwage_r']];
 const fmt=n=>Math.round(n).toLocaleString('en-US');
 const money=n=>'$'+fmt(n);
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -902,17 +945,23 @@ function animateTo(el,target,prefix){
 }
 function calc(){
   const units=+$('units').value||0, rem=+$('remake').value||0, adj=+$('adjust').value||0, val=+$('chairval').value||0,
-        trem=+$('tremake').value||0, tadj=+$('tadjust').value||0, rh=+$('remakehrs').value||0;
+        staffhrs=+$('staffhrs').value||0, staffwage=+$('staffwage').value||0,
+        trem=+$('tremake').value||0, tadj=+$('tadjust').value||0, rh=+$('remakehrs').value||0, tstaffhrs=+$('tstaffhrs').value||0;
   const yearly=units*12;
   const remakesAvoided=Math.max(0,yearly*(rem-trem)/100);
   const adjHours=Math.max(0,yearly*(adj-tadj)/60);
-  const hours=remakesAvoided*rh+adjHours;
-  const dollars=hours*val;
+  const chairHours=remakesAvoided*rh+adjHours;
+  const chairDollars=chairHours*val;
+  const staffHoursYear=Math.max(0,(staffhrs-tstaffhrs)*52);
+  const staffDollars=staffHoursYear*staffwage;
+  const dollars=chairDollars+staffDollars;
   animateTo($('rDollars'),dollars,'$');
-  animateTo($('rHours'),hours,'');
+  animateTo($('rHours'),chairHours,'');
   animateTo($('rRemakes'),remakesAvoided,'');
+  animateTo($('rStaffHours'),staffHoursYear,'');
+  animateTo($('rStaffCost'),staffDollars,'$');
   animateTo($('rMonthly'),dollars/12,'$');
-  $('formula').textContent=`${fmt(yearly)} units a year × (${rem}% − ${trem}% remakes) = ${fmt(remakesAvoided)} remakes × ${rh} chair hours each, plus ${adj}−${tadj} minutes saved per seat, valued at ${money(val)} per chair hour.`;
+  $('formula').textContent=`${fmt(yearly)} units a year × (${rem}% − ${trem}% remakes) = ${fmt(remakesAvoided)} remakes × ${rh} chair hours each, plus ${adj}−${tadj} minutes saved per seat at ${money(val)}/hr, plus ${staffhrs}−${tstaffhrs} staff hours/week no longer spent chasing cases at ${money(staffwage)}/hr.`;
 }
 pairs.forEach(([n,r])=>{
   const num=$(n),rng=$(r);
@@ -921,7 +970,7 @@ pairs.forEach(([n,r])=>{
   num.addEventListener('blur',()=>{if(num.value===''||+num.value<+num.min){num.value=num.min;rng.value=num.min;paintRange(rng);calc();}});
   paintRange(rng);
 });
-['tremake','tadjust','remakehrs'].forEach(id=>$(id).addEventListener('input',calc));
+['tremake','tadjust','remakehrs','tstaffhrs'].forEach(id=>$(id).addEventListener('input',calc));
 calc();
 
 // ---------- case rail ----------
