@@ -212,7 +212,17 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.08)}
   .pick-row b:nth-of-type(1){border-left:0}
 }
 .state .fine{margin:28px auto 0;max-width:720px;font-size:11px;line-height:1.5;color:var(--muted);text-align:center}
-.scanner-note{margin-top:30px;font-size:13px;color:var(--muted);text-align:center}
+.state .scanner-note{margin-top:30px;font-size:13px;color:var(--muted);text-align:center}
+
+/* ---------- polychromatic shade ---------- */
+.shade-grid{display:grid;grid-template-columns:1.2fr .8fr 1fr;gap:16px;margin-top:64px;align-items:stretch}
+@media(max-width:820px){.shade-grid{grid-template-columns:1fr 1fr}.shade-grid figure:first-child{grid-column:1/-1}}
+.shade-grid figure{margin:0;border-radius:22px;overflow:hidden;background:var(--night-2);position:relative}
+.shade-grid img{display:block;width:100%;height:100%;min-height:260px;max-height:440px;object-fit:cover}
+.shade-grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 18px 14px;font-size:13px;color:#fff;text-align:left;background:linear-gradient(transparent,rgba(0,0,0,.65))}
+.state.dark .shade-war{margin-top:40px;font-size:17px;color:var(--night-text)}
+.shade-war b{color:#fff;font-weight:600}
+.state.dark .shade-src{margin-top:10px;font-size:11px;color:var(--night-muted)}
 
 /* ---------- apple-style statement + numbers ---------- */
 .state{padding:clamp(96px,14vw,180px) 0;text-align:center}
@@ -333,8 +343,8 @@ footer .rep{color:var(--ink);font-weight:500}
       <a href="#cost">Your number</a>
       <a href="#see">See every case</a>
       <a href="#types">Case types</a>
-      <a href="#compare">How it compares</a>
       <a href="#scanner">Scanner</a>
+      <a href="#compare">How it compares</a>
       <a href="#try">Try one case</a>
     </div>
     <a class="btn btn-dark btn-sm" id="navCta" href="mailto:kristi.dillon@meetdandy.com?subject=Our%20first%20case%20the%20Dandy%20way">Start Here</a>
@@ -606,6 +616,7 @@ footer .rep{color:var(--ink);font-weight:500}
         <li><b>You send</b><span>A scan with the scan body seated, the opposing, and the bite — plus the implant system and platform.</span></li>
         <li><b>You see</b><span>A design proposal showing emergence and contacts to approve before production; status on screen the whole way.</span></li>
         <li><b>At the seat</b><span>A restoration that fits the implant position you scanned — or we remake it free.</span></li>
+        <li><b>Scan bodies</b><span>250 scan body types, free for life &mdash; shipped straight to you.</span></li>
         <li><b>Analog today</b><span>An open-tray impression around a scan body, hoping nothing shifted before the model was poured — or it's back to surgery-day photos and a guess.</span></li>
       </ul>
       <p class="tt">Model, analog, screw, scan body included · 14 business days</p>
@@ -630,7 +641,7 @@ footer .rep{color:var(--ink);font-weight:500}
         <span class="badge">Not yet</span>
         <h3>All-on-X &amp; full arch</h3>
         <p class="lede">Dandy makes the implant-supported overdenture end to end. All-on-X and All-on-4 aren't in the lab yet — better you hear that here than after you've sent one.</p>
-        <div class="until"><b>And your scan still moves.</b> All-on-X and All-on-4 are the one case type you can scan on your Dandy Vision unit and send to the full-arch lab you already use. That stands until Dandy's own full-arch offering is live.</div>
+        <div class="until"><b>And your scan still moves.</b> All-on-X and All-on-4 are the one case type you can scan on your Dandy scanner and send to the full-arch lab you already use. That stands until Dandy's own full-arch offering is live.</div>
       </div>
       <ul>
         <li><b>We make</b><span>The implant-supported overdenture, end to end — treatment plan, surgical guide, immediate denture for surgery day, final locator overdenture.</span></li>
@@ -643,13 +654,29 @@ footer .rep{color:var(--ink);font-weight:500}
   </div>
 </section>
 
+<!-- ================= POLYCHROMATIC SHADE ================= -->
+<section class="state dark" id="shade">
+  <div class="wrap">
+    <p class="kicker rv">Polychromatic Shade&trade;</p>
+    <h2 class="rv d1">Zirconia strength.<br><em>Porcelain depth.</em></h2>
+    <p class="rv d2">A patented stain-and-glaze technique gives solid zirconia lifelike translucency, color gradients and optical depth &mdash; indicated for anterior and posterior.</p>
+    <div class="shade-grid">
+      <figure class="rv"><img src="img/poly-pair.jpg" alt="Polychromatic Shade anterior and posterior zirconia crowns" loading="lazy" width="900" height="909"><figcaption>Anterior and posterior, same zirconia</figcaption></figure>
+      <figure class="rv d1"><img src="img/poly-molar.jpg" alt="Polychromatic Shade zirconia molar crown held in tweezers" loading="lazy" width="671" height="1000"><figcaption>Color gradient from cervical to occlusal</figcaption></figure>
+      <figure class="rv d2"><img src="img/poly-anterior.jpg" alt="Polychromatic Shade anterior zirconia crown showing translucency" loading="lazy" width="900" height="909"><figcaption>Natural incisal translucency</figcaption></figure>
+    </div>
+    <p class="shade-war rv d2"><b>Lifetime warranty</b> on all fixed restorations, with free remakes.</p>
+    <p class="shade-src">Photos: Dandy</p>
+  </div>
+</section>
+
 <!-- ================= 3SHAPE TRIOS · FREE WITH DANDY ================= -->
 <section class="state band" id="scanner">
   <div class="wrap">
     <p class="kicker rv">3Shape TRIOS</p>
     <div class="huge rv d1">$0</div>
     <h2 class="rv d1" style="margin-top:26px">The scanner's on us.<br><em>Free with Dandy.<sup class="fn">1</sup></em></h2>
-    <p class="rv d2">A 3Shape TRIOS comes with the lab — no capital purchase, no lease, no monthly software fee. Dandy Chairside Software checks the prep while you're still holding the wand.</p>
+    <p class="rv d2">A 3Shape TRIOS comes with the lab — no capital purchase, no monthly software fee. Dandy Chairside Software checks the prep while you're still holding the wand.</p>
 
     <div class="pick rv d1">
       <div class="pick-head">
@@ -766,9 +793,9 @@ footer .rep{color:var(--ink);font-weight:500}
     </div>
     <div class="gtee rv d2">
       <div><b>Perfect Fit Guarantee</b><span>If an implant restoration doesn't fit, we remake it free.</span></div>
-      <div><b>10-year warranty</b><span>On crowns, bridges, inlays, onlays and veneers.</span></div>
+      <div><b>Lifetime warranty</b><span>On all fixed restorations &mdash; crowns, bridges, inlays, onlays and veneers.</span></div>
       <div><b>Month to month</b><span>No long-term contract. Ten days' written notice, either way.</span></div>
-      <div><b>Nothing hidden</b><span>Free 3Shape TRIOS and software. Shipping both ways. One-time $400 set-up covers training for your whole team.</span></div>
+      <div><b>Nothing hidden</b><span>Free 3Shape TRIOS, software and scan bodies. Shipping both ways. One-time $400 set-up covers training for your whole team.</span></div>
     </div>
     <div class="try-cta rv d3">
       <a class="btn btn-accent btn-lg" id="ctaBtn" href="mailto:kristi.dillon@meetdandy.com?subject=Our%20first%20case%20the%20Dandy%20way">Send your first case</a>
