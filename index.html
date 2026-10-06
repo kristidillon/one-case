@@ -194,17 +194,24 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.08)}
 .panel .until{margin-top:20px;background:var(--white);border-radius:18px;padding:16px 20px;font-size:14px;color:var(--ink-2);line-height:1.5}
 .panel .until b{color:var(--ink);font-weight:600}
 /* ---------- scanner ---------- */
-.spec{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:72px;border-top:1px solid var(--hair)}
-@media(max-width:820px){.spec{grid-template-columns:1fr}}
-.spec div{padding:28px 24px;border-bottom:1px solid var(--hair);text-align:left}
-@media(min-width:821px){.spec div:not(:nth-child(3n+1)){border-left:1px solid var(--hair)}}
-.spec b{display:block;font-size:clamp(24px,2.8vw,32px);font-weight:600;letter-spacing:-.035em;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
-.spec span{display:block;margin-top:10px;font-size:14px;color:var(--muted);line-height:1.45}
-.models{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}
-@media(max-width:640px){.models{grid-template-columns:1fr}}
-.models div{background:var(--ground);border-radius:22px;padding:26px 28px;text-align:left}
-.models b{display:block;font-size:17px;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
-.models span{display:block;margin-top:6px;font-size:14px;color:var(--muted);line-height:1.45}
+.fn{font-size:.35em;vertical-align:super;margin-left:2px;color:var(--muted)}
+.pick{margin:64px auto 0;max-width:820px;text-align:left;background:var(--white);border-radius:24px;overflow:hidden;border:1px solid var(--hair)}
+.pick-head,.pick-row{display:grid;grid-template-columns:1.3fr 1fr 1fr;align-items:center}
+.pick-head{background:var(--night);color:var(--night-text)}
+.pick-head b{padding:22px 20px;font-size:18px;font-weight:600;letter-spacing:-.02em;text-align:center}
+.pick-head small{display:block;margin-top:4px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--night-muted)}
+.pick-row{border-top:1px solid var(--hair)}
+.pick-row span{padding:20px 24px;font-size:15px;font-weight:600;color:var(--ink)}
+.pick-row span em{display:block;margin-top:4px;font-style:normal;font-weight:400;font-size:13px;color:var(--muted);line-height:1.4}
+.pick-row b{padding:20px 16px;text-align:center;font-size:clamp(15px,1.8vw,19px);font-weight:600;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums;border-left:1px solid var(--hair)}
+@media(max-width:640px){
+  .pick-head,.pick-row{grid-template-columns:1fr 1fr}
+  .pick-head span{display:none}
+  .pick-row span{grid-column:1/-1;padding:16px 18px 4px}
+  .pick-row b{padding:6px 12px 16px;font-size:15px}
+  .pick-row b:nth-of-type(1){border-left:0}
+}
+.state .fine{margin:28px auto 0;max-width:720px;font-size:11px;line-height:1.5;color:var(--muted);text-align:center}
 .scanner-note{margin-top:30px;font-size:13px;color:var(--muted);text-align:center}
 
 /* ---------- apple-style statement + numbers ---------- */
@@ -636,28 +643,33 @@ footer .rep{color:var(--ink);font-weight:500}
   </div>
 </section>
 
-<!-- ================= DANDY VISION SCANNER ================= -->
+<!-- ================= 3SHAPE TRIOS · FREE WITH DANDY ================= -->
 <section class="state band" id="scanner">
   <div class="wrap">
-    <p class="kicker rv">Dandy Vision</p>
-    <div class="huge rv d1">45<sup>sec</sup></div>
-    <h2 class="rv d1" style="margin-top:26px">A full arch.<br><em>One smooth motion.</em></h2>
-    <p class="rv d2">The scanner comes with the lab — no capital purchase, no monthly software fee. Advanced optics capture every angle in fewer passes, and the AI flags a prep issue while you're still holding the wand.</p>
+    <p class="kicker rv">3Shape TRIOS</p>
+    <div class="huge rv d1">$0</div>
+    <h2 class="rv d1" style="margin-top:26px">The scanner's on us.<br><em>Free with Dandy.<sup class="fn">1</sup></em></h2>
+    <p class="rv d2">A 3Shape TRIOS comes with the lab — no capital purchase, no lease, no monthly software fee. Dandy Chairside Software checks the prep while you're still holding the wand.</p>
 
-    <div class="spec">
-      <div class="rv"><b>210g</b><span>Lightweight enough to hold through a long arch without fatigue.</span></div>
-      <div class="rv"><b>Zero</b><span>Calibration required. Not weekly, not monthly. Ever.</span></div>
-      <div class="rv"><b>18mm</b><span>Sharp focus at distance, so hard-to-reach margins stay crisp.</span></div>
-      <div class="rv"><b>180×</b><span>Autoclave cycles per tip — and replacement tips are free for life.</span></div>
-      <div class="rv"><b>Instant</b><span>De-fog by airflow design. No warm-up, no wiping mid-scan.</span></div>
-      <div class="rv"><b>Free</b><span>Chairside software, CE-accredited training for your whole team, and shipping.</span></div>
+    <div class="pick rv d1">
+      <div class="pick-head">
+        <span></span>
+        <b>TRIOS Core<small>Wired</small></b>
+        <b>TRIOS 5<small>Wireless</small></b>
+      </div>
+      <div class="pick-row"><span>Minimum monthly lab spend</span><b>$1,000</b><b>$2,500</b></div>
+      <div class="pick-row"><span>Shipping &amp; set-up<em>One-time. Covers shipping, set-up and training for your whole staff.</em></span><b>$400</b><b>$400</b></div>
+      <div class="pick-row"><span>Contract</span><b>Month-to-month</b><b>Month-to-month</b></div>
+      <div class="pick-row"><span>Scanning software</span><b>Free Dandy Chairside</b><b>Free Dandy Chairside</b></div>
     </div>
 
-    <div class="models rv d1">
-      <div><b>Dandy Vision · wired</b><span>0.46 lb, standard and small tips, 180 autoclave cycles.</span></div>
-      <div><b>3Shape TRIOS 5 · wireless</b><span>0.66 lb, cordless operatory-to-operatory, 100 autoclave cycles.</span></div>
+    <div class="keep rv d2" style="margin-top:34px">
+      <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-7"/></svg>No long-term contract</span>
+      <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-7"/></svg>No monthly software fees</span>
+      <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3 3 7-7"/></svg>No-cost remakes</span>
     </div>
-    <p class="scanner-note rv d2">Month-to-month either way. The scanner is the on-ramp — the lab is what you're judging.</p>
+    <p class="scanner-note rv d2">The scanner is the on-ramp — the lab is what you're judging.</p>
+    <p class="fine rv d2"><sup>1</sup> The scanner is provided as a hardware placement for use with Dandy's digital workflow. Dandy retains legal title to the hardware. Offer of scanner provided at no cost, subject to Dandy's standard Practice Agreement terms, including minimum lab spend requirements. Use of the hardware does not mandate the use of Dandy where it is not in the patient's best clinical interest.</p>
   </div>
 </section>
 
@@ -756,7 +768,7 @@ footer .rep{color:var(--ink);font-weight:500}
       <div><b>Perfect Fit Guarantee</b><span>If an implant restoration doesn't fit, we remake it free.</span></div>
       <div><b>10-year warranty</b><span>On crowns, bridges, inlays, onlays and veneers.</span></div>
       <div><b>Month to month</b><span>No long-term contract. Ten days' written notice, either way.</span></div>
-      <div><b>Nothing hidden</b><span>Shipping both ways, software, training and scanner tips for life.</span></div>
+      <div><b>Nothing hidden</b><span>Free 3Shape TRIOS and software. Shipping both ways. One-time $400 set-up covers training for your whole team.</span></div>
     </div>
     <div class="try-cta rv d3">
       <a class="btn btn-accent btn-lg" id="ctaBtn" href="mailto:kristi.dillon@meetdandy.com?subject=Our%20first%20case%20the%20Dandy%20way">Send your first case</a>
@@ -839,7 +851,9 @@ footer .rep{color:var(--ink);font-weight:500}
     <details>
       <summary>Objections · labels first</summary>
       <div class="say"><b>"We're happy with our lab."</b><br><q>It sounds like the relationship matters more than the turnaround — that's fair. This isn't a switch; it's one case next to theirs.</q></div>
-      <div class="say"><b>"We don't have a scanner."</b><br><q>Seems like that's the real blocker, not the lab. What would it take to get one case scanned?</q> <em>(then walk through the scanner path per current program terms)</em></div>
+      <div class="say"><b>"We don't have a scanner."</b><br><q>Seems like that's the real blocker, not the lab. What would it take to get one case scanned?</q> <em>(then walk the TRIOS path)</em></div>
+      <div class="say"><b>Scanner path:</b> <q>The scanner's free — Core wired at $1,000 a month in lab work, TRIOS 5 wireless at $2,500. One-time $400 covers shipping, set-up and training your whole team. Month-to-month.</q> <em>(match the model to their real monthly spend from L2 — don't upsell wireless they can't hit)</em></div>
+      <div class="why">Anchor on "free," state the minimum plainly before they ask — hidden-condition surprises kill trust faster than the number itself. Footnote terms are on the page; point to them if asked.</div>
       <div class="say"><b>"Not now."</b><br><q>What's the cost of waiting a quarter?</q> — point at the monthly line.</div>
       <div class="say"><b>"My team's fine, they're just busy."</b><br><q>Busy doing what, though — is it the treatment, or is it chasing a case that already left the building?</q> <em>(then point at the staff-hours stat, not the dollar figure — let them do the math on what "busy" is costing)</em></div>
       <div class="do"><b>Do:</b> label, pause, then calibrated "what/how." Never "why."</div>
