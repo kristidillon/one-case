@@ -303,33 +303,10 @@ footer .rep{color:var(--ink);font-weight:500}
 .rv.in{opacity:1;transform:none}
 .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
 
-/* ---------- presenter drawer ---------- */
-.pres{position:fixed;top:0;right:0;height:100%;width:min(420px,92vw);background:var(--night);color:var(--night-text);z-index:60;transform:translateX(105%);transition:transform .35s var(--ease);box-shadow:-30px 0 80px rgba(0,0,0,.35);display:flex;flex-direction:column}
-.pres.open{transform:none}
-.pres header{padding:18px 22px;border-bottom:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center}
-.pres header b{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#5FC6CE}
-.pres header button{color:var(--night-muted);font-size:13px;padding:6px 10px;border-radius:8px}
-.pres header button:hover{background:rgba(255,255,255,.08);color:#fff}
-.pres-body{overflow-y:auto;padding:8px 22px 40px;font-size:14px;line-height:1.5}
-.pres details{border-bottom:1px solid rgba(255,255,255,.08);padding:14px 0}
-.pres summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center}
-.pres summary::-webkit-details-marker{display:none}
-.pres summary::after{content:"+";color:var(--night-muted);font-weight:400}
-.pres details[open] summary::after{content:"–"}
-.pres .say{margin-top:12px;padding:12px 14px;background:var(--night-2);border-left:2px solid #5FC6CE;border-radius:0 10px 10px 0}
-.pres .say + .say{margin-top:8px}
-.pres .say q{quotes:"“" "”";color:#fff}
-.pres .do{margin-top:8px;color:var(--night-muted);font-size:13px}
-.pres .do b{color:#E2E2E6;font-weight:600}
-.pres .why{margin-top:6px;font-size:12.5px;color:#7FBFC5}
-.pres .why::before{content:"Why it works · ";color:var(--night-muted)}
-.pres-tip{margin:12px 0 4px;font-size:12px;color:var(--night-muted)}
-.pres-tip kbd{font:inherit;background:var(--night-2);padding:1px 6px;border-radius:5px;color:#fff}
-
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .rv{opacity:1;transform:none;transition:none}
-  .btn,.dot,.bar::after,.pres,.stage span{transition:none}
+  .btn,.dot,.bar::after,.stage span{transition:none}
   .monthly .dot{animation:none}
 }
 </style>
@@ -345,7 +322,7 @@ footer .rep{color:var(--ink);font-weight:500}
       <a href="#types">Case types</a>
       <a href="#scanner">Scanner</a>
       <a href="#compare">How it compares</a>
-      <a href="#try">Try one case</a>
+      <a href="#try">Send one case</a>
     </div>
     <a class="btn btn-dark btn-sm" id="navCta" href="mailto:kristi.dillon@meetdandy.com?subject=Our%20first%20case%20the%20Dandy%20way">Start Here</a>
   </div>
@@ -778,8 +755,8 @@ footer .rep{color:var(--ink);font-weight:500}
   <div class="wrap">
     <div class="narrow center">
       <p class="eyebrow rv">Low risk, by design</p>
-      <h2 class="rv d1">Try it with one case.</h2>
-      <p class="lede rv d2">Keep your current lab. Send a single crown the Dandy way, and judge it where it matters — at the chair.</p>
+      <h2 class="rv d1">Send us one case. Judge the result yourself.</h2>
+      <p class="lede rv d2">No long-term contract. Pause anytime. The same team on every case.</p>
     </div>
     <div class="steps">
       <div class="step rv"><div class="n">1</div><h3>Scan it</h3><p>One intraoral scan. The AI check confirms margins before your patient stands up.</p></div>
@@ -822,92 +799,6 @@ footer .rep{color:var(--ink);font-weight:500}
   </div>
 </footer>
 
-<!-- ================= PRESENTER DRAWER (hidden; Shift+P or ?p=1) ================= -->
-<aside class="pres" id="pres" aria-label="Presenter notes" aria-hidden="true">
-  <header><b>Presenter notes</b><button id="presClose" type="button">Close (Esc)</button></header>
-  <div class="pres-body">
-    <p class="pres-tip">Invisible to the room. Toggle with <kbd>Shift</kbd>+<kbd>P</kbd>. Never share screen with this open.</p>
-
-    <details open>
-      <summary>Open · first 60 seconds</summary>
-      <div class="say"><q>Before I show you anything — you're probably expecting a lab rep to tell you your lab is bad. That's not this. I want to put a number on something you already feel, and you tell me if it's worth fixing.</q></div>
-      <div class="do"><b>Do:</b> slow, downward inflection, hands open. Pause two full seconds after "worth fixing."</div>
-      <div class="why">Accusation audit — naming their suspicion first removes the reason to hold it.</div>
-    </details>
-
-    <details>
-      <summary>L1 · open the wound (scenes section)</summary>
-      <div class="say"><q>Which one of these four is your Tuesday?</q></div>
-      <div class="say"><q>Walk me through the last seat that went sideways — what did that do to the rest of the day?</q></div>
-      <div class="do"><b>Do:</b> point at the screen, not at them. Mirror their last 3 words, then silence 4+ seconds.</div>
-      <div class="why">Narrative transportation + mirroring — their own story lowers counter-arguing; the mirror gets detail without interrogation.</div>
-    </details>
-
-    <details>
-      <summary>L1b · the team absorbing it (scene 4)</summary>
-      <div class="say"><q>Who actually chases the lab when a case goes quiet — is that the same one or two people every time?</q></div>
-      <div class="say"><q>When's the last time someone on your team said something about how much of their day goes to redoing or re-explaining a case?</q></div>
-      <div class="do"><b>Do:</b> this is a status-quo reframe, not a challenge question — you're not asking what's wrong, you're asking them to notice what they've stopped noticing. Let the silence sit; don't rescue it with a follow-up.</div>
-      <div class="why">Knuth-style reframe — "what challenges are you facing" invites a rehearsed non-answer; making them re-see a normalized pattern creates real dissonance with the status quo.</div>
-    </details>
-
-    <details>
-      <summary>L2 · quantify (calculator)</summary>
-      <div class="say"><q>Let's not use my defaults — roughly how many C&amp;B units a month? And of those, how many come back needing more than a quick adjustment?</q></div>
-      <div class="say"><q>What's an hour of chair time worth here — five hundred? Seven?</q> <em>(bracket high; they'll correct you)</em></div>
-      <div class="say"><q>And roughly how many hours a week does someone spend chasing a case that's gone quiet?</q></div>
-      <div class="do"><b>Do:</b> hand them the slider if in person. Read the big number out loud once, then stop talking.</div>
-      <div class="why">Bracketing + endowment — numbers they enter are theirs, not a vendor's claim; the monthly line is loss framing (losses weigh ~2× gains).</div>
-    </details>
-
-    <details>
-      <summary>Recap + L3 · worth fixing?</summary>
-      <div class="say"><q>So if I've got this right: remakes are around [their %], every one eats a re-temp and a chair hour, and the front desk can't answer "is it in yet" without calling. Is that fair?</q></div>
-      <div class="say"><q>Is that a problem worth fixing this quarter — or is it livable for now?</q></div>
-      <div class="do"><b>Do:</b> wait for "that's right," not "you're right." If you get "livable," label it: <q>Sounds like the pain isn't bad enough to change anything yet.</q></div>
-      <div class="why">"That's right" signals real agreement; consistency principle makes the yes here carry into the ask.</div>
-    </details>
-
-    <details>
-      <summary>Show · case rail + compare</summary>
-      <div class="say"><q>Here's where your Tuesday crown would be right now — and here's who can see it.</q></div>
-      <div class="do"><b>Do:</b> let the rail animate through one full cycle without narrating. Then point at the two "pain" rows on the left column.</div>
-      <div class="why">Show, don't describe — contrast effect makes the digital column feel faster than any stat would.</div>
-    </details>
-
-    <details>
-      <summary>Objections · labels first</summary>
-      <div class="say"><b>"We're happy with our lab."</b><br><q>It sounds like the relationship matters more than the turnaround — that's fair. This isn't a switch; it's one case next to theirs.</q></div>
-      <div class="say"><b>"We don't have a scanner."</b><br><q>Seems like that's the real blocker, not the lab. What would it take to get one case scanned?</q> <em>(then walk the TRIOS path)</em></div>
-      <div class="say"><b>Scanner path:</b> <q>The scanner's free — Core wired at $1,000 a month in lab work, TRIOS 5 wireless at $2,500. One-time $400 covers shipping, set-up and training your whole team. Month-to-month.</q> <em>(match the model to their real monthly spend from L2 — don't upsell wireless they can't hit)</em></div>
-      <div class="why">Anchor on "free," state the minimum plainly before they ask — hidden-condition surprises kill trust faster than the number itself. Footnote terms are on the page; point to them if asked.</div>
-      <div class="say"><b>"Not now."</b><br><q>What's the cost of waiting a quarter?</q> — point at the monthly line.</div>
-      <div class="say"><b>"My team's fine, they're just busy."</b><br><q>Busy doing what, though — is it the treatment, or is it chasing a case that already left the building?</q> <em>(then point at the staff-hours stat, not the dollar figure — let them do the math on what "busy" is costing)</em></div>
-      <div class="do"><b>Do:</b> label, pause, then calibrated "what/how." Never "why."</div>
-      <div class="why">Labeling defuses the emotion behind the objection; calibrated questions give them control while they solve it.</div>
-    </details>
-
-    <details>
-      <summary>Objection · “Do you do All-on-X?”</summary>
-      <div class="say"><q>Not the final arch — not today. I’d rather lose that case than have you find out on the one that matters.</q></div>
-      <div class="say"><q>What we do run end to end is the implant overdenture — CBCT, plan, guide, immediate denture, final locator. Plus guides, scan bodies, abutments, implant crowns and bridges.</q></div>
-      <div class="say"><b>If they push on timing:</b> <q>I’m not going to give you a date I can’t stand behind. When it’s real, you’ll hear it from me first.</q></div>
-      <div class="say"><b>If they ask “can I scan it and send it elsewhere?”</b> <q>For All-on-X and All-on-4 — yes. That’s the one carve-out, and it holds until we have the full-arch offering ourselves. Scan it here, send it wherever you send those today.</q></div>
-      <div class="say"><b>Do not over-extend it:</b> the carve-out is All-on-X / All-on-4 only. Overdentures, crowns, bridges, partials, guides — those are Dandy cases on a Dandy scanner.</div>
-      <div class="do"><b>Do:</b> say the “no” flat and unhurried — late-night-DJ voice, no rising inflection, no apology face. Then pause a full two seconds before the “what we do run” line. Do not rush to fill it.</div>
-      <div class="why"><b>Know the line:</b> Practice Agreement §8 reads as blanket exclusivity — Dandy equipment orders Dandy cases. The All-on-X / All-on-4 allowance is the practical exception while the offering is being built, so state it as the exception it is, never as “your scans go anywhere.” Physical impressions to other labs are permitted under §8 regardless.</div>
-      <div class="why">Volunteering the disqualifier is the strongest authority move on the page — a rep who names their own gap gets believed on everything else. It also removes the fear underneath the question: that saying yes to Dandy costs them their arch lab.</div>
-    </details>
-
-    <details>
-      <summary>Close · one case</summary>
-      <div class="say"><q>Based on the number you put up there — does one case seem like a reasonable way to find out?</q></div>
-      <div class="say"><q>What would need to be true for you to send the first one this week?</q></div>
-      <div class="do"><b>Do:</b> late-night-DJ voice. Ask, then stop. Book the scan date before you leave the page.</div>
-      <div class="why">Small commitment + genuine low risk — "one case" is a yes that costs nothing and creates consistency pressure toward the next.</div>
-    </details>
-  </div>
-</aside>
 
 <script>
 // ===== Rep config — edit these three lines =====
@@ -1057,18 +948,6 @@ calc();
   show(tabs[0]);
 })();
 
-// ---------- presenter drawer ----------
-(function(){
-  const pres=$('pres');
-  const set=o=>{pres.classList.toggle('open',o);pres.setAttribute('aria-hidden',String(!o));};
-  if(new URLSearchParams(location.search).get('p')==='1') set(true);
-  document.addEventListener('keydown',e=>{
-    const typing=/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName);
-    if(e.key==='P'&&e.shiftKey&&!typing){e.preventDefault();set(!pres.classList.contains('open'));}
-    if(e.key==='Escape') set(false);
-  });
-  $('presClose').addEventListener('click',()=>set(false));
-})();
 </script>
 </body>
 </html>
