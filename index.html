@@ -197,6 +197,9 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.08)}
 @media(max-width:720px){.tablist{flex-wrap:wrap;justify-content:center;overflow:visible;border-radius:24px}}
 .tab{padding:12px 16px;border-radius:999px;font-size:14px;font-weight:500;color:var(--ink-2);white-space:nowrap;transition:background .2s,color .2s,box-shadow .2s}
 .tab:hover{color:var(--ink)}
+.tab-link{display:inline-flex;align-items:center;gap:4px;color:var(--accent-ink)}
+.tab-link:hover{background:rgba(255,255,255,.6)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .tab[aria-selected="true"]{background:var(--white);color:var(--ink);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.06)}
 .tab .soon{display:inline-block;margin-left:8px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent-soft);padding:2px 7px;border-radius:999px;vertical-align:1px}
 .panel{display:none;margin:36px auto 0;max-width:880px;background:var(--ground);border-radius:28px;padding:clamp(28px,4vw,44px)}
@@ -272,22 +275,6 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.08)}
 .proofline{margin:38px auto 0;max-width:640px;text-align:center;font-size:19px;font-weight:500;letter-spacing:-.02em;color:var(--ink);line-height:1.4}
 .proofline span{display:block;margin-top:8px;font-size:13px;font-weight:400;letter-spacing:0;color:var(--muted);line-height:1.5}
 .panel .tt{grid-column:1/-1;margin-top:20px;padding-top:16px;border-top:1px solid var(--hair);font-size:13px;color:var(--muted);letter-spacing:.01em}
-.terms{grid-column:1/-1;background:var(--white);border-radius:18px;padding:18px 20px}
-.panel.on>*{min-width:0}
-.terms table{width:100%;table-layout:fixed;overflow-wrap:anywhere;border-collapse:collapse;font-size:14px;line-height:1.35}
-.terms caption{text-align:left;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-bottom:10px}
-.terms th,.terms td{padding:10px 8px;border-top:1px solid var(--hair);text-align:left;vertical-align:top}
-.terms thead th{border-top:0;font-size:13px;font-weight:600;color:var(--ink)}
-.terms thead th:first-child{color:var(--muted);font-weight:500}
-.terms thead em{display:inline-block;margin-left:6px;font-style:normal;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent-soft);padding:2px 7px;border-radius:999px;vertical-align:1px}
-.terms tbody th{font-weight:500;color:var(--ink-2);width:44%}
-.terms td{font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
-.terms td:nth-child(2){color:var(--accent-ink)}
-.terms-why{margin-top:12px;font-size:14px;color:var(--ink-2)}
-.terms thead em{white-space:nowrap;overflow-wrap:normal}
-@media(max-width:560px){.terms thead em{display:block;margin:3px 0 0;padding:0;background:none;font-size:11px;letter-spacing:0;text-transform:none}.terms{padding:14px 12px}.terms table{font-size:13px}.terms th,.terms td{padding:9px 5px}.terms tbody th{width:40%}}
-.panel-fine{grid-column:1/-1;margin-top:-18px;font-size:12px;line-height:1.5;color:var(--muted)}
-.panel-fine a{color:var(--accent-ink);text-decoration:underline}
 .types-note{margin-top:22px;text-align:center;font-size:13px;color:var(--muted)}
 
 /* ---------- proof / how ---------- */
@@ -612,7 +599,7 @@ footer .rep{color:var(--ink);font-weight:500}
     <div class="narrow center">
       <p class="eyebrow rv">One workflow, every restoration</p>
       <h2 class="rv d1">Whatever the case, it starts with one scan.</h2>
-      <p class="lede rv d2">The same scan-to-seat path — AI check, design preview, live tracking — runs across the work you do every week, sleep apnea appliances included.</p>
+      <p class="lede rv d2">The same scan-to-seat path — AI check, design preview, live tracking — runs across the work you do every week.</p>
     </div>
 
     <div class="tabs rv d2">
@@ -622,7 +609,7 @@ footer .rep{color:var(--ink);font-weight:500}
         <button class="tab" role="tab" id="tab-par" aria-controls="panel-par" aria-selected="false">Partials</button>
         <button class="tab" role="tab" id="tab-imp" aria-controls="panel-imp" aria-selected="false">Implants</button>
         <button class="tab" role="tab" id="tab-isd" aria-controls="panel-isd" aria-selected="false">Implant dentures</button>
-        <button class="tab" role="tab" id="tab-slp" aria-controls="panel-slp" aria-selected="false">Sleep apnea</button>
+        <a class="tab tab-link" href="sleep/" target="_blank" rel="noopener">Sleep apnea <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
         <button class="tab" role="tab" id="tab-aox" aria-controls="panel-aox" aria-selected="false">All-on-X<span class="soon">Not yet</span></button>
       </div>
     </div>
@@ -696,34 +683,6 @@ footer .rep{color:var(--ink);font-weight:500}
         <li><b>Analog today</b><span>Attachment housings picked at the delivery appointment, not planned before — the chairside fix-it session becomes the norm.</span></li>
       </ul>
       <p class="tt">Guide, immediate denture and final overdenture · one plan</p>
-    </div>
-
-    <div class="panel" id="panel-slp" role="tabpanel" aria-labelledby="tab-slp" hidden>
-      <div>
-        <h3>Sleep apnea (Dandy Sleep)</h3>
-        <p class="lede">Sleep apnea treatment, inside your hygiene visit. Screen in the chair, the patient takes a ring home for one night, and a sleep physician reviews it virtually. You scan once, Dandy fabricates the appliance, and you deliver and titrate.</p>
-      </div>
-      <ul>
-        <li><b>You send</b><span>A patient your hygienist flags chairside with the 3-Minute Airway Checklist goes home with a Sleep Ring for one night. If treatment is the right fit, you scan once and Dandy fabricates a mandibular advancement device (MAD).</span></li>
-        <li><b>You see</b><span>A sleep physician reviews the results via telehealth, and they come back to both you and the patient. The Practice Portal tracks each patient&rsquo;s progress, diagnosis and insurance verification.</span></li>
-        <li><b>At the seat</b><span>Deliver the MAD &mdash; a comfortable, quiet alternative to CPAP &mdash; then titrate over follow-ups until it&rsquo;s effective and comfortable.</span></li>
-        <li><b>Analog today</b><span>A referral out to a sleep lab, a CPAP loop that runs outside your practice, and patients who get lost somewhere in between.</span></li>
-      </ul>
-      <div class="terms">
-        <table>
-          <caption>Two program options</caption>
-          <thead><tr><th scope="col">Program terms</th><th scope="col">Partner <em>Recommended</em></th><th scope="col">Independent</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">You price the appliance at</th><td>$2,500 or less</td><td>Above $2,500</td></tr>
-            <tr><th scope="row">Service fee per appliance</th><td>$500</td><td>$700</td></tr>
-            <tr><th scope="row">Monthly minimum (non-cancelled tests)</th><td>4 tests</td><td>None</td></tr>
-            <tr><th scope="row">Home sleep tests &amp; telehealth</th><td>Free</td><td>$100 per patient</td></tr>
-          </tbody>
-        </table>
-        <p class="terms-why">Our data shows pricing at $2,500 or less drives 4&times; treatment acceptance.</p>
-      </div>
-      <p class="tt">No sleep lab · No CPAP referral loop · No capital equipment</p>
-      <p class="panel-fine">Individual results may vary and are not guaranteed. An evaluation is required to determine whether a patient is a candidate for treatment. Insurance coverage and out-of-pocket costs vary by plan; preauthorization and medical-necessity requirements may apply. Program terms current as of October 2026. Program support: <a href="mailto:sleep@meetdandy.com">sleep@meetdandy.com</a></p>
     </div>
 
     <div class="panel" id="panel-aox" role="tabpanel" aria-labelledby="tab-aox" hidden>
@@ -1079,7 +1038,7 @@ calc();
 
 // ---------- case type tabs ----------
 (function(){
-  const tabs=[...document.querySelectorAll('.tab')];
+  const tabs=[...document.querySelectorAll('.tab[role="tab"]')];
   const panels=[...document.querySelectorAll('.panel')];
   function show(tab){
     tabs.forEach(t=>{const on=t===tab;t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1;});
