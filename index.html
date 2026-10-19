@@ -316,6 +316,17 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.08)}
 .keep span{font-size:14px;color:var(--ink-2);background:var(--white);border:1px solid var(--hair);padding:8px 14px;border-radius:999px;display:inline-flex;align-items:center;gap:8px}
 .keep svg{width:14px;height:14px;color:var(--accent)}
 
+/* ---------- sleep program announcement ---------- */
+.announce{display:flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:10px 20px;background:var(--accent-soft);color:var(--accent-ink);font-size:14px;line-height:1.35;text-align:center;border-bottom:1px solid rgba(10,124,134,.14);transition:background .2s}
+.announce:hover{background:#D8EDEF}
+.announce:hover b{text-decoration:underline;text-underline-offset:2px}
+.announce b{font-weight:600;white-space:nowrap}
+.announce-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none;box-shadow:0 0 0 3px rgba(10,124,134,.18)}
+@media(max-width:400px){.announce{font-size:13px;padding:8px 14px}.announce b{white-space:normal}}
+.sleep-callout{margin:18px auto 0;max-width:640px;text-align:center;font-size:15px;line-height:1.45;color:var(--ink-2)}
+.sleep-callout a{display:inline-block;padding:10px 12px;border-radius:14px;min-height:44px}
+.sleep-callout a:hover{background:var(--accent-soft)}
+.sleep-callout b{color:var(--accent-ink);font-weight:600;white-space:nowrap;text-decoration:underline;text-underline-offset:3px}
 /* ---------- conversion CTAs ---------- */
 .lbl-short{display:none}
 @media(max-width:360px){#navCta .lbl-full{display:none}#navCta .lbl-short{display:inline}}
@@ -378,6 +389,11 @@ footer .rep{color:var(--ink);font-weight:500}
     <a class="btn btn-dark btn-sm js-demo" id="navCta" href="mailto:kristi.dillon@meetdandy.com?subject=Demo%20request">Book a 15-min demo</a>
   </div>
 </nav>
+
+<a class="announce" href="sleep/" target="_blank" rel="noopener">
+  <span class="announce-dot" aria-hidden="true"></span>
+  <span>Sleep apnea is more common than you think. <b>Check out our sleep program&nbsp;&rarr;</b></span><span class="sr-only"> (opens in a new tab)</span>
+</a>
 
 <!-- ================= HERO ================= -->
 <header class="hero center" id="top">
@@ -616,6 +632,7 @@ footer .rep{color:var(--ink);font-weight:500}
         <button class="tab" role="tab" id="tab-aox" aria-controls="panel-aox" aria-selected="false">All-on-X<span class="soon">Not yet</span></button>
       </div>
     </div>
+    <p class="sleep-callout rv d2"><a href="sleep/" target="_blank" rel="noopener">Sleep apnea is more common than most patients know &mdash; and your hygienists already see the signs. <b>Check out our sleep program&nbsp;<span aria-hidden="true">&#8599;</span></b><span class="sr-only"> (opens in a new tab)</span></a></p>
 
     <div class="panel on" id="panel-cb" role="tabpanel" aria-labelledby="tab-cb">
       <div>
