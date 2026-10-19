@@ -340,6 +340,9 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.08)}
 .duo .huge sup{top:-1.6em}
 .duo h2{font-size:clamp(30px,3.6vw,44px);margin-top:20px}
 .duo p{margin:18px 0 0;font-size:17px}
+.duo-video{grid-column:1/-1;margin:0;background:var(--night-2);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:clamp(10px,1.6vw,16px);overflow:hidden}
+.duo-video video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:18px;background:#000}
+.duo-video figcaption{padding:12px 6px 4px;font-size:13px;color:var(--night-muted);text-align:left}
 
 /* ---------- footer ---------- */
 footer{padding:40px 0 64px;font-size:13px;color:var(--muted);text-align:center;line-height:1.6}
@@ -771,6 +774,14 @@ footer .rep{color:var(--ink);font-weight:500}
         <h2>You approve it <em>before it exists.</em></h2>
         <p>See the case in three dimensions, talk it through with the technician who's making it, and sign off when it's right. Fixed and removable. No charge, ever.</p>
       </div>
+      <figure class="duo-video rv">
+        <video controls preload="none" playsinline poster="media/design-preview-poster.jpg" width="1280" height="720" aria-label="Design Preview walkthrough video">
+          <source src="media/design-preview.mp4" type="video/mp4">
+          <track kind="captions" src="media/design-preview.en.vtt" srclang="en" label="English" default>
+          Your browser can&rsquo;t play this video. <a href="media/design-preview.mp4">Download the Design Preview walkthrough (MP4)</a>.
+        </video>
+        <figcaption>Design Preview walkthrough &middot; 1:17 &middot; margins, aesthetics, heatmaps, annotate, compare, approve</figcaption>
+      </figure>
     </div>
   </div>
 </section>
