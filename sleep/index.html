@@ -389,9 +389,18 @@ footer .rep{color:var(--ink);font-weight:500}
 .chk li{padding:12px 0;border-top:1px solid var(--hair);font-size:16px;line-height:1.4;color:var(--ink-2)}
 .chk li:first-child{border-top:0}
 .chk li b{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:2px}
-.says{margin-top:20px;background:var(--night);color:var(--night-text);border-radius:28px;padding:clamp(26px,4vw,44px);display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.step-k{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.chk h3{margin-top:6px}
+.chk-sub{margin-top:8px;font-size:15px;color:var(--muted)}
+.chk-lbl{margin-top:18px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.chk-q{margin-top:8px;font-size:17px;line-height:1.45;color:var(--ink);border-left:3px solid var(--accent);padding-left:14px}
+.chk-lbl+ul{margin-top:6px}
+.says{margin-top:20px;background:var(--night);color:var(--night-text);border-radius:28px;padding:clamp(26px,4vw,44px);display:grid;grid-template-columns:1.6fr 1fr;gap:20px 36px}
 @media(max-width:820px){.says{grid-template-columns:1fr;gap:22px}}
-.says-h{grid-column:1/-1;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5FC6CE}
+.says-h{grid-column:1/-1}
+.says-h .step-k{color:#5FC6CE}
+.says-h h3{margin-top:6px;color:#fff}
+.says-h p:last-child{margin-top:8px;font-size:15px;color:var(--night-muted)}
 .says p.k{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--night-muted)}
 .says blockquote{margin-top:10px;font-size:18px;line-height:1.45;letter-spacing:-.01em;color:#fff}
 .terms{margin:52px auto 0;max-width:860px;background:var(--white);border-radius:24px;overflow:hidden;border:1px solid var(--hair)}
@@ -514,33 +523,39 @@ footer .back{display:inline-block;margin-top:10px;color:var(--accent-ink);font-w
     <div class="narrow center">
       <p class="eyebrow rv">What your hygienist runs</p>
       <h2 class="rv d1">The 3-Minute Airway Checklist.</h2>
-      <p class="lede rv d2">The hygiene exam is the screening point: what you see, four quick questions, and the ring goes home the same visit.</p>
+      <p class="lede rv d2">A quick-reference for transitioning from clinical observation to a life-changing conversation.</p>
     </div>
     <div class="chk">
       <div class="rv">
-        <h3>What to look for</h3>
+        <p class="step-k">1 &middot; The observation</p>
+        <h3>Clinical Red Flags</h3>
+        <p class="chk-sub">During your routine exam, look for these key indicators of potential airway issues:</p>
         <ul>
-          <li><b>Tooth wear</b>Moderate to severe occlusal attrition</li>
-          <li><b>Soft tissue</b>Scalloped tongue, Mallampati III&ndash;IV</li>
-          <li><b>Structure</b>High/narrow palate, lower anterior crowding</li>
-          <li><b>Profile</b>Retrognathic mandible</li>
+          <li><b>Tooth wear</b>Moderate to severe occlusal attrition (grinding).</li>
+          <li><b>Soft tissue</b>Scalloped tongue or Mallampati Class III&ndash;IV.</li>
+          <li><b>Structure</b>High/narrow palate or lower anterior crowding.</li>
+          <li><b>Profile</b>Retrognathic jaw (recessed mandible).</li>
         </ul>
       </div>
       <div class="rv d1">
-        <h3>Four quick questions</h3>
+        <p class="step-k">2 &middot; The conversation</p>
+        <h3>The Bridge</h3>
+        <p class="chk-sub">Connect your clinical findings to the patient&rsquo;s daily life.</p>
+        <p class="chk-lbl">The opening</p>
+        <blockquote class="chk-q">&ldquo;I&rsquo;m noticing a couple of things in your mouth that we sometimes see in patients who aren&rsquo;t breathing optimally during sleep. Can I ask you a few quick questions about that?&rdquo;</blockquote>
+        <p class="chk-lbl">The quick screen</p>
         <ul>
           <li>Do you feel rested when you wake up?</li>
-          <li>Has anyone told you that you snore?</li>
-          <li>Headaches or dry mouth in the morning?</li>
-          <li>Ever had a formal sleep study?</li>
+          <li>Has anyone ever told you that you snore?</li>
+          <li>Do you wake up with headaches/dry mouth?</li>
+          <li>Have you ever had a formal sleep study?</li>
         </ul>
       </div>
     </div>
     <div class="says rv">
-      <p class="says-h">What your hygienist says</p>
-      <div><p class="k">The bridge</p><blockquote>&ldquo;I&rsquo;m noticing a couple of things in your mouth that we sometimes see in patients who aren&rsquo;t breathing optimally during sleep. Can I ask you a few quick questions?&rdquo;</blockquote></div>
-      <div><p class="k">The offer</p><blockquote>&ldquo;We can screen this easily. You&rsquo;ll take home a small ring to wear for one night. A sleep physician reviews the data virtually to see if a custom device, a comfortable, quiet alternative to a CPAP, could help you wake up rested.&rdquo;</blockquote></div>
-      <div><p class="k">The ask</p><blockquote>&ldquo;Would you like to take the ring home today?&rdquo;</blockquote></div>
+      <div class="says-h"><p class="step-k">3 &middot; The ring</p><h3>The Solution</h3><p>Offer a low-friction path to clarity. Patients want to feel better; you are providing the tool to get them there.</p></div>
+      <div><p class="k">The pitch</p><blockquote>&ldquo;We can screen this easily. You&rsquo;ll take home a small ring to wear while you sleep for one night. A sleep physician reviews the data virtually to see if a custom device&mdash;a comfortable, quiet alternative to a CPAP&mdash;could help you finally wake up rested.&rdquo;</blockquote></div>
+      <div><p class="k">The action</p><blockquote>&ldquo;Would you like to take the ring home today?&rdquo;</blockquote></div>
     </div>
   </div>
 </section>
@@ -602,7 +617,7 @@ footer .back{display:inline-block;margin-top:10px;color:var(--accent-ink);font-w
 <footer>
   <div class="wrap">
     <p><span class="rep">Prepared for you by Kristi Dillon, BS, RDH</span></p>
-    <p class="disclaimer">Individual results may vary and are not guaranteed. An evaluation is required to determine whether a patient is a candidate for treatment and what options may be appropriate. Insurance coverage and out-of-pocket costs vary by plan; preauthorization and medical-necessity requirements may apply. Program terms current as of October 2026.</p>
+    <p class="disclaimer">Individual results may vary and are not guaranteed. An evaluation is required to determine whether you are a candidate for treatment and what options may be appropriate. If you have symptoms of a sleep disorder, talk with a qualified healthcare provider about appropriate evaluation. Insurance coverage and out-of-pocket costs vary by plan; preauthorization and medical-necessity requirements may apply. Program terms current as of October 2026.</p>
     <a class="back" href="../">&larr; Back to Scan to Seat</a>
   </div>
 </footer>
