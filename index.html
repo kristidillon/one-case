@@ -327,6 +327,16 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.08)}
 .sleep-callout a{display:inline-block;padding:10px 12px;border-radius:14px;min-height:44px}
 .sleep-callout a:hover{background:var(--accent-soft)}
 .sleep-callout b{color:var(--accent-ink);font-weight:600;white-space:nowrap;text-decoration:underline;text-underline-offset:3px}
+/* ---------- lead capture ---------- */
+.hint .sms-line{display:inline-block;margin-top:2px}
+.sms-link{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;color:var(--accent-ink);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.calc-mail{display:inline-flex;align-items:center;min-height:44px;font-size:14px;font-weight:500;color:#5FC6CE;text-decoration:underline;text-underline-offset:3px}
+.calc-mail:hover{color:#fff}
+.mb-sms{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0 12px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:#fff;font-size:14px;font-weight:600;flex:none}
+.minibar .mb-acts{display:flex;gap:8px;align-items:center;flex:none}
+.ftr-links{margin-top:4px}
+@media(max-width:1000px){.nav-links .to-sleep{display:none}}
+.ftr-links a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px}
 /* ---------- conversion CTAs ---------- */
 .lbl-short{display:none}
 @media(max-width:360px){#navCta .lbl-full{display:none}#navCta .lbl-short{display:inline}}
@@ -386,9 +396,9 @@ footer .rep{color:var(--ink);font-weight:500}
       <a href="#types">Case types</a>
       <a href="#scanner">Scanner</a>
       <a href="#compare">How it compares</a>
-      <a href="https://www.meetdandy.com/?utm_source=one-case&amp;utm_medium=rep_page" target="_blank" rel="noopener">Meet Dandy</a>
+      <a href="sleep/" class="to-sleep" target="_blank" rel="noopener">Sleep apnea ↗</a>
     </div>
-    <a class="btn btn-dark btn-sm js-demo" id="navCta" href="mailto:kristi.dillon@meetdandy.com?subject=Demo%20request">Book a 30-min demo</a>
+    <a class="btn btn-dark btn-sm js-demo" id="navCta" data-cta="nav" href="https://calendly.com/kristi-dillon-meetdandy?utm_source=one-case&amp;utm_medium=landing&amp;utm_campaign=scan-to-seat&amp;utm_content=nav" target="_blank" rel="noopener">Book a 30-min demo</a>
   </div>
 </nav>
 
@@ -405,14 +415,14 @@ footer .rep{color:var(--ink);font-weight:500}
     <p class="lede rv d2">Remakes, chairside adjustments and two-week temps quietly eat chair time every month. Put in your numbers and see the yearly cost in 30 seconds — then see how practices on Dandy get it back.</p>
     <div class="cta rv d3">
       <a class="btn btn-accent btn-lg" href="#cost">Calculate my cost</a>
-      <a class="btn btn-dark btn-lg js-demo" id="heroCta" href="mailto:kristi.dillon@meetdandy.com?subject=Demo%20request">Book a 30-min demo</a>
+      <a class="btn btn-dark btn-lg js-demo" id="heroCta" data-cta="hero" href="https://calendly.com/kristi-dillon-meetdandy?utm_source=one-case&amp;utm_medium=landing&amp;utm_campaign=scan-to-seat&amp;utm_content=hero" target="_blank" rel="noopener">Book a 30-min demo</a>
     </div>
     <div class="cta rv d3" style="margin-top:14px">
       <a class="btn btn-ghost" href="#see">See how a case moves
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
       </a>
     </div>
-    <p class="hint rv d3">No sign-up. Keep your current lab.</p>
+    <p class="hint rv d3">No sign-up. Keep your current lab.<br><span class="sms-line">Prefer to text? <a class="sms-link" href="sms:+18454239166?&amp;body=CROWN">Text CROWN to 845-423-9166</a></span></p>
   </div>
 </header>
 
@@ -532,8 +542,9 @@ footer .rep{color:var(--ink);font-weight:500}
             <p>Every month at the current pace costs about <b id="rMonthly">$0</b> in chair and staff time — before you count what chasing cases does to whoever's doing the chasing.</p>
           </div>
           <div class="calc-cta">
-            <a class="btn btn-accent btn-lg js-demo" id="calcCta" href="mailto:kristi.dillon@meetdandy.com?subject=Demo%20request"><span id="calcCtaText">See how to get that back — book a 30-min demo</span></a>
+            <a class="btn btn-accent btn-lg js-demo" id="calcCta" data-cta="calc" href="https://calendly.com/kristi-dillon-meetdandy?utm_source=one-case&amp;utm_medium=landing&amp;utm_campaign=scan-to-seat&amp;utm_content=calc" target="_blank" rel="noopener"><span id="calcCtaText">See how to get that back — book a 30-min demo</span></a>
             <small>30 minutes, built around the numbers above.</small>
+            <a class="calc-mail" id="calcMail" href="mailto:kristi.dillon@meetdandy.com?subject=My%20Scan%20to%20Seat%20numbers">Not ready to book? Send my numbers to Kristi</a>
           </div>
         </div>
       </div>
@@ -771,7 +782,7 @@ footer .rep{color:var(--ink);font-weight:500}
     <p class="scanner-note rv d2">The scanner is the on-ramp — the lab is what you're judging.</p>
     <p class="fine rv d2"><sup>1</sup> The scanner is provided as a hardware placement for use with Dandy's digital workflow. Dandy retains legal title to the hardware. Offer of scanner provided at no cost, subject to Dandy's standard Practice Agreement terms, including minimum lab spend requirements. Use of the hardware does not mandate the use of Dandy where it is not in the patient's best clinical interest.</p>
     <div class="mid-cta rv">
-      <a class="btn btn-accent btn-lg js-demo" href="mailto:kristi.dillon@meetdandy.com?subject=Demo%20request">Book a 30-min demo</a>
+      <a class="btn btn-accent btn-lg js-demo" data-cta="mid-scanner" href="https://calendly.com/kristi-dillon-meetdandy?utm_source=one-case&amp;utm_medium=landing&amp;utm_campaign=scan-to-seat&amp;utm_content=mid-scanner" target="_blank" rel="noopener">Book a 30-min demo</a>
       <p>See the scanner and the lab workflow on your own cases.</p>
     </div>
   </div>
@@ -841,7 +852,7 @@ footer .rep{color:var(--ink);font-weight:500}
       </div>
     </div>
     <div class="mid-cta rv">
-      <a class="btn btn-accent btn-lg js-demo" href="mailto:kristi.dillon@meetdandy.com?subject=Demo%20request">Book a 30-min demo</a>
+      <a class="btn btn-accent btn-lg js-demo" data-cta="mid-compare" href="https://calendly.com/kristi-dillon-meetdandy?utm_source=one-case&amp;utm_medium=landing&amp;utm_campaign=scan-to-seat&amp;utm_content=mid-compare" target="_blank" rel="noopener">Book a 30-min demo</a>
       <p>Walk through a real case, scan to seat.</p>
     </div>
   </div>
@@ -872,7 +883,7 @@ footer .rep{color:var(--ink);font-weight:500}
       <div><b>Nothing hidden</b><span>Free 3Shape TRIOS, software and scan bodies. One-time $400 set-up covers training for your whole team.</span></div>
     </div>
     <div class="try-cta rv d3">
-      <a class="btn btn-accent btn-lg js-demo" id="ctaBtn" href="mailto:kristi.dillon@meetdandy.com?subject=Demo%20request">Book my 30-min demo</a>
+      <a class="btn btn-accent btn-lg js-demo" id="ctaBtn" data-cta="final" href="https://calendly.com/kristi-dillon-meetdandy?utm_source=one-case&amp;utm_medium=landing&amp;utm_campaign=scan-to-seat&amp;utm_content=final" target="_blank" rel="noopener">Book my 30-min demo</a>
       <p id="ctaSub">Pick a time that works &mdash; or reach me directly below.</p>
       <div class="contact" id="contact">
         <div class="av" id="cAv">KD</div>
@@ -882,6 +893,7 @@ footer .rep{color:var(--ink);font-weight:500}
           <div class="lines">
             <a id="cEmail" href="mailto:kristi.dillon@meetdandy.com?subject=Demo%20request"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3" width="13" height="10" rx="2"/><path d="M2 4.5l6 4 6-4"/></svg><span>kristi.dillon@meetdandy.com</span></a>
             <a id="cPhone" href="tel:+18454239166"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2.5h2.5l1.2 3-1.5 1.1a9 9 0 004.2 4.2l1.1-1.5 3 1.2V13a1.5 1.5 0 01-1.6 1.5A11.5 11.5 0 011.5 4.1 1.5 1.5 0 013 2.5z"/></svg><span>Direct: 845-423-9166</span></a>
+            <a id="cSms" href="sms:+18454239166?&amp;body=CROWN"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5h11a1 1 0 011 1v6a1 1 0 01-1 1H7l-3 2.5V11.5H2.5a1 1 0 01-1-1v-6a1 1 0 011-1z"/></svg><span>Text CROWN to 845-423-9166</span></a>
           </div>
         </div>
       </div>
@@ -891,7 +903,8 @@ footer .rep{color:var(--ink);font-weight:500}
 
 <div class="minibar" id="miniBar" aria-hidden="true">
   <div><span class="mb-v" id="mbVal">$0</span><span class="mb-l">chair + staff time lost / yr</span></div>
-  <a class="btn btn-accent js-demo" id="mbCta" href="mailto:kristi.dillon@meetdandy.com?subject=Demo%20request" tabindex="-1">Book a demo</a>
+  <div class="mb-acts"><a class="mb-sms" id="mbSms" href="sms:+18454239166?&amp;body=CROWN" tabindex="-1" aria-label="Text CROWN to 845-423-9166">Text</a>
+  <a class="btn btn-accent js-demo" id="mbCta" data-cta="mobilebar" href="https://calendly.com/kristi-dillon-meetdandy?utm_source=one-case&amp;utm_medium=landing&amp;utm_campaign=scan-to-seat&amp;utm_content=mobilebar" target="_blank" rel="noopener" tabindex="-1">Book a demo</a></div>
 </div>
 
 <footer>
@@ -900,6 +913,7 @@ footer .rep{color:var(--ink);font-weight:500}
     <p>Larger cases (more than 3 teeth) and surgical cases can take longer for planning and healing.</p>
     <p>The calculator uses the numbers you enter. Targets are editable assumptions based on the digital workflow's verified success rate.</p>
     <p class="hfd">For information on the most used patient financing program with 99% approval and no credit reporting: check out <a href="https://refer.gohfd.com/l/KRISTIDILL83/" target="_blank" rel="noopener sponsored">GO_HFD<span class="sr-only"> (opens in a new tab)</span></a></p>
+    <p class="ftr-links"><a href="https://www.meetdandy.com/?utm_source=one-case&amp;utm_medium=rep_page" target="_blank" rel="noopener">About Dandy on meetdandy.com ↗</a></p>
   </div>
 </footer>
 
@@ -912,7 +926,8 @@ const CONFIG = {
   repTitle: 'Account Executive, Dandy',
   repEmail: 'kristi.dillon@meetdandy.com',
   repPhone: '845-423-9166',          // direct line — becomes a tap-to-call link
-  ctaHref: 'https://calendly.com/kristi-dillon-meetdandy?utm_source=one-case&utm_medium=landing&utm_campaign=scan-to-seat',                       // optional booking link (e.g. Calendly). When set, EVERY demo button
+  ctaHref: 'https://calendly.com/kristi-dillon-meetdandy',   // booking page; UTMs are added per button below
+  campaign: 'scan-to-seat',          // default utm_campaign for this page                       // optional booking link (e.g. Calendly). When set, EVERY demo button
                                      // (nav, hero, post-calculator, mid-page, final, mobile bar) opens it instead of the email.
 
   // Button labels — change the words here, nowhere else.
@@ -942,6 +957,37 @@ const CONFIG = {
   ]
 };
 
+
+// ---------- UTM passthrough: incoming utm_* (kept in sessionStorage) -> every Calendly button ----------
+var OC_UTM = (function(){
+  var keys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term'], got={};
+  try{
+    var q=new URLSearchParams(location.search);
+    keys.forEach(function(k){var v=q.get(k); if(v) got[k]=v.slice(0,100);});
+    if(Object.keys(got).length) sessionStorage.setItem('oc_utm',JSON.stringify(got));
+    else got=JSON.parse(sessionStorage.getItem('oc_utm')||'{}')||{};
+  }catch(e){}
+  return got;
+})();
+function demoUrl(content){
+  try{
+    var u=new URL(CONFIG.ctaHref), p=u.searchParams;
+    p.set('utm_source', OC_UTM.utm_source || 'one-case');
+    p.set('utm_medium', OC_UTM.utm_medium || 'landing');
+    p.set('utm_campaign', OC_UTM.utm_campaign || CONFIG.campaign);
+    p.set('utm_content', OC_UTM.utm_content ? OC_UTM.utm_content+'__'+content : content);
+    if(OC_UTM.utm_term) p.set('utm_term', OC_UTM.utm_term);
+    return u.toString();
+  }catch(e){ return CONFIG.ctaHref; }
+}
+// carry incoming UTMs onto links between the two pages
+function carryUtm(sel){
+  if(!Object.keys(OC_UTM).length) return;
+  document.querySelectorAll(sel).forEach(function(a){
+    try{var u=new URL(a.getAttribute('href'),location.href); Object.keys(OC_UTM).forEach(function(k){u.searchParams.set(k,OC_UTM[k]);}); a.href=u.toString();}catch(e){}
+  });
+}
+
 // ---------- CTA + rep line ----------
 (function(){
   const btn=document.getElementById('ctaBtn'), rep=document.getElementById('repLine');
@@ -954,12 +1000,11 @@ const CONFIG = {
   const telHref = CONFIG.repPhone ? 'tel:+1'+CONFIG.repPhone.replace(/\D/g,'') : '';
 
   // One href for every demo button (.js-demo). Booking link wins; otherwise the pre-filled email.
-  const demoHref = CONFIG.ctaHref || mailto || '#contact';
   document.querySelectorAll('.js-demo').forEach(a=>{
-    a.href=demoHref;
-    if(CONFIG.ctaHref){ a.target='_blank'; a.rel='noopener'; } else { a.removeAttribute('target'); }
+    if(CONFIG.ctaHref){ a.href=demoUrl(a.dataset.cta||'cta'); a.target='_blank'; a.rel='noopener'; }
+    else { a.href=mailto||'#contact'; a.removeAttribute('target'); }
   });
-  window.DEMO_HREF = demoHref;
+  carryUtm('a.to-sleep, a.tab-link, a.announce, .sleep-callout a');
 
   // contact card
   const card=document.getElementById('contact');
@@ -1025,6 +1070,25 @@ function calc(){
   animateTo($('rMonthly'),dollars/12,'$');
   $('calcCtaText').textContent = dollars>=1 ? 'Get back '+money(dollars)+'/yr — book a 30-min demo' : 'See how the Dandy way works — book a 30-min demo';
   $('mbVal').textContent = money(dollars);
+  const cm=$('calcMail');
+  if(cm){
+    const body=['Hi Kristi,','','Here are my Scan to Seat numbers:','',
+      'Crown & bridge units per month: '+units,
+      'Remake rate: '+rem+'%',
+      'Adjusting at the seat: '+adj+' min per crown',
+      'Chair hour worth: '+money(val),
+      'Staff hours a week chasing cases: '+staffhrs,
+      'Staff hourly cost: '+money(staffwage),
+      '',
+      'Chair + staff time lost per year: '+money(dollars),
+      'Per month: '+money(dollars/12),
+      'Chair hours reclaimed a year: '+fmt(chairHours),
+      'Remakes avoided a year: '+fmt(remakesAvoided),
+      'Staff hours reclaimed a year: '+fmt(staffHoursYear),
+      '',
+      'Name: ','Practice: ','Best phone: ',''].join('\r\n');
+    cm.href='mailto:'+CONFIG.repEmail+'?subject='+encodeURIComponent('My Scan to Seat numbers')+'&body='+encodeURIComponent(body);
+  }
   $('formula').textContent=`${fmt(yearly)} units a year × (${rem}% − ${trem}% remakes) = ${fmt(remakesAvoided)} remakes × ${rh} chair hours each, plus ${adj}−${tadj} minutes saved per seat at ${money(val)}/hr, plus ${staffhrs}−${tstaffhrs} staff hours/week no longer spent chasing cases at ${money(staffwage)}/hr.`;
 }
 pairs.forEach(([n,r])=>{
@@ -1042,7 +1106,7 @@ calc();
   const bar=$('miniBar'), cost=$('cost'), res=document.querySelector('.result');
   if(!bar||!('IntersectionObserver' in window)) return;
   let inCost=false, inRes=false;
-  const upd=()=>{const on=inCost&&!inRes;bar.classList.toggle('show',on);bar.setAttribute('aria-hidden',String(!on));$('mbCta').tabIndex=on?0:-1;};
+  const upd=()=>{const on=inCost&&!inRes;bar.classList.toggle('show',on);bar.setAttribute('aria-hidden',String(!on));$('mbCta').tabIndex=on?0:-1;$('mbSms').tabIndex=on?0:-1;};
   new IntersectionObserver(e=>{inCost=e[0].isIntersecting;upd();},{threshold:0}).observe(cost);
   new IntersectionObserver(e=>{inRes=e[0].isIntersecting;upd();},{threshold:.35}).observe(res);
 })();

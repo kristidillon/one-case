@@ -430,6 +430,12 @@ footer .back{display:inline-block;margin-top:10px;color:var(--accent-ink);font-w
 .hfd a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;color:var(--accent-ink);font-weight:600;text-decoration:underline;text-underline-offset:2px}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
+/* lead capture */
+.hero-sms{margin-top:10px;font-size:14px;color:var(--muted)}
+.sms-link{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;color:var(--accent-ink);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.onepager{margin-top:8px;text-align:center}
+.onepager a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px;font-size:15px;font-weight:600;color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:860px){.hero-sms{text-align:center}}
 /* hero split + devices */
 .hero-split{padding:clamp(56px,8vw,112px) 0 clamp(56px,7vw,96px)}
 .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(28px,4vw,56px);align-items:center}
@@ -479,7 +485,7 @@ footer .back{display:inline-block;margin-top:10px;color:var(--accent-ink);font-w
       <a href="#terms">Program terms</a>
       <a href="#contact">Contact</a>
     </div>
-    <a class="btn btn-dark btn-sm js-demo" id="navCta" href="mailto:kristi.dillon@meetdandy.com?subject=Dandy%20Sleep%20demo%20request">Book a 30-min demo</a>
+    <a class="btn btn-dark btn-sm js-demo" id="navCta" data-cta="nav" href="https://calendly.com/kristi-dillon-meetdandy?utm_source=one-case&amp;utm_medium=landing&amp;utm_campaign=sleep&amp;utm_content=nav" target="_blank" rel="noopener">Book a 30-min demo</a>
   </div>
 </nav>
 
@@ -493,11 +499,12 @@ footer .back{display:inline-block;margin-top:10px;color:var(--accent-ink);font-w
     <p class="nocap rv d2">No sleep lab. No CPAP referral loop. No capital equipment.</p>
     <p class="seen rv d2">Your team is already seeing the signs every day.</p>
     <div class="cta rv d3">
-      <a class="btn btn-accent btn-lg js-demo" id="heroCta" href="mailto:kristi.dillon@meetdandy.com?subject=Dandy%20Sleep%20demo%20request">Book a 30-min demo</a>
+      <a class="btn btn-accent btn-lg js-demo" id="heroCta" data-cta="hero" href="https://calendly.com/kristi-dillon-meetdandy?utm_source=one-case&amp;utm_medium=landing&amp;utm_campaign=sleep&amp;utm_content=hero" target="_blank" rel="noopener">Book a 30-min demo</a>
       <a class="btn btn-ghost btn-lg" href="#how">See how it works
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
       </a>
     </div>
+    <p class="hero-sms rv d3">Prefer to text? <a class="sms-link" href="sms:+18454239166?&amp;body=SLEEP">Text SLEEP to 845-423-9166</a></p>
     <p class="hero-proof rv d3">Our data shows pricing the appliance at $2,500 or less drives <b>4&times;</b> treatment acceptance.</p>
    </div>
    <figure class="hero-media rv d2">
@@ -557,7 +564,7 @@ footer .back{display:inline-block;margin-top:10px;color:var(--accent-ink);font-w
     </div>
     <p class="support-note rv">Questions? Reach out to support at <a href="mailto:sleep@meetdandy.com">sleep@meetdandy.com</a></p>
     <div class="mid-cta rv">
-      <a class="btn btn-accent btn-lg js-demo" href="mailto:kristi.dillon@meetdandy.com?subject=Dandy%20Sleep%20demo%20request">Book a 30-min demo</a>
+      <a class="btn btn-accent btn-lg js-demo" data-cta="mid" href="https://calendly.com/kristi-dillon-meetdandy?utm_source=one-case&amp;utm_medium=landing&amp;utm_campaign=sleep&amp;utm_content=mid" target="_blank" rel="noopener">Book a 30-min demo</a>
       <p>See the kit, the Practice Portal and the ordering flow.</p>
     </div>
   </div>
@@ -671,6 +678,7 @@ footer .back{display:inline-block;margin-top:10px;color:var(--accent-ink);font-w
       </table>
     </div>
     <p class="terms-why rv">Our data shows pricing the appliance at $2,500 or less drives 4&times; treatment acceptance versus higher MAD pricing.</p>
+    <p class="onepager rv"><a href="mailto:kristi.dillon@meetdandy.com?subject=Send%20me%20the%20Dandy%20Sleep%20one-pager&amp;body=Hi%20Kristi%2C%0D%0A%0D%0APlease%20send%20me%20the%20Dandy%20Sleep%20one-pager.%0D%0A%0D%0AName%3A%20%0D%0APractice%3A%20%0D%0ABest%20email%3A%20%0D%0A">Email me the Dandy Sleep one-pager</a></p>
   </div>
 </section>
 
@@ -683,8 +691,9 @@ footer .back{display:inline-block;margin-top:10px;color:var(--accent-ink);font-w
       <p class="lede rv d2">Book 30 minutes and we&rsquo;ll walk your team through the kit, the 3-Minute Airway Checklist and the program terms.</p>
     </div>
     <div class="try-cta rv d2">
-      <a class="btn btn-accent btn-lg js-demo" id="ctaBtn" href="mailto:kristi.dillon@meetdandy.com?subject=Dandy%20Sleep%20demo%20request">Book my 30-min demo</a>
+      <a class="btn btn-accent btn-lg js-demo" id="ctaBtn" data-cta="final" href="https://calendly.com/kristi-dillon-meetdandy?utm_source=one-case&amp;utm_medium=landing&amp;utm_campaign=sleep&amp;utm_content=final" target="_blank" rel="noopener">Book my 30-min demo</a>
       <p>Pick a time that works &mdash; or reach me directly below.</p>
+      <p class="onepager"><a href="mailto:kristi.dillon@meetdandy.com?subject=Send%20me%20the%20Dandy%20Sleep%20one-pager&amp;body=Hi%20Kristi%2C%0D%0A%0D%0APlease%20send%20me%20the%20Dandy%20Sleep%20one-pager.%0D%0A%0D%0AName%3A%20%0D%0APractice%3A%20%0D%0ABest%20email%3A%20%0D%0A">Not ready? Email me the Dandy Sleep one-pager</a></p>
       <div class="contact">
         <div class="av">KD</div>
         <div class="who">
@@ -693,6 +702,7 @@ footer .back{display:inline-block;margin-top:10px;color:var(--accent-ink);font-w
           <div class="lines">
             <a id="cEmail" href="mailto:kristi.dillon@meetdandy.com?subject=Dandy%20Sleep%20demo%20request"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3" width="13" height="10" rx="2"/><path d="M2 4.5l6 4 6-4"/></svg><span>kristi.dillon@meetdandy.com</span></a>
             <a id="cPhone" href="tel:+18454239166"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2.5h2.5l1.2 3-1.5 1.1a9 9 0 004.2 4.2l1.1-1.5 3 1.2V13a1.5 1.5 0 01-1.6 1.5A11.5 11.5 0 011.5 4.1 1.5 1.5 0 013 2.5z"/></svg><span>Direct: 845-423-9166</span></a>
+            <a id="cSms" href="sms:+18454239166?&amp;body=SLEEP"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5h11a1 1 0 011 1v6a1 1 0 01-1 1H7l-3 2.5V11.5H2.5a1 1 0 01-1-1v-6a1 1 0 011-1z"/></svg><span>Text SLEEP to 845-423-9166</span></a>
           </div>
         </div>
       </div>
@@ -714,7 +724,8 @@ footer .back{display:inline-block;margin-top:10px;color:var(--accent-ink);font-w
 // ===== Rep config — edit here =====
 const CONFIG = {
   repEmail: 'kristi.dillon@meetdandy.com',
-  ctaHref: 'https://calendly.com/kristi-dillon-meetdandy?utm_source=one-case&utm_medium=landing&utm_campaign=sleep',                       // optional booking link (e.g. Calendly). When set, EVERY demo button on this page opens it.
+  ctaHref: 'https://calendly.com/kristi-dillon-meetdandy',   // booking page; UTMs are added per button below
+  campaign: 'sleep',                 // default utm_campaign for this page                       // optional booking link (e.g. Calendly). When set, EVERY demo button on this page opens it.
   navCtaLabel: 'Book a 30-min demo',
   navCtaLabelShort: 'Book a demo',   // very narrow phones (<=360px)
   mailSubject: 'Dandy Sleep demo request',
@@ -734,15 +745,45 @@ const CONFIG = {
   ]
 };
 
+
+// ---------- UTM passthrough: incoming utm_* (kept in sessionStorage) -> every Calendly button ----------
+var OC_UTM = (function(){
+  var keys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term'], got={};
+  try{
+    var q=new URLSearchParams(location.search);
+    keys.forEach(function(k){var v=q.get(k); if(v) got[k]=v.slice(0,100);});
+    if(Object.keys(got).length) sessionStorage.setItem('oc_utm',JSON.stringify(got));
+    else got=JSON.parse(sessionStorage.getItem('oc_utm')||'{}')||{};
+  }catch(e){}
+  return got;
+})();
+function demoUrl(content){
+  try{
+    var u=new URL(CONFIG.ctaHref), p=u.searchParams;
+    p.set('utm_source', OC_UTM.utm_source || 'one-case');
+    p.set('utm_medium', OC_UTM.utm_medium || 'landing');
+    p.set('utm_campaign', OC_UTM.utm_campaign || CONFIG.campaign);
+    p.set('utm_content', OC_UTM.utm_content ? OC_UTM.utm_content+'__'+content : content);
+    if(OC_UTM.utm_term) p.set('utm_term', OC_UTM.utm_term);
+    return u.toString();
+  }catch(e){ return CONFIG.ctaHref; }
+}
+// carry incoming UTMs onto links between the two pages
+function carryUtm(sel){
+  if(!Object.keys(OC_UTM).length) return;
+  document.querySelectorAll(sel).forEach(function(a){
+    try{var u=new URL(a.getAttribute('href'),location.href); Object.keys(OC_UTM).forEach(function(k){u.searchParams.set(k,OC_UTM[k]);}); a.href=u.toString();}catch(e){}
+  });
+}
+
 // ---------- demo CTAs: one href for every .js-demo ----------
 (function(){
   const mailto = CONFIG.repEmail ? 'mailto:'+CONFIG.repEmail+'?subject='+encodeURIComponent(CONFIG.mailSubject)+'&body='+encodeURIComponent(CONFIG.mailBody.join('\r\n')) : '';
-  const demoHref = CONFIG.ctaHref || mailto || '#contact';
   document.querySelectorAll('.js-demo').forEach(a=>{
-    a.href=demoHref;
-    if(CONFIG.ctaHref){ a.target='_blank'; a.rel='noopener'; } else { a.removeAttribute('target'); }
+    if(CONFIG.ctaHref){ a.href=demoUrl(a.dataset.cta||'cta'); a.target='_blank'; a.rel='noopener'; }
+    else { a.href=mailto||'#contact'; a.removeAttribute('target'); }
   });
-  window.DEMO_HREF = demoHref;
+  carryUtm('a[href="../"]');
   const e=document.getElementById('cEmail'); if(e && mailto) e.href=mailto;
   const nav=document.getElementById('navCta');
   if(nav && CONFIG.navCtaLabel){
