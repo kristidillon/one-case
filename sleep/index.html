@@ -432,10 +432,10 @@ footer .back{display:inline-block;margin-top:10px;color:var(--accent-ink);font-w
 
 /* hero split + devices */
 .hero-split{padding:clamp(56px,8vw,112px) 0 clamp(56px,7vw,96px)}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,56px);align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(28px,4vw,56px);align-items:center}
 .hero-grid>*{min-width:0}
 .hero-split .hero-text{text-align:left}
-.hero-split h1{margin:18px 0 0;font-size:clamp(38px,5.4vw,64px)}
+.hero-split h1{margin:18px 0 0;font-size:clamp(38px,4.6vw,60px);max-width:640px}
 .hero-split .lede{margin:22px 0 0;max-width:560px}
 .hero-split .nocap{margin:20px 0 0}
 .hero-split .cta{justify-content:flex-start}
@@ -448,6 +448,11 @@ footer .back{display:inline-block;margin-top:10px;color:var(--accent-ink);font-w
 @media(max-width:820px){.devs{grid-template-columns:1fr}}
 .dev{background:var(--ground);border-radius:28px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
 .dev-img{padding:clamp(18px,3vw,32px) clamp(18px,3vw,32px) 0}
+.dev-img figure{margin:0}
+.dev-img figcaption{margin-top:8px;text-align:center;font-size:12px;letter-spacing:.02em;color:var(--muted)}
+.hero-proof{margin-top:22px;max-width:520px;font-size:14px;line-height:1.45;color:var(--muted);padding-left:12px;border-left:3px solid var(--accent)}
+.hero-proof b{color:var(--accent);font-weight:700;font-size:17px}
+@media(max-width:860px){.hero-proof{margin-left:auto;margin-right:auto;border-left:0;padding-left:0}}
 .dev-img img{width:100%;height:auto;aspect-ratio:1200/880;object-fit:contain}
 .dev-body{padding:clamp(20px,3vw,32px)}
 .dev-badge{display:inline-block;margin-bottom:10px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent-soft);padding:5px 11px;border-radius:999px}
@@ -493,6 +498,7 @@ footer .back{display:inline-block;margin-top:10px;color:var(--accent-ink);font-w
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
       </a>
     </div>
+    <p class="hero-proof rv d3">Our data shows pricing the appliance at $2,500 or less drives <b>4&times;</b> treatment acceptance.</p>
    </div>
    <figure class="hero-media rv d2">
      <img src="../img/sleep-freedom-mad.webp" width="1200" height="906" fetchpriority="high" decoding="async" alt="Dandy Freedom Nylon MAD, a white metal-free mandibular advancement device, shown on a dental model">
@@ -567,7 +573,7 @@ footer .back{display:inline-block;margin-top:10px;color:var(--accent-ink);font-w
     </div>
     <div class="devs">
       <article class="dev rv">
-        <div class="dev-img"><img src="../img/sleep-preferred-mad.webp" width="1200" height="838" loading="lazy" decoding="async" alt="Dandy Preferred Nylon MAD, a white two-piece traction-style mandibular advancement device, shown on a dental model"></div>
+        <div class="dev-img"><figure><img src="../img/sleep-preferred-mad.webp" width="1200" height="838" loading="lazy" decoding="async" alt="Dandy Preferred Nylon MAD, a white two-piece traction-style mandibular advancement device, shown on a dental model"><figcaption>Traction-style advancement</figcaption></figure></div>
         <div class="dev-body">
           <span class="dev-badge">Best fit for most patients</span>
           <h3>Preferred Nylon MAD</h3>
@@ -581,7 +587,7 @@ footer .back{display:inline-block;margin-top:10px;color:var(--accent-ink);font-w
         </div>
       </article>
       <article class="dev rv d1">
-        <div class="dev-img"><img src="../img/sleep-freedom-mad.webp" width="1200" height="906" loading="lazy" decoding="async" alt="Dandy Freedom Nylon MAD, a white dorsal-fin push-style mandibular advancement device, shown on a dental model"></div>
+        <div class="dev-img"><figure><img src="../img/sleep-freedom-mad.webp" width="1200" height="906" loading="lazy" decoding="async" alt="Dandy Freedom Nylon MAD, a white dorsal-fin push-style mandibular advancement device, shown on a dental model"><figcaption>Dorsal fin push-style mechanism</figcaption></figure></div>
         <div class="dev-body">
           <h3>Freedom Nylon MAD</h3>
           <p>The dorsal fin push-style mechanism on the Freedom Nylon MAD allows for greater mandibular opening freedom during sleep. This design maintains effective advancement and precise titration capabilities. The lightweight, metal-free nylon design improves patient comfort and allows for easier speaking and drinking compared to traditional appliances.</p>
