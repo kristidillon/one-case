@@ -4,23 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>The Dandy Way · Kristi Dillon, Dandy</title>
-<meta name="description" content="Dandy in one link: a 2-appointment denture case study, warranties, turnaround, sleep apnea, a chair-time calculator, and how to see if Dandy can beat your lab bill.">
+<title>Your lab bill isn&rsquo;t what&rsquo;s costing you. Remakes are. · The Dandy Way</title>
+<meta name="description" content="What remakes and adjustments cost your practice in chair time, how Dandy works from scan to seat, and how to start with one crown. No contract, no software fees.">
+<link rel="canonical" href="https://kristidillon.github.io/one-case/all/">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="The Dandy Way · Kristi Dillon">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://kristidillon.github.io/one-case/all/">
-<meta property="og:title" content="The Dandy Way">
-<meta property="og:description" content="A 2-appointment denture case study, warranties, turnaround, sleep apnea, and a chair-time calculator, in one scroll.">
+<meta property="og:title" content="Your lab bill isn&rsquo;t what&rsquo;s costing you. Remakes are.">
+<meta property="og:description" content="See what remakes and adjustments cost you in chair time, then start with one crown. No contract, no software fees.">
 <meta property="og:image" content="https://kristidillon.github.io/one-case/all/og-image.jpg?v=1">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:alt" content="Your lab bill isn't what's costing you. Remakes are. — zirconia crowns">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Dandy Way">
-<meta name="twitter:description" content="A 2-appointment denture case study, warranties, turnaround, sleep apnea, and a chair-time calculator, in one scroll.">
+<meta name="twitter:title" content="Your lab bill isn&rsquo;t what&rsquo;s costing you. Remakes are.">
+<meta name="twitter:description" content="See what remakes and adjustments cost you in chair time, then start with one crown. No contract, no software fees.">
 <meta name="twitter:image" content="https://kristidillon.github.io/one-case/all/og-image.jpg?v=1">
 <meta name="twitter:image:alt" content="Your lab bill isn't what's costing you. Remakes are. — zirconia crowns">
+<link rel="preload" as="image" href="media/scan-to-seat-poster-768.webp" imagesrcset="media/scan-to-seat-poster-768.webp 768w, media/scan-to-seat-poster.webp 1280w" imagesizes="(max-width: 1028px) 100vw, 980px" type="image/webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
@@ -191,7 +196,17 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;bac
 
 /* close */
 .close{text-align:center}
-.close .small{font-size:var(--t-sm);color:var(--muted);margin-top:var(--s2)}
+.close .small,.hero .small{font-size:var(--t-sm);color:var(--muted);margin-top:var(--s2)}
+.hero .small{margin-top:var(--s1)}
+.hero h1{font-size:clamp(40px,6.6vw,72px);max-width:15ch;margin-left:auto;margin-right:auto}
+.dock{display:none}
+@media(max-width:600px){
+  .dock{display:flex;align-items:center;gap:var(--s2);position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+  .dock.show{transform:none}
+  .dock .btn{flex:1;min-height:48px}
+  .dock .link{flex:none;font-size:var(--t-sm)}
+  body.has-dock footer{padding-bottom:calc(var(--s12) + env(safe-area-inset-bottom,0px))}
+}
 .contact{max-width:560px;margin:var(--s8) auto 0;padding-top:var(--s4);border-top:1px solid var(--line)}
 .contact .nm{font:600 var(--t-lg)/1.3 var(--display);letter-spacing:-.015em}
 .contact .ti{color:var(--muted)}
@@ -260,73 +275,19 @@ dialog.sheet[open]{animation:sheetIn .32s cubic-bezier(.3,.7,.3,1)}
 <section class="hero" id="top">
   <div class="wrap">
     <div class="eyebrow">Dandy · the digital dental lab</div>
-    <h1>Dandy, in one scroll.</h1>
-    <p class="sub">Start with a real case: a full denture in two appointments.</p>
-    <div class="ctas"><a class="btn" href="#lead" data-lead="Lab bill comparison">Share my current lab spend</a><a class="link" href="https://calendly.com/kristi-dillon-meetdandy" target="_blank" rel="noopener">Book a demo<span class="arr" aria-hidden="true">&#8599;</span><span class="sr">(opens in a new tab)</span></a></div>
+    <h1>Your lab bill isn&rsquo;t what&rsquo;s costing you. Remakes are.</h1>
+    <p class="sub">Scan, review, preview, make, seat. One connected digital workflow.</p>
+    <div id="heroCtas"><div class="ctas"><a class="btn" href="#lead" data-lead="Lab bill comparison">Compare my lab bill</a><a class="link" data-cal href="https://calendly.com/kristi-dillon-meetdandy" target="_blank" rel="noopener">Book a demo<span class="arr" aria-hidden="true">&#8599;</span><span class="sr">(opens in a new tab)</span></a></div>
+    <p class="small">Start with one crown. No contract, no software fees.</p></div>
     <div class="yt" id="yt">
       <button type="button" id="ytBtn" aria-label="Play video: Scan to seat. The Dandy way.">
-        <img src="media/scan-to-seat-poster.jpg" alt="" width="1024" height="576" decoding="async">
+        <picture><source type="image/webp" srcset="media/scan-to-seat-poster-768.webp 768w, media/scan-to-seat-poster.webp 1280w" sizes="(max-width: 1028px) 100vw, 980px"><img src="media/scan-to-seat-poster.jpg" alt="" width="1280" height="720" decoding="async" fetchpriority="high"></picture>
       </button>
     </div>
   </div>
 </section>
 
-<section class="band" id="highlights">
-  <div class="wrap">
-    <div class="head">
-      <h2>Working with Dandy.</h2>
-      <p class="sub">The short version of each. Ask for the rest.</p>
-    </div>
-    <div class="accs">
-      <div class="acc">
-        <h3><button type="button" class="acc-btn" id="acc-b1" aria-expanded="false" aria-controls="acc-p1"><span>Lifetime warranty on crowns</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p1" role="region" aria-labelledby="acc-b1"><div class="acc-clip"><div class="acc-body"><p>Every crown is covered for life, along with all fixed work.</p><p class="links"><a class="link" href="#lead" data-lead="Lifetime warranty on crowns">Ask what&rsquo;s covered<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
-      </div>
-      <div class="acc">
-        <h3><button type="button" class="acc-btn" id="acc-b2" aria-expanded="false" aria-controls="acc-p2"><span>10-year warranty on removables</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p2" role="region" aria-labelledby="acc-b2"><div class="acc-clip"><div class="acc-body"><p>Dentures and partials carry a 10-year warranty.</p><p class="links"><a class="link" href="#lead" data-lead="10-year warranty on removables">Ask what&rsquo;s covered<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
-      </div>
-      <div class="acc">
-        <h3><button type="button" class="acc-btn" id="acc-b3" aria-expanded="false" aria-controls="acc-p3"><span>The 2-appointment denture</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p3" role="region" aria-labelledby="acc-b3"><div class="acc-clip"><div class="acc-body"><p>Scan at the first visit. Seat the finished denture at the second.</p><div class="ytl" data-yt="aoDJ9Y26Ojw" data-title="Case Study: 2 Appt Denture Workflow"><button type="button" aria-label="Play video: Case Study: 2 Appt Denture Workflow (YouTube)"><img src="https://i.ytimg.com/vi/aoDJ9Y26Ojw/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12.5-7.5z"/></svg></span><span class="cap">Case Study: 2 Appt Denture Workflow</span></button></div><ol class="flow" aria-label="The Dandy Difference: One Connected Digital Workflow"><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3"/><path d="M4 12h16"/></svg></span><b>Scan</b><span>Bite rim scan = final impression.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><b>Order</b><span>Printed or milled.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/></svg></span><b>Approve</b><span>Review the setup in Design Preview.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></span><b>Track</b><span>Follow every case in real time.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5l9-4.5 9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5l9 4.5 9-4.5M12 12v9"/></svg></span><b>Deliver</b><span>90% of dentures are delivered on 2nd appointment.</span></li></ol><p class="links"><a class="link" href="#acc-p3" data-play>Play the case study<span class="arr" aria-hidden="true">&rarr;</span></a><a class="link" href="#lead" data-lead="2 Appt Denture workflow">Ask for the full case walkthrough<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
-      </div>
-      <div class="acc">
-        <h3><button type="button" class="acc-btn" id="acc-b4" aria-expanded="false" aria-controls="acc-p4"><span>Polychromatic shading</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p4" role="region" aria-labelledby="acc-b4"><div class="acc-clip"><div class="acc-body"><p>A patented stain-and-glaze technique that gives solid zirconia lifelike translucency and depth.</p><div class="ytl" data-yt="wZ9aLRxwny4" data-title="Polychromatic shading"><button type="button" aria-label="Play video: Polychromatic shading (YouTube)"><img src="../img/poly-pair.jpg" alt="Polychromatic Shade anterior and posterior zirconia crowns" width="900" height="909" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12.5-7.5z"/></svg></span><span class="cap">Watch: Polychromatic shading</span></button></div><p class="links"><a class="link" href="#lead" data-lead="Polychromatic shading">Ask about Polychromatic Shade<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
-      </div>
-      <div class="acc">
-        <h3><button type="button" class="acc-btn" id="acc-b5" aria-expanded="false" aria-controls="acc-p5"><span>Sleep apnea</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p5" role="region" aria-labelledby="acc-b5"><div class="acc-clip"><div class="acc-body"><p>Two program options, including one where home sleep tests and telehealth are included. A cash-pay path that helps more patients say yes.</p><p class="links"><a class="link" href="#lead" data-lead="Sleep apnea program breakdown">Ask for the program breakdown<span class="arr" aria-hidden="true">&rarr;</span></a></p><p class="fine">Individual results may vary and are not guaranteed. An evaluation is required to determine whether a patient is a candidate for treatment and what options may be appropriate. Insurance coverage and out-of-pocket costs vary by plan; preauthorization and medical-necessity requirements may apply. Program terms current as of October 2026.</p></div></div></div>
-      </div>
-      <div class="acc">
-        <h3><button type="button" class="acc-btn" id="acc-b6" aria-expanded="false" aria-controls="acc-p6"><span>No long-term contracts</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p6" role="region" aria-labelledby="acc-b6"><div class="acc-clip"><div class="acc-body"><p>Month to month. Pause or cancel anytime.</p><p class="links"><a class="link" href="#lead" data-lead="No long-term contracts">Ask how it works<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
-      </div>
-      <div class="acc">
-        <h3><button type="button" class="acc-btn" id="acc-b7" aria-expanded="false" aria-controls="acc-p7"><span>5-day crowns</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p7" role="region" aria-labelledby="acc-b7"><div class="acc-clip"><div class="acc-body"><p>Crowns and bridges in 5 business days.</p><p class="links"><a class="link" href="#lead" data-lead="5-day crowns">Ask about turnaround for your cases<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
-      </div>
-      <div class="acc">
-        <h3><button type="button" class="acc-btn" id="acc-b8" aria-expanded="false" aria-controls="acc-p8"><span>Autoclavable scanner tips</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p8" role="region" aria-labelledby="acc-b8"><div class="acc-clip"><div class="acc-body"><p>5 autoclavable scanner tips (150 cycles), included at no cost.</p><p class="links"><a class="link" href="#lead" data-lead="Autoclavable scanner tips">Ask how it works<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
-      </div>
-      <div class="acc">
-        <h3><button type="button" class="acc-btn" id="acc-b9" aria-expanded="false" aria-controls="acc-p9"><span>Scanner at no cost</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p9" role="region" aria-labelledby="acc-b9"><div class="acc-clip"><div class="acc-body"><p>A 3Shape TRIOS or Dandy Vision scanner, placed by Dandy at no cost. Already own a TRIOS? We add Dandy to it.</p><p class="links"><a class="link" href="#lead" data-lead="Scanner at no cost">Ask if your practice qualifies<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
-      </div>
-      <div class="acc">
-        <h3><button type="button" class="acc-btn" id="acc-b10" aria-expanded="false" aria-controls="acc-p10"><span>Start with one crown</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p10" role="region" aria-labelledby="acc-b10"><div class="acc-clip"><div class="acc-body"><p>No contract, no software fees. Send one case and judge the fit yourself.</p><p class="links"><a class="link" href="#lead" data-lead="Start with one crown">Ask about starting with one crown<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
-      </div>
-      <div class="acc">
-        <h3><button type="button" class="acc-btn" id="acc-b11" aria-expanded="false" aria-controls="acc-p11"><span>Design review before fabrication</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p11" role="region" aria-labelledby="acc-b11"><div class="acc-clip"><div class="acc-body"><p>See the case in 3D and sign off before it&rsquo;s made. Fixed and removable.</p><p class="links"><a class="link" href="#lead" data-lead="Design review before fabrication">Ask to see Design Preview<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="cost">
+<section class="band" id="cost">
   <div class="wrap">
     <div class="head">
       <h2>What remakes cost you.</h2>
@@ -405,6 +366,61 @@ dialog.sheet[open]{animation:sheetIn .32s cubic-bezier(.3,.7,.3,1)}
   </div>
 </section>
 
+<section id="highlights">
+  <div class="wrap">
+    <div class="head">
+      <h2>Working with Dandy.</h2>
+      <p class="sub">The short version of each. Ask for the rest.</p>
+    </div>
+    <div class="accs">
+      <div class="acc">
+        <h3><button type="button" class="acc-btn" id="acc-b11" aria-expanded="false" aria-controls="acc-p11"><span>Design review before fabrication</span><span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="acc-panel" id="acc-p11" role="region" aria-labelledby="acc-b11"><div class="acc-clip"><div class="acc-body"><p>See the case in 3D and sign off before it&rsquo;s made. Fixed and removable.</p><p class="links"><a class="link" href="#lead" data-lead="Design review before fabrication">Ask to see Design Preview<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+      </div>
+      <div class="acc">
+        <h3><button type="button" class="acc-btn" id="acc-b10" aria-expanded="false" aria-controls="acc-p10"><span>Start with one crown</span><span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="acc-panel" id="acc-p10" role="region" aria-labelledby="acc-b10"><div class="acc-clip"><div class="acc-body"><p>No contract, no software fees. Send one case and judge the fit yourself.</p><p class="links"><a class="link" href="#lead" data-lead="Start with one crown">Ask about starting with one crown<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+      </div>
+      <div class="acc">
+        <h3><button type="button" class="acc-btn" id="acc-b1" aria-expanded="false" aria-controls="acc-p1"><span>Lifetime warranty on crowns</span><span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="acc-panel" id="acc-p1" role="region" aria-labelledby="acc-b1"><div class="acc-clip"><div class="acc-body"><p>Every crown is covered for life, along with all fixed work.</p><p class="links"><a class="link" href="#lead" data-lead="Lifetime warranty on crowns">Ask what&rsquo;s covered<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+      </div>
+      <div class="acc">
+        <h3><button type="button" class="acc-btn" id="acc-b3" aria-expanded="false" aria-controls="acc-p3"><span>The 2-appointment denture</span><span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="acc-panel" id="acc-p3" role="region" aria-labelledby="acc-b3"><div class="acc-clip"><div class="acc-body"><p>Scan at the first visit. Seat the finished denture at the second.</p><div class="ytl" data-yt="aoDJ9Y26Ojw" data-title="Case Study: 2 Appt Denture Workflow"><button type="button" aria-label="Play video: Case Study: 2 Appt Denture Workflow (YouTube)"><img src="https://i.ytimg.com/vi_webp/aoDJ9Y26Ojw/maxresdefault.webp" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12.5-7.5z"/></svg></span><span class="cap">Case Study: 2 Appt Denture Workflow</span></button></div><ol class="flow" aria-label="The Dandy Difference: One Connected Digital Workflow"><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3"/><path d="M4 12h16"/></svg></span><b>Scan</b><span>Bite rim scan = final impression.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><b>Order</b><span>Printed or milled.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/></svg></span><b>Approve</b><span>Review the setup in Design Preview.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></span><b>Track</b><span>Follow every case in real time.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5l9-4.5 9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5l9 4.5 9-4.5M12 12v9"/></svg></span><b>Deliver</b><span>90% of dentures are delivered on 2nd appointment.</span></li></ol><p class="links"><a class="link" href="#acc-p3" data-play>Play the case study<span class="arr" aria-hidden="true">&rarr;</span></a><a class="link" href="#lead" data-lead="2 Appt Denture workflow">Ask for the full case walkthrough<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+      </div>
+      <div class="acc">
+        <h3><button type="button" class="acc-btn" id="acc-b2" aria-expanded="false" aria-controls="acc-p2"><span>10-year warranty on removables</span><span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="acc-panel" id="acc-p2" role="region" aria-labelledby="acc-b2"><div class="acc-clip"><div class="acc-body"><p>Dentures and partials carry a 10-year warranty.</p><p class="links"><a class="link" href="#lead" data-lead="10-year warranty on removables">Ask what&rsquo;s covered<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+      </div>
+      <div class="acc">
+        <h3><button type="button" class="acc-btn" id="acc-b6" aria-expanded="false" aria-controls="acc-p6"><span>No long-term contracts</span><span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="acc-panel" id="acc-p6" role="region" aria-labelledby="acc-b6"><div class="acc-clip"><div class="acc-body"><p>Month to month. Pause or cancel anytime.</p><p class="links"><a class="link" href="#lead" data-lead="No long-term contracts">Ask how it works<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+      </div>
+      <div class="acc">
+        <h3><button type="button" class="acc-btn" id="acc-b7" aria-expanded="false" aria-controls="acc-p7"><span>5-day crowns</span><span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="acc-panel" id="acc-p7" role="region" aria-labelledby="acc-b7"><div class="acc-clip"><div class="acc-body"><p>Crowns and bridges in 5 business days.</p><p class="links"><a class="link" href="#lead" data-lead="5-day crowns">Ask about turnaround for your cases<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+      </div>
+      <div class="acc">
+        <h3><button type="button" class="acc-btn" id="acc-b4" aria-expanded="false" aria-controls="acc-p4"><span>Polychromatic shading</span><span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="acc-panel" id="acc-p4" role="region" aria-labelledby="acc-b4"><div class="acc-clip"><div class="acc-body"><p>A patented stain-and-glaze technique that gives solid zirconia lifelike translucency and depth.</p><div class="ytl" data-yt="wZ9aLRxwny4" data-title="Polychromatic shading"><button type="button" aria-label="Play video: Polychromatic shading (YouTube)"><img src="../img/poly-pair.jpg" alt="Polychromatic Shade anterior and posterior zirconia crowns" width="900" height="909" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12.5-7.5z"/></svg></span><span class="cap">Watch: Polychromatic shading</span></button></div><p class="links"><a class="link" href="#lead" data-lead="Polychromatic shading">Ask about Polychromatic Shade<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+      </div>
+      <div class="acc">
+        <h3><button type="button" class="acc-btn" id="acc-b9" aria-expanded="false" aria-controls="acc-p9"><span>Scanner at no cost</span><span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="acc-panel" id="acc-p9" role="region" aria-labelledby="acc-b9"><div class="acc-clip"><div class="acc-body"><p>A 3Shape TRIOS or Dandy Vision scanner, placed by Dandy at no cost. Already own a TRIOS? We add Dandy to it.</p><p class="links"><a class="link" href="#lead" data-lead="Scanner at no cost">Ask if your practice qualifies<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+      </div>
+      <div class="acc">
+        <h3><button type="button" class="acc-btn" id="acc-b5" aria-expanded="false" aria-controls="acc-p5"><span>Sleep apnea</span><span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="acc-panel" id="acc-p5" role="region" aria-labelledby="acc-b5"><div class="acc-clip"><div class="acc-body"><p>Two program options, including one where home sleep tests and telehealth are included. A cash-pay path that helps more patients say yes.</p><p class="links"><a class="link" href="#lead" data-lead="Sleep apnea program breakdown">Ask for the program breakdown<span class="arr" aria-hidden="true">&rarr;</span></a></p><p class="fine">Individual results may vary and are not guaranteed. An evaluation is required to determine whether a patient is a candidate for treatment and what options may be appropriate. Insurance coverage and out-of-pocket costs vary by plan; preauthorization and medical-necessity requirements may apply. Program terms current as of October 2026.</p></div></div></div>
+      </div>
+      <div class="acc">
+        <h3><button type="button" class="acc-btn" id="acc-b8" aria-expanded="false" aria-controls="acc-p8"><span>Autoclavable scanner tips</span><span class="pm" aria-hidden="true"></span></button></h3>
+        <div class="acc-panel" id="acc-p8" role="region" aria-labelledby="acc-b8"><div class="acc-clip"><div class="acc-body"><p>5 autoclavable scanner tips (150 cycles), included at no cost.</p><p class="links"><a class="link" href="#lead" data-lead="Autoclavable scanner tips">Ask how it works<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="band" id="lab">
   <div class="wrap">
     <div class="head">
@@ -424,10 +440,10 @@ dialog.sheet[open]{animation:sheetIn .32s cubic-bezier(.3,.7,.3,1)}
   <div class="wrap">
     <div class="head">
       <h2>Show me your lab bill. I&rsquo;ll show you Dandy.</h2>
-      <p class="sub">Send your current lab spend or a recent invoice. I&rsquo;ll put together a side-by-side comparison to see if Dandy can beat it.</p>
+      <p class="sub">Share your current monthly lab spend. I&rsquo;ll put together a side-by-side comparison to see if Dandy can beat it.</p>
     </div>
-    <div class="ctas"><a class="btn" href="#lead" data-lead="Lab bill comparison">Share my current lab spend</a><a class="link" href="https://calendly.com/kristi-dillon-meetdandy" target="_blank" rel="noopener">Book a demo<span class="arr" aria-hidden="true">&#8599;</span><span class="sr">(opens in a new tab)</span></a></div>
-    <p class="small">Start with one crown. No contract, no software fees.</p>
+    <div class="ctas"><a class="btn" href="#lead" data-lead="Lab bill comparison">Compare my lab bill</a><a class="link" data-cal href="https://calendly.com/kristi-dillon-meetdandy" target="_blank" rel="noopener">Book a demo<span class="arr" aria-hidden="true">&#8599;</span><span class="sr">(opens in a new tab)</span></a></div>
+    <p class="small">Start with one crown. No contract, no software fees. Every crown is covered for life.</p>
     <div class="contact" id="contact">
       <div class="nm">Kristi Dillon, BS, RDH</div>
       <div class="ti">Account Executive | Dandy</div>
@@ -455,6 +471,7 @@ dialog.sheet[open]{animation:sheetIn .32s cubic-bezier(.3,.7,.3,1)}
           <div class="fld"><label for="lf-practice">Practice</label><input type="text" id="lf-practice" name="practice" autocomplete="organization" required></div>
         </div>
         <div class="fld"><label for="lf-email">Email</label><input type="email" id="lf-email" name="email" autocomplete="email" inputmode="email" required></div>
+        <div class="fld" id="lf-spend-wrap" hidden><label for="lf-spend">Current monthly lab spend <span class="opt">(optional)</span></label><input type="text" id="lf-spend" name="monthly_lab_spend" maxlength="40" inputmode="decimal" autocomplete="off" placeholder="Approximate is fine"></div>
         <div class="row2">
           <div class="fld"><label for="lf-scan">Scanning history</label><select id="lf-scan" name="scanner"><option>Not scanning yet</option><option>iTero</option><option>TRIOS</option><option>Primescan / CEREC</option><option>Medit</option><option>Other</option></select></div>
           <div class="fld"><label for="lf-when">Best day &amp; time for a demo</label><input type="text" id="lf-when" name="demo_time" maxlength="80" placeholder="e.g. Tue mornings"></div>
@@ -462,7 +479,7 @@ dialog.sheet[open]{animation:sheetIn .32s cubic-bezier(.3,.7,.3,1)}
         <p class="lf-err" id="lfErr" role="alert" hidden></p>
         <div class="lf-foot">
           <button type="submit" class="btn" id="lfSend">Send to Kristi</button>
-          <p class="lf-alt">Prefer to pick a time? <a href="https://calendly.com/kristi-dillon-meetdandy" target="_blank" rel="noopener">Book on Calendly<span class="sr"> (opens in a new tab)</span></a></p>
+          <p class="lf-alt">Prefer to pick a time? <a data-cal href="https://calendly.com/kristi-dillon-meetdandy" target="_blank" rel="noopener">Book on Calendly<span class="sr"> (opens in a new tab)</span></a></p>
         </div>
       </form>
     </div>
@@ -473,6 +490,10 @@ dialog.sheet[open]{animation:sheetIn .32s cubic-bezier(.3,.7,.3,1)}
     </div>
   </div>
 </dialog>
+
+<div class="dock" id="dock" aria-label="Quick actions" inert>
+  <a class="btn" href="#lead" data-lead="Lab bill comparison">Compare my lab bill</a><a class="link" data-cal href="https://calendly.com/kristi-dillon-meetdandy" target="_blank" rel="noopener">Book a demo<span class="arr" aria-hidden="true">&#8599;</span><span class="sr">(opens in a new tab)</span></a>
+</div>
 
 <footer>
   <div class="wrap">
@@ -497,7 +518,7 @@ document.querySelectorAll('.acc').forEach(function(acc){
   btn.addEventListener('click',function(){
     var v=document.createElement('video');
     v.src='media/scan-to-seat-v4.mp4';
-    v.poster='media/scan-to-seat-poster.jpg';
+    var im=btn.querySelector('img'); v.poster=(im&&im.currentSrc)||'media/scan-to-seat-poster.jpg';
     v.controls=true; v.playsInline=true; v.setAttribute('playsinline','');
     v.title='Scan to seat. The Dandy way.';
     box.replaceChild(v,btn);
@@ -573,6 +594,23 @@ pairs.forEach(([n,r])=>{
 ['tremake','tadjust','remakehrs','tstaffhrs'].forEach(id=>{const el=$(id);el.addEventListener('input',()=>{if(el.value!==''&&+el.value>+el.max)el.value=el.max;if(el.value!==''&&+el.value<+el.min)el.value=el.min;calc();});});
 calc();
 
+// ---------- UTM capture: URL -> this tab only (sessionStorage), no cookies, no trackers ----------
+(function(){
+  var K=['utm_source','utm_medium','utm_campaign','utm_content','utm_term'], u={}, q=new URLSearchParams(location.search);
+  K.forEach(function(k){var v=q.get(k);if(v)u[k]=v.slice(0,100);});
+  try{if(Object.keys(u).length)sessionStorage.setItem('dandy_utm',JSON.stringify(u));else u=JSON.parse(sessionStorage.getItem('dandy_utm')||'{}');}catch(e){}
+  window.__utm=u;
+  if(Object.keys(u).length)document.querySelectorAll('a[data-cal]').forEach(function(a){var url=new URL(a.href);Object.keys(u).forEach(function(k){url.searchParams.set(k,u[k]);});a.href=url.toString();});
+})();
+// ---------- mobile dock: shows after the hero CTA scrolls away, hides at the closing CTA ----------
+(function(){
+  var dock=document.getElementById('dock'), hero=document.getElementById('heroCtas'), close=document.getElementById('lab-bill'), on=false, t=0;
+  document.body.classList.add('has-dock');
+  function upd(){t=0;var show=hero.getBoundingClientRect().bottom<0&&close.getBoundingClientRect().top>innerHeight*0.85;
+    if(show!==on){on=show;dock.classList.toggle('show',show);dock.inert=!show;}}
+  addEventListener('scroll',function(){if(!t)t=requestAnimationFrame(upd);},{passive:true});
+  addEventListener('resize',upd);upd();
+})();
 // ---------- lead form (FormSubmit AJAX) ----------
 (function(){
   var dlg=document.getElementById('lead'), form=document.getElementById('leadForm'), main=document.getElementById('leadMain'),
@@ -581,7 +619,9 @@ calc();
   var ENDPOINT='https://formsubmit.co/ajax/kristi.dillon@meetdandy.com', EMAIL='kristi.dillon@meetdandy.com';
   var opener=null, calcData=null;
   function focusables(){return [].slice.call(dlg.querySelectorAll('button,a[href],input:not([type=hidden]):not([tabindex="-1"]),select,textarea')).filter(function(e){return e.offsetParent!==null&&!e.disabled;});}
+  var spendWrap=document.getElementById('lf-spend-wrap'), spend=document.getElementById('lf-spend');
   function open(topic,withCalc,from){
+    spendWrap.hidden=!(topic==='Lab bill comparison'||withCalc);
     opener=from||document.activeElement;
     topicEl.value=topic||'General inquiry';
     aboutLbl.textContent=topic||''; about.hidden=!topic;
@@ -615,7 +655,9 @@ calc();
     var data={name:name,practice:(fd.get('practice')||'').trim(),email:(fd.get('email')||'').trim(),
       scanner:fd.get('scanner')||'',demo_time:(fd.get('demo_time')||'').trim(),topic:topic,
       _subject:'New Dandy page inquiry: '+topic,_template:'table',_captcha:'false',_honey:fd.get('_honey')||''};
+    if(!spendWrap.hidden&&spend.value.trim())data.monthly_lab_spend=spend.value.trim();
     if(calcData)Object.keys(calcData).forEach(function(k){data[k]=calcData[k];});
+    var u=window.__utm||{};Object.keys(u).forEach(function(k){data[k]=u[k];});
     send.disabled=true; send.textContent='Sending…';
     fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
       .then(function(r){return r.json().catch(function(){return {};}).then(function(j){if(!r.ok||String(j.success)==='false')throw new Error(j.message||('HTTP '+r.status));});})
