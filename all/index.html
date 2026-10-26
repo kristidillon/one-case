@@ -113,6 +113,53 @@ p{margin:0;max-width:68ch}
 .poly img{width:100%;height:150px;object-fit:cover;border-radius:12px;background:var(--band)}
 @media(max-width:560px){.poly img{height:110px}}
 
+/* denture workflow timeline */
+.flow{margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
+.flow h4{margin:0;font:600 18px/1.3 var(--display);letter-spacing:-.01em;color:var(--fg)}
+.flow ol{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;position:relative}
+.flow ol::before{content:"";position:absolute;top:22px;left:10%;right:10%;height:2px;background:var(--accent-line)}
+.flow ol>li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
+.flow .ic{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;position:relative;z-index:1;box-shadow:0 0 0 5px #fff}
+.flow .ic svg{width:22px;height:22px}
+.flow .st{margin-top:12px;font:600 13px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-dk)}
+.flow .st span{color:var(--muted);font-weight:500;margin-right:4px}
+.flow li ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:6px;font-size:14px;line-height:1.45;color:var(--fg-2)}
+@media(max-width:760px){
+  .flow ol{grid-template-columns:1fr;gap:0}
+  .flow ol::before{top:22px;bottom:22px;left:21px;right:auto;width:2px;height:auto}
+  .flow ol>li{display:grid;grid-template-columns:44px 1fr;column-gap:16px;align-items:start;text-align:left;padding-bottom:20px}
+  .flow ol>li:last-child{padding-bottom:0}
+  .flow .ic{grid-row:1/span 2}
+  .flow .st{margin-top:12px}
+  .flow li ul{margin-top:6px}
+}
+
+/* sleep program pricing */
+.prog{margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
+.prog h4{margin:0;font:600 18px/1.3 var(--display);letter-spacing:-.01em;color:var(--fg)}
+.prog p{margin-top:10px}
+.tbl-scroll{margin-top:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:14px}
+.ptbl{width:100%;min-width:520px;border-collapse:collapse;font-size:14px;line-height:1.4;color:var(--fg-2)}
+.ptbl th,.ptbl td{padding:11px 14px;text-align:left;border-top:1px solid var(--line);vertical-align:top}
+.ptbl thead th{border-top:0;font:600 13px var(--body);letter-spacing:.04em;color:var(--muted);background:var(--band)}
+.ptbl tbody th{font-weight:500;color:var(--fg)}
+.ptbl .pt{background:var(--accent-soft);color:var(--fg);font-weight:600;border-left:2px solid var(--accent);border-right:2px solid var(--accent)}
+.ptbl thead .pt{background:var(--accent);color:#fff;border-color:var(--accent)}
+.ptbl tbody tr:last-child .pt{border-bottom:2px solid var(--accent)}
+.ptbl .badge{display:inline-block;margin-left:6px;padding:2px 7px;border-radius:999px;background:#fff;color:var(--accent-dk);font-size:10px;font-weight:700;letter-spacing:.08em;vertical-align:1px}
+@media(max-width:560px){.ptbl{min-width:0;font-size:13px}.ptbl th,.ptbl td{padding:9px 8px}.ptbl thead th{font-size:12px;letter-spacing:.02em}.ptbl .badge{display:block;width:max-content;margin:4px 0 0;font-size:9px;padding:2px 5px}}
+.why{margin-top:14px;background:var(--accent-soft);border-radius:12px;padding:12px 16px;font-size:15px}
+.pty{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:12px;align-items:start}
+@media(max-width:760px){.pty{grid-template-columns:1fr}}
+.keep-card{background:var(--band);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.keep-card b.t{display:block;font:600 15px var(--display);color:var(--fg)}
+.keep-card dl{margin:10px 0 0;display:grid;grid-template-columns:1fr auto;gap:6px 12px;font-size:14px;color:var(--fg-2)}
+.keep-card dd{margin:0;text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
+.keep-card .tot{border-top:1px solid var(--line);padding-top:8px;font-weight:600;color:var(--accent-dk)}
+.keep-card small{display:block;margin-top:8px;font-size:12px;color:var(--muted)}
+.prog .support{font-size:15px}
+.prog .fine{line-height:1.5}
+
 /* calculator (from one-case) */
 .calc{margin-top:36px;background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:0 1px 0 rgba(0,0,0,.03),0 24px 60px -30px rgba(22,40,44,.25);overflow:hidden}
 .calc-grid{display:grid;grid-template-columns:1.1fr 1fr}
@@ -271,6 +318,16 @@ footer p+p{margin-top:6px}
         <a class="link" href="#yt" data-play>Play the case study above</a>
         <a class="link" href="https://youtu.be/aoDJ9Y26Ojw" target="_blank" rel="noopener">Case Study: 2 Appt Denture Workflow on YouTube ↗</a>
       </div>
+      <div class="flow">
+        <h4>The Dandy Difference: One Connected Digital Workflow</h4>
+        <ol aria-label="2-appointment denture workflow, 5 steps">
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3"/><path d="M4 12h16"/></svg></span><div class="st"><span>1</span>Scan</div><ul><li>Scanning edentulous area.</li><li>Take wash impression on bite rim scan = final impression.</li><li>Utilize Live Scan Review.</li><li>Ability to do Digital Reline.</li></ul></li>
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><div class="st"><span>2</span>Order</div><ul><li>Printed or milled.</li><li>Shade of teeth and base.</li><li>Opt into Reimbursement Denture Pricing.</li></ul></li>
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/></svg></span><div class="st"><span>3</span>Approve</div><ul><li>Utilize Design Preview to review the setup (masc/fem or characterize the denture itself).</li></ul></li>
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></span><div class="st"><span>4</span>Track</div><ul><li>Follow every case in real time.</li></ul></li>
+          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5l9-4.5 9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5l9 4.5 9-4.5M12 12v9"/></svg></span><div class="st"><span>5</span>Deliver</div><ul><li>90% of dentures are delivered on 2nd appointment.</li><li>If there are issues, 2nd appointment is &ldquo;try-in&rdquo; and patient can leave with teeth and come back for next appointment.</li></ul></li>
+        </ol>
+      </div>
     </div>
 
     <div class="panel" id="p-poly" role="region" aria-label="Polychromatic shading" hidden>
@@ -296,6 +353,50 @@ footer p+p{margin-top:6px}
       </ul>
       <p>You scan once, Dandy fabricates the appliance, and you deliver and titrate.</p>
       <div class="links"><a class="link" href="https://view-su2.highspot.com/viewer/a227b041becb3a36b7d7df9f7bd70346" target="_blank" rel="noopener">Open the Dandy Sleep Apnea Hub ↗</a></div>
+      <div class="prog">
+        <h4>Two program options</h4>
+        <div class="tbl-scroll" role="region" aria-label="Sleep program options table" tabindex="0">
+          <table class="ptbl">
+            <thead><tr><th scope="col">Program terms</th><th scope="col" class="pt">Partner<span class="badge">RECOMMENDED</span></th><th scope="col">Independent</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">You price the appliance at</th><td class="pt">$2,500 or less</td><td>Above $2,500</td></tr>
+              <tr><th scope="row">Service fee per appliance</th><td class="pt">$500</td><td>$700</td></tr>
+              <tr><th scope="row">Monthly minimum (non-cancelled tests)</th><td class="pt">4 tests</td><td>None</td></tr>
+              <tr><th scope="row">Fee if the minimum isn't met</th><td class="pt">$100</td><td>N/A</td></tr>
+              <tr><th scope="row">Home sleep tests &amp; telehealth</th><td class="pt">Free</td><td>$100 per patient</td></tr>
+              <tr><th scope="row">Post-treatment sleep studies</th><td class="pt">Free</td><td>$50 each</td></tr>
+              <tr><th scope="row">Extra sleep test rings</th><td class="pt">Free</td><td>$299 each</td></tr>
+              <tr><th scope="row">PMS integration</th><td class="pt">Free at launch</td><td>$100</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="why"><b>Why Partner:</b> our data shows pricing the appliance at $2,500 or less drives 4&times; treatment acceptance versus higher MAD pricing. Partner practices are also eligible for the Path to Yes program.</p>
+      </div>
+      <div class="prog">
+        <h4>Path to Yes (Partner program only)</h4>
+        <div class="pty">
+          <div>
+            <p>Some patients' insurance coverage makes a yes unlikely. Every patient is offered full price first. Only after repeated attempts to encourage treatment do we offer a cash option.</p>
+            <ul>
+              <li><b>We spot the patient.</b> Our data shows how coverage drives acceptance; we flag patients whose coverage is too low.</li>
+              <li><b>We switch them to cash pay.</b> The patient pays you $1,500 directly instead of billing insurance.</li>
+              <li><b>We credit you.</b> The patient hears that you generously lowered your fee to help them get treated.</li>
+            </ul>
+          </div>
+          <div class="keep-card">
+            <b class="t">What you keep per cash case</b>
+            <dl>
+              <dt>Patient pays you</dt><dd>$1,500</dd>
+              <dt>MAD lab fee</dt><dd>&ndash; $599</dd>
+              <dt>Dandy service fee</dt><dd>&ndash; $200</dd>
+              <dt class="tot">You keep at least</dt><dd class="tot">$700</dd>
+            </dl>
+            <small>Paid to you directly by the patient.</small>
+          </div>
+        </div>
+        <p class="support">Program support: <a href="mailto:sleep@meetdandy.com">sleep@meetdandy.com</a></p>
+        <p class="fine">Individual results may vary and are not guaranteed. An evaluation is required to determine whether a patient is a candidate for treatment and what options may be appropriate. Insurance coverage and out-of-pocket costs vary by plan; preauthorization and medical-necessity requirements may apply. Program terms current as of October 2026.</p>
+      </div>
     </div>
 
     <div class="panel" id="p-mtm" role="region" aria-label="No long-term contracts" hidden>
