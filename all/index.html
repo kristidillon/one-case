@@ -28,7 +28,8 @@
 <meta name="twitter:description" content="See what remakes and adjustments cost you in chair time, then start with one crown. No contract, no software fees.">
 <meta name="twitter:image" content="https://kristidillon.github.io/one-case/all/og-image.jpg?v=1">
 <meta name="twitter:image:alt" content="Your lab bill isn't what's costing you. Remakes are. — zirconia crowns">
-<link rel="preload" as="image" href="media/scan-to-seat-poster-768.webp" imagesrcset="media/scan-to-seat-poster-768.webp 768w, media/scan-to-seat-poster.webp 1280w" imagesizes="(max-width: 1028px) 100vw, 980px" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="media/scan-to-seat-poster-m.webp" media="(max-width: 600px)" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="media/scan-to-seat-poster-768.webp" imagesrcset="media/scan-to-seat-poster-768.webp 768w, media/scan-to-seat-poster.webp 1280w" imagesizes="(max-width: 1028px) 100vw, 980px" media="(min-width: 601px)" type="image/webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
@@ -141,6 +142,9 @@ p{margin:0}
 .ytl iframe,.ytl>button{position:absolute;inset:0;width:100%;height:100%;border:0}
 .ytl>button{background:#0d1a1d;display:block}
 .ytl img{width:100%;height:100%;object-fit:cover;opacity:.9;transition:opacity .3s}
+.ytl img[src*="poly-pair"]{object-position:50% 80%}
+.yt .vlang{position:absolute;top:16px;left:16px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.92);box-shadow:0 2px 10px rgba(22,40,44,.12);color:var(--accent-dk);font:600 12px/1 var(--body);letter-spacing:.02em;pointer-events:none}
+@media(max-width:560px){.yt .vlang{top:10px;left:10px;padding:5px 10px;font-size:11px}}
 .ytl>button:focus-visible{outline:3px solid #fff;outline-offset:-6px}
 .ytl .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--accent-dk);display:grid;place-items:center;box-shadow:0 8px 32px rgba(0,0,0,.25);transition:transform .25s}
 .ytl .play svg{width:22px;height:22px;margin-left:3px}
@@ -351,7 +355,7 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.15);box-shadow:
     <p class="small">Start with one crown. No contract, no software fees.</p></div>
     <div class="yt" id="yt">
       <button type="button" id="ytBtn" aria-label="Play video: Scan to seat. The Dandy way.">
-        <picture><source type="image/webp" srcset="media/scan-to-seat-poster-768.webp 768w, media/scan-to-seat-poster.webp 1280w" sizes="(max-width: 1028px) 100vw, 980px"><img src="media/scan-to-seat-poster.jpg" alt="" width="1280" height="720" decoding="async" fetchpriority="high"></picture>
+        <picture><source type="image/webp" media="(max-width: 600px)" srcset="media/scan-to-seat-poster-m.webp"><source type="image/webp" srcset="media/scan-to-seat-poster-768.webp 768w, media/scan-to-seat-poster.webp 1280w" sizes="(max-width: 1028px) 100vw, 980px"><img src="media/scan-to-seat-poster.jpg" alt="" width="1280" height="720" decoding="async" fetchpriority="high"></picture>
       </button>
     </div>
   </div>
@@ -589,8 +593,8 @@ document.querySelectorAll('.acc').forEach(function(acc){
   var box=document.getElementById('yt'), btn=document.getElementById('ytBtn');
   btn.addEventListener('click',function(){
     var v=document.createElement('video');
-    v.src='media/scan-to-seat-v4.mp4';
-    var im=btn.querySelector('img'); v.poster=(im&&im.currentSrc)||'media/scan-to-seat-poster.jpg';
+    v.src='media/scan-to-seat-v4-web.mp4';
+    v.poster='media/scan-to-seat-frame0.webp'; v.preload='auto';
     v.controls=true; v.playsInline=true; v.setAttribute('playsinline','');
     v.title='Scan to seat. The Dandy way.';
     box.replaceChild(v,btn);
