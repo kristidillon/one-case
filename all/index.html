@@ -74,7 +74,7 @@ p{margin:0}
 /* hero */
 .hero{padding-block:clamp(var(--s8),10vw,var(--s12)) clamp(var(--s8),10vw,var(--s12));text-align:center}
 .hero .sub{max-width:44ch;margin-left:auto;margin-right:auto}
-.hero .btn{margin-top:var(--s4)}
+.ctas{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:var(--s1) var(--s3);margin-top:var(--s4)}
 .yt{position:relative;max-width:980px;margin:clamp(var(--s6),7vw,var(--s8)) auto 0;border-radius:24px;overflow:hidden;background:#0d1a1d;aspect-ratio:16/9;box-shadow:0 24px 64px -32px rgba(22,40,44,.45)}
 .yt iframe,.yt video,.yt>button{position:absolute;inset:0;width:100%;height:100%;border:0}
 .yt>button{background:#0d1a1d;display:block}
@@ -191,7 +191,6 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;bac
 
 /* close */
 .close{text-align:center}
-.close .btn{margin-top:var(--s4)}
 .close .small{font-size:var(--t-sm);color:var(--muted);margin-top:var(--s2)}
 .contact{max-width:560px;margin:var(--s8) auto 0;padding-top:var(--s4);border-top:1px solid var(--line)}
 .contact .nm{font:600 var(--t-lg)/1.3 var(--display);letter-spacing:-.015em}
@@ -200,6 +199,49 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;bac
 .contact .lines .link{white-space:nowrap}
 .contact .lines b{font-weight:500;color:var(--muted);margin-right:2px}
 footer{padding:var(--s4) 0 var(--s6);font-size:var(--t-sm);color:var(--muted);text-align:center;border-top:1px solid var(--line)}
+
+/* lead form sheet */
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+html.lock{overflow:hidden}
+dialog.sheet{width:min(600px,calc(100% - 32px));max-height:calc(100dvh - 48px);padding:0;border:0;border-radius:24px;background:#fff;color:var(--fg);box-shadow:0 32px 80px -24px rgba(22,40,44,.45);overflow:auto;overscroll-behavior:contain}
+dialog.sheet::backdrop{background:rgba(22,40,44,.42);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+dialog.sheet[open]{animation:sheetIn .32s cubic-bezier(.3,.7,.3,1)}
+@keyframes sheetIn{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
+.sheet-in{padding:var(--s5) var(--s5) var(--s4)}
+.sheet-x{position:absolute;top:var(--s2);right:var(--s2);width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:var(--muted);transition:background .2s,color .2s}
+.sheet-x:hover{background:var(--band);color:var(--fg)}
+.sheet-x svg{width:18px;height:18px}
+.sheet h2{font-size:32px;line-height:1.1;letter-spacing:-.025em;padding-right:var(--s6)}
+.sheet .about{margin-top:var(--s1);color:var(--muted)}
+.sheet .about b{color:var(--accent-dk);font-weight:500}
+.lf{margin-top:var(--s4);display:grid;gap:var(--s3)}
+.lf .row2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+.fld label{display:block;font-size:var(--t-sm);font-weight:600;color:var(--fg-2);margin-bottom:var(--s1);padding:0}
+.fld .opt{font-weight:400;color:var(--muted)}
+.lf input[type=text],.lf input[type=email],.lf select{width:100%;min-height:48px;padding:12px var(--s2);font:400 var(--t-md)/1.4 var(--body);color:var(--fg);background-color:var(--band);border:1px solid var(--line);border-radius:12px;transition:border-color .2s,background-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+.lf select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23566A6F' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px;padding-right:44px}
+.lf input:focus,.lf select:focus{outline:none;border-color:var(--accent);background-color:#fff;box-shadow:0 0 0 3px rgba(10,124,134,.15)}
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.lf-foot{display:grid;gap:var(--s1);justify-items:start}
+.lf .btn{width:100%;border:0}
+.lf .btn[disabled]{opacity:.6;cursor:progress}
+.lf-alt{font-size:var(--t-sm);color:var(--muted)}
+.lf-alt a{color:var(--accent-dk);font-weight:500}
+.lf-err{font-size:var(--t-sm);color:#9B2C2C;background:#FDF2F2;border-radius:12px;padding:12px var(--s2)}
+.lf-err a{color:inherit;font-weight:600}
+.thanks{padding:var(--s4) 0 var(--s2);text-align:center}
+.thanks .ok{width:56px;height:56px;margin:0 auto var(--s3);border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center}
+.thanks .ok svg{width:26px;height:26px}
+.thanks p{font:600 var(--t-lg)/1.35 var(--display);letter-spacing:-.015em}
+.thanks .btn{margin-top:var(--s4)}
+@media(max-width:600px){
+  dialog.sheet{width:100%;max-width:100%;max-height:92dvh;margin:auto 0 0;border-radius:24px 24px 0 0}
+  dialog.sheet[open]{animation-name:sheetUp}
+  @keyframes sheetUp{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+  .sheet-in{padding:var(--s4) var(--s3) calc(var(--s3) + env(safe-area-inset-bottom,0px))}
+  .sheet h2{font-size:28px}
+  .lf .row2{grid-template-columns:1fr}
+}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{transition-duration:0s!important;transition-delay:0s!important;animation:none!important}
@@ -220,7 +262,7 @@ footer{padding:var(--s4) 0 var(--s6);font-size:var(--t-sm);color:var(--muted);te
     <div class="eyebrow">Dandy · the digital dental lab</div>
     <h1>Dandy, in one scroll.</h1>
     <p class="sub">Start with a real case: a full denture in two appointments.</p>
-    <a class="btn" href="mailto:kristi.dillon@meetdandy.com?subject=Can%20Dandy%20beat%20my%20lab%20bill%3F&amp;body=Current%20lab%28s%29%3A%20%0D%0AMonthly%20lab%20spend%20%28%24%29%3A%20%0D%0ACrowns%2Funits%20per%20month%3A%20%0D%0AOther%20case%20types%20%28implants%2C%20dentures%2C%20appliances%29%3A%20%0D%0AAttach%20a%20recent%20lab%20invoice%20if%20handy.%0D%0A%0D%0AName%3A%20%0D%0APractice%3A%20%0D%0APractice%20address%3A%20%0D%0ANumber%20of%20doctors%3A%20%0D%0AOperatories%3A%20%0D%0ACurrent%20scanner%20%28if%20any%29%3A%20%0D%0ABest%20email%3A%20%0D%0A">Share my current lab spend</a>
+    <div class="ctas"><a class="btn" href="#lead" data-lead="Lab bill comparison">Share my current lab spend</a><a class="link" href="https://calendly.com/kristi-dillon-meetdandy" target="_blank" rel="noopener">Book a demo<span class="arr" aria-hidden="true">&#8599;</span><span class="sr">(opens in a new tab)</span></a></div>
     <div class="yt" id="yt">
       <button type="button" id="ytBtn" aria-label="Play video: Scan to seat. The Dandy way.">
         <img src="media/scan-to-seat-poster.jpg" alt="" width="1024" height="576" decoding="async">
@@ -238,47 +280,47 @@ footer{padding:var(--s4) 0 var(--s6);font-size:var(--t-sm);color:var(--muted);te
     <div class="accs">
       <div class="acc">
         <h3><button type="button" class="acc-btn" id="acc-b1" aria-expanded="false" aria-controls="acc-p1"><span>Lifetime warranty on crowns</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p1" role="region" aria-labelledby="acc-b1"><div class="acc-clip"><div class="acc-body"><p>Every crown is covered for life, along with all fixed work.</p><p class="links"><a class="link" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20Lifetime%20warranty%20on%20crowns">Ask what&rsquo;s covered<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+        <div class="acc-panel" id="acc-p1" role="region" aria-labelledby="acc-b1"><div class="acc-clip"><div class="acc-body"><p>Every crown is covered for life, along with all fixed work.</p><p class="links"><a class="link" href="#lead" data-lead="Lifetime warranty on crowns">Ask what&rsquo;s covered<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
       </div>
       <div class="acc">
         <h3><button type="button" class="acc-btn" id="acc-b2" aria-expanded="false" aria-controls="acc-p2"><span>10-year warranty on removables</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p2" role="region" aria-labelledby="acc-b2"><div class="acc-clip"><div class="acc-body"><p>Dentures and partials carry a 10-year warranty.</p><p class="links"><a class="link" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%2010-year%20warranty%20on%20removables">Ask what&rsquo;s covered<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+        <div class="acc-panel" id="acc-p2" role="region" aria-labelledby="acc-b2"><div class="acc-clip"><div class="acc-body"><p>Dentures and partials carry a 10-year warranty.</p><p class="links"><a class="link" href="#lead" data-lead="10-year warranty on removables">Ask what&rsquo;s covered<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
       </div>
       <div class="acc">
         <h3><button type="button" class="acc-btn" id="acc-b3" aria-expanded="false" aria-controls="acc-p3"><span>The 2-appointment denture</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p3" role="region" aria-labelledby="acc-b3"><div class="acc-clip"><div class="acc-body"><p>Scan at the first visit. Seat the finished denture at the second.</p><div class="ytl" data-yt="aoDJ9Y26Ojw" data-title="Case Study: 2 Appt Denture Workflow"><button type="button" aria-label="Play video: Case Study: 2 Appt Denture Workflow (YouTube)"><img src="https://i.ytimg.com/vi/aoDJ9Y26Ojw/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12.5-7.5z"/></svg></span><span class="cap">Case Study: 2 Appt Denture Workflow</span></button></div><ol class="flow" aria-label="The Dandy Difference: One Connected Digital Workflow"><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3"/><path d="M4 12h16"/></svg></span><b>Scan</b><span>Bite rim scan = final impression.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><b>Order</b><span>Printed or milled.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/></svg></span><b>Approve</b><span>Review the setup in Design Preview.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></span><b>Track</b><span>Follow every case in real time.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5l9-4.5 9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5l9 4.5 9-4.5M12 12v9"/></svg></span><b>Deliver</b><span>90% of dentures are delivered on 2nd appointment.</span></li></ol><p class="links"><a class="link" href="#acc-p3" data-play>Play the case study<span class="arr" aria-hidden="true">&rarr;</span></a><a class="link" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%202%20Appt%20Denture%20workflow">Ask for the full case walkthrough<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+        <div class="acc-panel" id="acc-p3" role="region" aria-labelledby="acc-b3"><div class="acc-clip"><div class="acc-body"><p>Scan at the first visit. Seat the finished denture at the second.</p><div class="ytl" data-yt="aoDJ9Y26Ojw" data-title="Case Study: 2 Appt Denture Workflow"><button type="button" aria-label="Play video: Case Study: 2 Appt Denture Workflow (YouTube)"><img src="https://i.ytimg.com/vi/aoDJ9Y26Ojw/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12.5-7.5z"/></svg></span><span class="cap">Case Study: 2 Appt Denture Workflow</span></button></div><ol class="flow" aria-label="The Dandy Difference: One Connected Digital Workflow"><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3"/><path d="M4 12h16"/></svg></span><b>Scan</b><span>Bite rim scan = final impression.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><b>Order</b><span>Printed or milled.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/></svg></span><b>Approve</b><span>Review the setup in Design Preview.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></span><b>Track</b><span>Follow every case in real time.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5l9-4.5 9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5l9 4.5 9-4.5M12 12v9"/></svg></span><b>Deliver</b><span>90% of dentures are delivered on 2nd appointment.</span></li></ol><p class="links"><a class="link" href="#acc-p3" data-play>Play the case study<span class="arr" aria-hidden="true">&rarr;</span></a><a class="link" href="#lead" data-lead="2 Appt Denture workflow">Ask for the full case walkthrough<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
       </div>
       <div class="acc">
         <h3><button type="button" class="acc-btn" id="acc-b4" aria-expanded="false" aria-controls="acc-p4"><span>Polychromatic shading</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p4" role="region" aria-labelledby="acc-b4"><div class="acc-clip"><div class="acc-body"><p>A patented stain-and-glaze technique that gives solid zirconia lifelike translucency and depth.</p><div class="ytl" data-yt="wZ9aLRxwny4" data-title="Polychromatic shading"><button type="button" aria-label="Play video: Polychromatic shading (YouTube)"><img src="../img/poly-pair.jpg" alt="Polychromatic Shade anterior and posterior zirconia crowns" width="900" height="909" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12.5-7.5z"/></svg></span><span class="cap">Watch: Polychromatic shading</span></button></div><p class="links"><a class="link" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20Polychromatic%20shading">Ask about Polychromatic Shade<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+        <div class="acc-panel" id="acc-p4" role="region" aria-labelledby="acc-b4"><div class="acc-clip"><div class="acc-body"><p>A patented stain-and-glaze technique that gives solid zirconia lifelike translucency and depth.</p><div class="ytl" data-yt="wZ9aLRxwny4" data-title="Polychromatic shading"><button type="button" aria-label="Play video: Polychromatic shading (YouTube)"><img src="../img/poly-pair.jpg" alt="Polychromatic Shade anterior and posterior zirconia crowns" width="900" height="909" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12.5-7.5z"/></svg></span><span class="cap">Watch: Polychromatic shading</span></button></div><p class="links"><a class="link" href="#lead" data-lead="Polychromatic shading">Ask about Polychromatic Shade<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
       </div>
       <div class="acc">
         <h3><button type="button" class="acc-btn" id="acc-b5" aria-expanded="false" aria-controls="acc-p5"><span>Sleep apnea</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p5" role="region" aria-labelledby="acc-b5"><div class="acc-clip"><div class="acc-body"><p>Two program options, including one where home sleep tests and telehealth are included. A cash-pay path that helps more patients say yes.</p><p class="links"><a class="link" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20Sleep%20apnea%20program%20breakdown">Ask for the program breakdown<span class="arr" aria-hidden="true">&rarr;</span></a></p><p class="fine">Individual results may vary and are not guaranteed. An evaluation is required to determine whether a patient is a candidate for treatment and what options may be appropriate. Insurance coverage and out-of-pocket costs vary by plan; preauthorization and medical-necessity requirements may apply. Program terms current as of October 2026.</p></div></div></div>
+        <div class="acc-panel" id="acc-p5" role="region" aria-labelledby="acc-b5"><div class="acc-clip"><div class="acc-body"><p>Two program options, including one where home sleep tests and telehealth are included. A cash-pay path that helps more patients say yes.</p><p class="links"><a class="link" href="#lead" data-lead="Sleep apnea program breakdown">Ask for the program breakdown<span class="arr" aria-hidden="true">&rarr;</span></a></p><p class="fine">Individual results may vary and are not guaranteed. An evaluation is required to determine whether a patient is a candidate for treatment and what options may be appropriate. Insurance coverage and out-of-pocket costs vary by plan; preauthorization and medical-necessity requirements may apply. Program terms current as of October 2026.</p></div></div></div>
       </div>
       <div class="acc">
         <h3><button type="button" class="acc-btn" id="acc-b6" aria-expanded="false" aria-controls="acc-p6"><span>No long-term contracts</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p6" role="region" aria-labelledby="acc-b6"><div class="acc-clip"><div class="acc-body"><p>Month to month. Pause or cancel anytime.</p><p class="links"><a class="link" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20No%20long-term%20contracts">Ask how it works<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+        <div class="acc-panel" id="acc-p6" role="region" aria-labelledby="acc-b6"><div class="acc-clip"><div class="acc-body"><p>Month to month. Pause or cancel anytime.</p><p class="links"><a class="link" href="#lead" data-lead="No long-term contracts">Ask how it works<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
       </div>
       <div class="acc">
         <h3><button type="button" class="acc-btn" id="acc-b7" aria-expanded="false" aria-controls="acc-p7"><span>5-day crowns</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p7" role="region" aria-labelledby="acc-b7"><div class="acc-clip"><div class="acc-body"><p>Crowns and bridges in 5 business days.</p><p class="links"><a class="link" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%205-day%20crowns">Ask about turnaround for your cases<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+        <div class="acc-panel" id="acc-p7" role="region" aria-labelledby="acc-b7"><div class="acc-clip"><div class="acc-body"><p>Crowns and bridges in 5 business days.</p><p class="links"><a class="link" href="#lead" data-lead="5-day crowns">Ask about turnaround for your cases<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
       </div>
       <div class="acc">
         <h3><button type="button" class="acc-btn" id="acc-b8" aria-expanded="false" aria-controls="acc-p8"><span>Autoclavable scanner tips</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p8" role="region" aria-labelledby="acc-b8"><div class="acc-clip"><div class="acc-body"><p>5 autoclavable scanner tips (150 cycles), included at no cost.</p><p class="links"><a class="link" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20Autoclavable%20scanner%20tips">Ask how it works<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+        <div class="acc-panel" id="acc-p8" role="region" aria-labelledby="acc-b8"><div class="acc-clip"><div class="acc-body"><p>5 autoclavable scanner tips (150 cycles), included at no cost.</p><p class="links"><a class="link" href="#lead" data-lead="Autoclavable scanner tips">Ask how it works<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
       </div>
       <div class="acc">
         <h3><button type="button" class="acc-btn" id="acc-b9" aria-expanded="false" aria-controls="acc-p9"><span>Scanner at no cost</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p9" role="region" aria-labelledby="acc-b9"><div class="acc-clip"><div class="acc-body"><p>A 3Shape TRIOS or Dandy Vision scanner, placed by Dandy at no cost. Already own a TRIOS? We add Dandy to it.</p><p class="links"><a class="link" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20Scanner%20at%20no%20cost">Ask if your practice qualifies<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+        <div class="acc-panel" id="acc-p9" role="region" aria-labelledby="acc-b9"><div class="acc-clip"><div class="acc-body"><p>A 3Shape TRIOS or Dandy Vision scanner, placed by Dandy at no cost. Already own a TRIOS? We add Dandy to it.</p><p class="links"><a class="link" href="#lead" data-lead="Scanner at no cost">Ask if your practice qualifies<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
       </div>
       <div class="acc">
         <h3><button type="button" class="acc-btn" id="acc-b10" aria-expanded="false" aria-controls="acc-p10"><span>Start with one crown</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p10" role="region" aria-labelledby="acc-b10"><div class="acc-clip"><div class="acc-body"><p>No contract, no software fees. Send one case and judge the fit yourself.</p><p class="links"><a class="link" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20Start%20with%20one%20crown">Ask about starting with one crown<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+        <div class="acc-panel" id="acc-p10" role="region" aria-labelledby="acc-b10"><div class="acc-clip"><div class="acc-body"><p>No contract, no software fees. Send one case and judge the fit yourself.</p><p class="links"><a class="link" href="#lead" data-lead="Start with one crown">Ask about starting with one crown<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
       </div>
       <div class="acc">
         <h3><button type="button" class="acc-btn" id="acc-b11" aria-expanded="false" aria-controls="acc-p11"><span>Design review before fabrication</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p11" role="region" aria-labelledby="acc-b11"><div class="acc-clip"><div class="acc-body"><p>See the case in 3D and sign off before it&rsquo;s made. Fixed and removable.</p><p class="links"><a class="link" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20Design%20review%20before%20fabrication">Ask to see Design Preview<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+        <div class="acc-panel" id="acc-p11" role="region" aria-labelledby="acc-b11"><div class="acc-clip"><div class="acc-body"><p>See the case in 3D and sign off before it&rsquo;s made. Fixed and removable.</p><p class="links"><a class="link" href="#lead" data-lead="Design review before fabrication">Ask to see Design Preview<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
       </div>
     </div>
   </div>
@@ -347,7 +389,7 @@ footer{padding:var(--s4) 0 var(--s6);font-size:var(--t-sm);color:var(--muted);te
         <div class="stat"><b id="rStaffHours">0</b><span>staff hours reclaimed a year</span></div>
         <div class="stat"><b id="rStaffCost">$0</b><span>front-desk cost avoided a year</span></div>
       </div>
-      <div class="calc-foot"><a class="link" id="calcMail" href="mailto:kristi.dillon@meetdandy.com?subject=My%20Scan%20to%20Seat%20numbers">Send my numbers to Kristi<span class="arr" aria-hidden="true">&rarr;</span></a></div>
+      <div class="calc-foot"><a class="link" id="calcMail" href="#lead" data-lead="Calculator numbers" data-calc>Send my numbers to Kristi<span class="arr" aria-hidden="true">&rarr;</span></a></div>
     </div>
     <details class="assume">
       <summary>What we're assuming, and how to change it</summary>
@@ -384,7 +426,7 @@ footer{padding:var(--s4) 0 var(--s6);font-size:var(--t-sm);color:var(--muted);te
       <h2>Show me your lab bill. I&rsquo;ll show you Dandy.</h2>
       <p class="sub">Send your current lab spend or a recent invoice. I&rsquo;ll put together a side-by-side comparison to see if Dandy can beat it.</p>
     </div>
-    <a class="btn" href="mailto:kristi.dillon@meetdandy.com?subject=Can%20Dandy%20beat%20my%20lab%20bill%3F&amp;body=Current%20lab%28s%29%3A%20%0D%0AMonthly%20lab%20spend%20%28%24%29%3A%20%0D%0ACrowns%2Funits%20per%20month%3A%20%0D%0AOther%20case%20types%20%28implants%2C%20dentures%2C%20appliances%29%3A%20%0D%0AAttach%20a%20recent%20lab%20invoice%20if%20handy.%0D%0A%0D%0AName%3A%20%0D%0APractice%3A%20%0D%0APractice%20address%3A%20%0D%0ANumber%20of%20doctors%3A%20%0D%0AOperatories%3A%20%0D%0ACurrent%20scanner%20%28if%20any%29%3A%20%0D%0ABest%20email%3A%20%0D%0A">Share my current lab spend</a>
+    <div class="ctas"><a class="btn" href="#lead" data-lead="Lab bill comparison">Share my current lab spend</a><a class="link" href="https://calendly.com/kristi-dillon-meetdandy" target="_blank" rel="noopener">Book a demo<span class="arr" aria-hidden="true">&#8599;</span><span class="sr">(opens in a new tab)</span></a></div>
     <p class="small">Start with one crown. No contract, no software fees.</p>
     <div class="contact" id="contact">
       <div class="nm">Kristi Dillon, BS, RDH</div>
@@ -398,6 +440,39 @@ footer{padding:var(--s4) 0 var(--s6);font-size:var(--t-sm);color:var(--muted);te
   </div>
 </section>
 </main>
+
+<dialog class="sheet" id="lead" aria-labelledby="leadTitle">
+  <div class="sheet-in">
+    <button type="button" class="sheet-x" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div id="leadMain">
+      <h2 id="leadTitle">Talk to Kristi</h2>
+      <p class="about" id="leadAbout" hidden>About: <b id="leadTopicLabel"></b></p>
+      <form class="lf" id="leadForm" novalidate>
+        <input type="hidden" name="topic" id="lf-topic">
+        <div class="hp" aria-hidden="true"><label for="lf-honey">Leave this empty</label><input type="text" name="_honey" id="lf-honey" tabindex="-1" autocomplete="off"></div>
+        <div class="row2">
+          <div class="fld"><label for="lf-name">Doctor name</label><input type="text" id="lf-name" name="name" autocomplete="name" required></div>
+          <div class="fld"><label for="lf-practice">Practice</label><input type="text" id="lf-practice" name="practice" autocomplete="organization" required></div>
+        </div>
+        <div class="fld"><label for="lf-email">Email</label><input type="email" id="lf-email" name="email" autocomplete="email" inputmode="email" required></div>
+        <div class="row2">
+          <div class="fld"><label for="lf-scan">Scanning history</label><select id="lf-scan" name="scanner"><option>Not scanning yet</option><option>iTero</option><option>TRIOS</option><option>Primescan / CEREC</option><option>Medit</option><option>Other</option></select></div>
+          <div class="fld"><label for="lf-when">Best day &amp; time for a demo</label><input type="text" id="lf-when" name="demo_time" maxlength="80" placeholder="e.g. Tue mornings"></div>
+        </div>
+        <p class="lf-err" id="lfErr" role="alert" hidden></p>
+        <div class="lf-foot">
+          <button type="submit" class="btn" id="lfSend">Send to Kristi</button>
+          <p class="lf-alt">Prefer to pick a time? <a href="https://calendly.com/kristi-dillon-meetdandy" target="_blank" rel="noopener">Book on Calendly<span class="sr"> (opens in a new tab)</span></a></p>
+        </div>
+      </form>
+    </div>
+    <div class="thanks" id="leadThanks" hidden tabindex="-1">
+      <div class="ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <p id="leadThanksMsg"></p>
+      <button type="button" class="btn" data-close>Done</button>
+    </div>
+  </div>
+</dialog>
 
 <footer>
   <div class="wrap">
@@ -485,13 +560,7 @@ function calc(){
   animateTo($('rStaffHours'),staffHoursYear,'');
   animateTo($('rStaffCost'),staffDollars,'$');
   animateTo($('rMonthly'),dollars/12,'$');
-  const body=['Hi Kristi,','','Here are my Scan to Seat numbers:','',
-    'Crown & bridge units per month: '+units,'Remake rate: '+rem+'%','Adjusting at the seat: '+adj+' min per crown',
-    'Chair hour worth: '+money(val),'Staff hours a week chasing cases: '+staffhrs,'Staff hourly cost: '+money(staffwage),'',
-    'Chair + staff time lost per year: '+money(dollars),'Per month: '+money(dollars/12),
-    'Chair hours reclaimed a year: '+fmt(chairHours),'Remakes avoided a year: '+fmt(remakesAvoided),'Staff hours reclaimed a year: '+fmt(staffHoursYear),'',
-    'Name: ','Practice: ','Best phone: ',''].join('\r\n');
-  $('calcMail').href='mailto:kristi.dillon@meetdandy.com?subject='+encodeURIComponent('My Scan to Seat numbers')+'&body='+encodeURIComponent(body);
+  window.__calc={units,rem,adj,val,staffhrs,staffwage,dollars,chairHours,remakesAvoided,staffHoursYear,staffDollars};
   $('formula').textContent=`${fmt(yearly)} units a year × (${rem}% − ${trem}% remakes) = ${fmt(remakesAvoided)} remakes × ${rh} chair hours each, plus ${adj}−${tadj} minutes saved per seat at ${money(val)}/hr, plus ${staffhrs}−${tstaffhrs} staff hours/week no longer spent chasing cases at ${money(staffwage)}/hr.`;
 }
 pairs.forEach(([n,r])=>{
@@ -503,6 +572,65 @@ pairs.forEach(([n,r])=>{
 });
 ['tremake','tadjust','remakehrs','tstaffhrs'].forEach(id=>{const el=$(id);el.addEventListener('input',()=>{if(el.value!==''&&+el.value>+el.max)el.value=el.max;if(el.value!==''&&+el.value<+el.min)el.value=el.min;calc();});});
 calc();
+
+// ---------- lead form (FormSubmit AJAX) ----------
+(function(){
+  var dlg=document.getElementById('lead'), form=document.getElementById('leadForm'), main=document.getElementById('leadMain'),
+      thanks=document.getElementById('leadThanks'), err=document.getElementById('lfErr'), send=document.getElementById('lfSend'),
+      topicEl=document.getElementById('lf-topic'), about=document.getElementById('leadAbout'), aboutLbl=document.getElementById('leadTopicLabel');
+  var ENDPOINT='https://formsubmit.co/ajax/kristi.dillon@meetdandy.com', EMAIL='kristi.dillon@meetdandy.com';
+  var opener=null, calcData=null;
+  function focusables(){return [].slice.call(dlg.querySelectorAll('button,a[href],input:not([type=hidden]):not([tabindex="-1"]),select,textarea')).filter(function(e){return e.offsetParent!==null&&!e.disabled;});}
+  function open(topic,withCalc,from){
+    opener=from||document.activeElement;
+    topicEl.value=topic||'General inquiry';
+    aboutLbl.textContent=topic||''; about.hidden=!topic;
+    calcData=null;
+    if(withCalc&&window.__calc){var c=window.__calc,r=function(n){return Math.round(n).toLocaleString('en-US');};
+      calcData={calc_units_per_month:String(c.units),calc_remake_rate_pct:String(c.rem),calc_adjust_min_per_seat:String(c.adj),calc_chair_hour_value:'$'+r(c.val),calc_staff_hours_per_week:String(c.staffhrs),calc_staff_hourly_cost:'$'+r(c.staffwage),
+        calc_result_per_year:'$'+r(c.dollars),calc_result_per_month:'$'+r(c.dollars/12),calc_chair_hours_reclaimed:r(c.chairHours),calc_remakes_avoided:r(c.remakesAvoided),calc_staff_hours_reclaimed:r(c.staffHoursYear),calc_front_desk_cost_avoided:'$'+r(c.staffDollars)};}
+    main.hidden=false; thanks.hidden=true; err.hidden=true;
+    document.documentElement.classList.add('lock');
+    dlg.showModal();
+    setTimeout(function(){document.getElementById('lf-name').focus();},30);
+  }
+  function close(){if(dlg.open)dlg.close();}
+  dlg.addEventListener('close',function(){document.documentElement.classList.remove('lock');if(opener&&opener.focus)opener.focus();});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)close();});
+  dlg.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',close);});
+  dlg.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){e.preventDefault();close();return;}
+    if(e.key!=='Tab')return;
+    var f=focusables(); if(!f.length)return; var first=f[0], last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+  });
+  document.querySelectorAll('[data-lead]').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();open(a.getAttribute('data-lead'),a.hasAttribute('data-calc'),a);});
+  });
+  form.addEventListener('submit',function(e){
+    e.preventDefault(); err.hidden=true;
+    if(!form.checkValidity()){form.reportValidity();var bad=form.querySelector(':invalid');if(bad)bad.focus();return;}
+    var fd=new FormData(form), name=(fd.get('name')||'').trim(), topic=fd.get('topic')||'General inquiry';
+    var data={name:name,practice:(fd.get('practice')||'').trim(),email:(fd.get('email')||'').trim(),
+      scanner:fd.get('scanner')||'',demo_time:(fd.get('demo_time')||'').trim(),topic:topic,
+      _subject:'New Dandy page inquiry: '+topic,_template:'table',_captcha:'false',_honey:fd.get('_honey')||''};
+    if(calcData)Object.keys(calcData).forEach(function(k){data[k]=calcData[k];});
+    send.disabled=true; send.textContent='Sending…';
+    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json().catch(function(){return {};}).then(function(j){if(!r.ok||String(j.success)==='false')throw new Error(j.message||('HTTP '+r.status));});})
+      .then(function(){
+        var n=name.replace(/^dr\.?\s+/i,'');
+        document.getElementById('leadThanksMsg').textContent='Thanks, Dr. '+n+'. Kristi will reach out shortly.';
+        main.hidden=true; thanks.hidden=false; thanks.focus(); form.reset();
+      })
+      .catch(function(){
+        err.innerHTML='Sorry, that didn&rsquo;t go through. Please try again, or email Kristi at <a href="mailto:'+EMAIL+'">'+EMAIL+'</a>.';
+        err.hidden=false;
+      })
+      .then(function(){send.disabled=false; send.textContent='Send to Kristi';});
+  });
+})();
 </script>
 </body>
 </html>
