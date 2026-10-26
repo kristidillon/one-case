@@ -125,6 +125,19 @@ p{margin:0}
   .flow li{display:grid;grid-template-columns:32px 80px 1fr;align-items:center;text-align:left;column-gap:var(--s2)}
 }
 
+/* inline lite YouTube card */
+.ytl{position:relative;max-width:640px;margin:var(--s3) 0 var(--s1);border-radius:16px;overflow:hidden;background:#0d1a1d;aspect-ratio:16/9;box-shadow:0 16px 40px -24px rgba(22,40,44,.45)}
+.ytl iframe,.ytl>button{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ytl>button{background:#0d1a1d;display:block}
+.ytl img{width:100%;height:100%;object-fit:cover;opacity:.9;transition:opacity .3s}
+.ytl>button:hover img{opacity:1}
+.ytl>button:focus-visible{outline:3px solid #fff;outline-offset:-6px}
+.ytl .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--accent-dk);display:grid;place-items:center;box-shadow:0 8px 32px rgba(0,0,0,.25);transition:transform .25s}
+.ytl>button:hover .play{transform:translate(-50%,-50%) scale(1.05)}
+.ytl .play svg{width:22px;height:22px;margin-left:3px}
+.ytl .cap{position:absolute;left:0;right:0;bottom:0;padding:var(--s6) var(--s3) var(--s2);text-align:left;background:linear-gradient(transparent,rgba(13,26,29,.8));color:#fff;font:600 var(--t-md)/1.3 var(--body)}
+@media(max-width:560px){.ytl{border-radius:12px}.ytl .play{width:52px;height:52px;top:44%}.ytl .play svg{width:18px;height:18px}.ytl .cap{padding:var(--s4) var(--s2) 12px;font-size:var(--t-sm)}}
+
 /* calculator: spec card */
 .calc{max-width:980px;margin:clamp(var(--s6),6vw,var(--s8)) auto 0;background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden}
 .result{text-align:center;padding:clamp(var(--s5),6vw,var(--s8)) var(--s3) clamp(var(--s4),5vw,var(--s6))}
@@ -238,7 +251,7 @@ footer{padding:var(--s4) 0 var(--s6);font-size:var(--t-sm);color:var(--muted);te
       </div>
       <div class="acc">
         <h3><button type="button" class="acc-btn" id="acc-b4" aria-expanded="false" aria-controls="acc-p4"><span>Polychromatic shading</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p4" role="region" aria-labelledby="acc-b4"><div class="acc-clip"><div class="acc-body"><div class="poly"><img src="../img/poly-pair.jpg" alt="Polychromatic Shade anterior and posterior zirconia crowns" loading="lazy" width="900" height="909"><div><p>A patented stain-and-glaze technique that gives solid zirconia lifelike translucency and depth.</p><p class="links"><a class="link" href="https://view-su2.highspot.com/viewer/ea88bea189c8682e25df2c84cbe80c45" target="_blank" rel="noopener">Watch the 16-unit workflow<span class="arr" aria-hidden="true">&#8599;</span></a></p></div></div><p class="links"><a class="link" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20Polychromatic%20shading">Ask about Polychromatic Shade<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+        <div class="acc-panel" id="acc-p4" role="region" aria-labelledby="acc-b4"><div class="acc-clip"><div class="acc-body"><p>A patented stain-and-glaze technique that gives solid zirconia lifelike translucency and depth.</p><div class="ytl" data-yt="wZ9aLRxwny4" data-title="Polychromatic shading"><button type="button" aria-label="Play video: Polychromatic shading (YouTube)"><img src="https://i.ytimg.com/vi/wZ9aLRxwny4/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12.5-7.5z"/></svg></span><span class="cap">Watch: Polychromatic shading</span></button></div><p class="links"><a class="link" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20Polychromatic%20shading">Ask about Polychromatic Shade<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
       </div>
       <div class="acc">
         <h3><button type="button" class="acc-btn" id="acc-b5" aria-expanded="false" aria-controls="acc-p5"><span>Sleep apnea</span><span class="pm" aria-hidden="true"></span></button></h3>
@@ -423,6 +436,19 @@ document.querySelectorAll('.acc').forEach(function(acc){
   });
 })();
 
+// ---------- inline lite YouTube cards ----------
+document.querySelectorAll('.ytl').forEach(function(box){
+  var btn=box.querySelector('button');
+  btn.addEventListener('click',function(){
+    var f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+box.dataset.yt+'?autoplay=1&rel=0&playsinline=1';
+    f.title=box.dataset.title;
+    f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.referrerPolicy='strict-origin-when-cross-origin';
+    f.allowFullscreen=true;
+    box.replaceChild(f,btn); f.focus();
+  });
+});
 // ---------- calculator (from one-case) ----------
 const $=id=>document.getElementById(id);
 const pairs=[['units','units_r'],['remake','remake_r'],['adjust','adjust_r'],['chairval','chairval_r'],['staffhrs','staffhrs_r'],['staffwage','staffwage_r']];
