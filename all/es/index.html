@@ -80,6 +80,7 @@ p{margin:0}
 .lang a{display:inline-flex;align-items:center;min-width:44px;min-height:44px;border-radius:10px;color:var(--accent-dk);text-decoration-line:underline;text-decoration-color:transparent;text-decoration-thickness:1.5px;text-underline-offset:4px;transition:color .18s ease,text-decoration-color .18s ease,background-color .18s ease}
 .lang>:first-child{justify-content:flex-end;padding-right:8px}.lang>:last-child{justify-content:flex-start;padding-left:8px}
 .lang a:focus-visible{outline-offset:-2px}
+.lang [data-l]::before{content:attr(data-l)} /* label from CSS so browser auto-translate (EN/ES read as Spanish "en"/"es") can't rewrite it */
 @media(max-width:600px){.top .wrap{justify-content:space-between}.lang{position:static;transform:none;margin-right:-18px}}
 .brand{display:inline-flex;align-items:center;min-height:44px;font:600 var(--t-md)/1 var(--display);letter-spacing:-.01em;color:var(--fg);text-decoration:none}
 .brand span{color:var(--muted);font-weight:500;margin-left:6px}
@@ -337,7 +338,7 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.15);box-shadow:
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top">The Dandy Way<span>· Kristi Dillon</span></a>
-    <nav class="lang" aria-label="Idioma"><a href="../" hreflang="en" lang="en" aria-label="View in English" data-keepq>EN</a><span class="lang-sep" aria-hidden="true">|</span><span class="lang-cur" lang="es" aria-current="page">ES</span></nav>
+    <nav class="lang notranslate" translate="no" aria-label="Idioma"><a class="notranslate" translate="no" href="../" hreflang="en" lang="en" aria-label="View in English" data-l="EN" data-keepq></a><span class="lang-sep" aria-hidden="true">|</span><span class="lang-cur notranslate" translate="no" lang="es" aria-current="page" data-l="ES"></span></nav>
   </div>
 </header>
 
