@@ -76,10 +76,11 @@ p{margin:0}
 .hero .sub{max-width:44ch;margin-left:auto;margin-right:auto}
 .hero .btn{margin-top:var(--s4)}
 .yt{position:relative;max-width:980px;margin:clamp(var(--s6),7vw,var(--s8)) auto 0;border-radius:24px;overflow:hidden;background:#0d1a1d;aspect-ratio:16/9;box-shadow:0 24px 64px -32px rgba(22,40,44,.45)}
-.yt iframe,.yt>button{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt iframe,.yt video,.yt>button{position:absolute;inset:0;width:100%;height:100%;border:0}
 .yt>button{background:#0d1a1d;display:block}
-.yt img{width:100%;height:100%;object-fit:cover;opacity:.9;transition:opacity .3s}
-.yt>button:hover img{opacity:1}
+.yt img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.yt video{background:#16282C}
+.yt>button:hover img{transform:scale(1.01)}
 .yt .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--accent-dk);display:grid;place-items:center;box-shadow:0 8px 32px rgba(0,0,0,.25);transition:transform .25s}
 .yt>button:hover .play{transform:translate(-50%,-50%) scale(1.05)}
 .yt>button:focus-visible{outline:3px solid #fff;outline-offset:-6px}
@@ -221,10 +222,8 @@ footer{padding:var(--s4) 0 var(--s6);font-size:var(--t-sm);color:var(--muted);te
     <p class="sub">Start with a real case: a full denture in two appointments.</p>
     <a class="btn" href="mailto:kristi.dillon@meetdandy.com?subject=Can%20Dandy%20beat%20my%20lab%20bill%3F&amp;body=Current%20lab%28s%29%3A%20%0D%0AMonthly%20lab%20spend%20%28%24%29%3A%20%0D%0ACrowns%2Funits%20per%20month%3A%20%0D%0AOther%20case%20types%20%28implants%2C%20dentures%2C%20appliances%29%3A%20%0D%0AAttach%20a%20recent%20lab%20invoice%20if%20handy.%0D%0A%0D%0AName%3A%20%0D%0APractice%3A%20%0D%0APractice%20address%3A%20%0D%0ANumber%20of%20doctors%3A%20%0D%0AOperatories%3A%20%0D%0ACurrent%20scanner%20%28if%20any%29%3A%20%0D%0ABest%20email%3A%20%0D%0A">Share my current lab spend</a>
     <div class="yt" id="yt">
-      <button type="button" id="ytBtn" aria-label="Play video: Case Study: 2 Appt Denture Workflow (YouTube)">
-        <img src="https://i.ytimg.com/vi/aoDJ9Y26Ojw/maxresdefault.jpg" alt="" width="1280" height="720" decoding="async">
-        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
-        <span class="cap">Case Study: 2 Appt Denture Workflow</span>
+      <button type="button" id="ytBtn" aria-label="Play video: Scan to seat. The Dandy way.">
+        <img src="media/scan-to-seat-poster.jpg" alt="" width="1024" height="576" decoding="async">
       </button>
     </div>
   </div>
@@ -247,7 +246,7 @@ footer{padding:var(--s4) 0 var(--s6);font-size:var(--t-sm);color:var(--muted);te
       </div>
       <div class="acc">
         <h3><button type="button" class="acc-btn" id="acc-b3" aria-expanded="false" aria-controls="acc-p3"><span>The 2-appointment denture</span><span class="pm" aria-hidden="true"></span></button></h3>
-        <div class="acc-panel" id="acc-p3" role="region" aria-labelledby="acc-b3"><div class="acc-clip"><div class="acc-body"><p>Scan at the first visit. Seat the finished denture at the second.</p><ol class="flow" aria-label="The Dandy Difference: One Connected Digital Workflow"><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3"/><path d="M4 12h16"/></svg></span><b>Scan</b><span>Bite rim scan = final impression.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><b>Order</b><span>Printed or milled.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/></svg></span><b>Approve</b><span>Review the setup in Design Preview.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></span><b>Track</b><span>Follow every case in real time.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5l9-4.5 9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5l9 4.5 9-4.5M12 12v9"/></svg></span><b>Deliver</b><span>90% of dentures are delivered on 2nd appointment.</span></li></ol><p class="links"><a class="link" href="#yt" data-play>Play the case study<span class="arr" aria-hidden="true">&rarr;</span></a><a class="link" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%202%20Appt%20Denture%20workflow">Ask for the full case walkthrough<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
+        <div class="acc-panel" id="acc-p3" role="region" aria-labelledby="acc-b3"><div class="acc-clip"><div class="acc-body"><p>Scan at the first visit. Seat the finished denture at the second.</p><div class="ytl" data-yt="aoDJ9Y26Ojw" data-title="Case Study: 2 Appt Denture Workflow"><button type="button" aria-label="Play video: Case Study: 2 Appt Denture Workflow (YouTube)"><img src="https://i.ytimg.com/vi/aoDJ9Y26Ojw/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12.5-7.5z"/></svg></span><span class="cap">Case Study: 2 Appt Denture Workflow</span></button></div><ol class="flow" aria-label="The Dandy Difference: One Connected Digital Workflow"><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3"/><path d="M4 12h16"/></svg></span><b>Scan</b><span>Bite rim scan = final impression.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><b>Order</b><span>Printed or milled.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/></svg></span><b>Approve</b><span>Review the setup in Design Preview.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></span><b>Track</b><span>Follow every case in real time.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5l9-4.5 9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5l9 4.5 9-4.5M12 12v9"/></svg></span><b>Deliver</b><span>90% of dentures are delivered on 2nd appointment.</span></li></ol><p class="links"><a class="link" href="#acc-p3" data-play>Play the case study<span class="arr" aria-hidden="true">&rarr;</span></a><a class="link" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%202%20Appt%20Denture%20workflow">Ask for the full case walkthrough<span class="arr" aria-hidden="true">&rarr;</span></a></p></div></div></div>
       </div>
       <div class="acc">
         <h3><button type="button" class="acc-btn" id="acc-b4" aria-expanded="false" aria-controls="acc-p4"><span>Polychromatic shading</span><span class="pm" aria-hidden="true"></span></button></h3>
@@ -417,22 +416,18 @@ document.querySelectorAll('.acc').forEach(function(acc){
     acc.classList.toggle('open',open);
   });
 });
-// ---------- click-to-play YouTube (no autoplay until clicked) ----------
+// ---------- hero video: click-to-play (nothing but the poster loads until clicked) ----------
 (function(){
   var box=document.getElementById('yt'), btn=document.getElementById('ytBtn');
-  function play(){
-    if(!btn || !btn.isConnected) return;
-    var f=document.createElement('iframe');
-    f.src='https://www.youtube-nocookie.com/embed/aoDJ9Y26Ojw?autoplay=1&rel=0&playsinline=1';
-    f.title='Case Study: 2 Appt Denture Workflow';
-    f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-    f.referrerPolicy='strict-origin-when-cross-origin';
-    f.allowFullscreen=true;
-    box.replaceChild(f,btn);
-  }
-  btn.addEventListener('click',play);
-  document.querySelectorAll('[data-play]').forEach(function(a){
-    a.addEventListener('click',function(e){e.preventDefault();box.scrollIntoView({behavior:'smooth',block:'center'});play();});
+  btn.addEventListener('click',function(){
+    var v=document.createElement('video');
+    v.src='media/scan-to-seat-v4.mp4';
+    v.poster='media/scan-to-seat-poster.jpg';
+    v.controls=true; v.playsInline=true; v.setAttribute('playsinline','');
+    v.title='Scan to seat. The Dandy way.';
+    box.replaceChild(v,btn);
+    var p=v.play(); if(p&&p.catch)p.catch(function(){});
+    v.focus();
   });
 })();
 
@@ -447,6 +442,14 @@ document.querySelectorAll('.ytl').forEach(function(box){
     f.referrerPolicy='strict-origin-when-cross-origin';
     f.allowFullscreen=true;
     box.replaceChild(f,btn); f.focus();
+  });
+});
+document.querySelectorAll('[data-play]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    var box=a.closest('.acc-body').querySelector('.ytl'), btn=box.querySelector('button');
+    box.scrollIntoView({behavior:'smooth',block:'nearest'});
+    if(btn) btn.click();
   });
 });
 // ---------- calculator (from one-case) ----------
