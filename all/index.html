@@ -26,232 +26,159 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
 <style>
 :root{
-  --bg:#FFFFFF; --band:#F4F8F8; --card:#FFFFFF;
-  --fg:#16282C; --fg-2:#2E4247; --muted:#4F6368; --line:#E1EAEA;
+  --bg:#FFFFFF; --band:#F4F8F8; --fg:#16282C; --fg-2:#2E4247; --muted:#5A6E73; --line:#E1EAEA;
   --accent:#0A7C86; --accent-dk:#075C64; --accent-soft:#EEF6F6; --accent-line:#BFDCDE;
-  --night:#16282C; --night-2:#1F363B; --night-muted:#A9BCC0;
   --display:"Instrument Sans",-apple-system,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
   --body:"Inter",-apple-system,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
-  --r:18px; --shadow:0 1px 2px rgba(22,40,44,.04),0 8px 24px rgba(22,40,44,.05);
   color-scheme:light;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-img,svg,video{display:block;max-width:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
 a{color:var(--accent-dk)}
 button{font:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
-.wrap{max-width:980px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-.narrow{max-width:700px}
-section{padding-block:clamp(56px,8vw,96px)}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
+section{padding-block:clamp(64px,10vw,120px)}
 .band{background:var(--band)}
 h1,h2,h3{font-family:var(--display);font-weight:600;color:var(--fg);margin:0;text-wrap:balance}
-h1{font-size:clamp(34px,5.6vw,56px);line-height:1.06;letter-spacing:-.03em}
-h2{font-size:clamp(28px,4vw,40px);line-height:1.12;letter-spacing:-.025em}
-h3{font-size:19px;line-height:1.3;letter-spacing:-.01em}
-p{margin:0;max-width:68ch}
+h1{font-size:clamp(36px,6vw,58px);line-height:1.05;letter-spacing:-.03em}
+h2{font-size:clamp(28px,4vw,38px);line-height:1.12;letter-spacing:-.025em}
+p{margin:0}
 .eyebrow{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-.lead{font-size:clamp(17px,1.9vw,19px);line-height:1.6;color:var(--fg-2);margin-top:16px}
-.note{font-size:13px;line-height:1.55;color:var(--muted);margin-top:18px}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.lead{font-size:clamp(17px,1.9vw,19px);line-height:1.6;color:var(--muted);margin-top:16px;max-width:52ch}
 
 /* top bar */
-.top{border-bottom:1px solid var(--line);background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);position:sticky;top:0;z-index:30}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px}
+.top{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--line)}
+.top .wrap{max-width:1040px;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px}
 .brand{font:600 17px var(--display);letter-spacing:-.02em;color:var(--fg);text-decoration:none;white-space:nowrap}
 .brand span{color:var(--muted);font-weight:500}
-.top-cta{display:inline-flex;align-items:center;min-height:40px;padding:8px 16px;border-radius:999px;background:var(--fg);color:#fff;text-decoration:none;font:600 14px var(--display);white-space:nowrap}
-.top-cta:hover{background:#0d1a1d}
+.top-cta{display:inline-flex;align-items:center;min-height:40px;padding:8px 16px;border-radius:999px;border:1px solid var(--line);color:var(--fg);text-decoration:none;font:600 14px var(--display);white-space:nowrap}
+.top-cta:hover{border-color:var(--accent);color:var(--accent-dk)}
 @media(max-width:420px){.brand span{display:none}}
 
-/* buttons */
-.cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:14px 26px;background:var(--accent);color:#fff;text-decoration:none;font:600 16px/1.25 var(--display);border-radius:999px;box-shadow:0 6px 18px rgba(10,124,134,.18);transition:background .2s,transform .2s;text-align:center}
-.cta:hover{background:var(--accent-dk);transform:translateY(-1px)}
-.link{display:inline-flex;align-items:center;gap:6px;min-height:44px;color:var(--accent-dk);font-weight:500;text-decoration:underline;text-decoration-color:var(--accent-line);text-underline-offset:4px}
-.link:hover{text-decoration-color:var(--accent)}
-
 /* hero */
-.hero{padding-block:clamp(44px,7vw,84px) clamp(40px,6vw,72px)}
-.hero h1{max-width:760px}
-.hero .lead{max-width:620px}
-.yt{position:relative;margin-top:30px;border-radius:20px;overflow:hidden;background:#0d1a1d;aspect-ratio:16/9;box-shadow:0 12px 40px rgba(22,40,44,.14)}
+.hero{padding-block:clamp(56px,9vw,104px) clamp(48px,7vw,88px)}
+.yt{position:relative;margin-top:40px;border-radius:20px;overflow:hidden;background:#0d1a1d;aspect-ratio:16/9;box-shadow:0 18px 50px -20px rgba(22,40,44,.35)}
 .yt iframe,.yt button{position:absolute;inset:0;width:100%;height:100%;border:0}
 .yt button{padding:0;background:#0d1a1d;display:block}
-.yt img{width:100%;height:100%;object-fit:cover;opacity:.82;transition:opacity .25s}
-.yt button:hover img{opacity:.95}
-.yt .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:var(--accent);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .2s,background .2s}
+.yt img{width:100%;height:100%;object-fit:cover;opacity:.86;transition:opacity .25s}
+.yt button:hover img{opacity:.96}
+.yt .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:var(--accent);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .2s,background .2s}
 .yt button:hover .play{transform:translate(-50%,-50%) scale(1.06);background:var(--accent-dk)}
-.yt .play svg{width:28px;height:28px;margin-left:4px}
+.yt .play svg{width:26px;height:26px;margin-left:4px}
 .yt .cap{position:absolute;left:0;right:0;bottom:0;padding:44px 22px 18px;text-align:left;background:linear-gradient(transparent,rgba(13,26,29,.85));color:#fff}
-.yt .cap b{display:block;font:600 clamp(17px,2.4vw,22px)/1.25 var(--display);letter-spacing:-.01em}
+.yt .cap b{display:block;font:600 clamp(16px,2.3vw,21px)/1.25 var(--display)}
 .yt .cap small{display:block;margin-top:4px;font-size:13px;color:#cfdcde}
-@media(max-width:560px){.yt .play{width:60px;height:60px;top:42%}.yt .play svg{width:22px;height:22px}.yt .cap{padding:28px 14px 10px}.yt .cap b{font-size:15px}.yt .cap small{display:none}}
-.vid-meta{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center;margin-top:12px;font-size:14px;color:var(--muted)}
+@media(max-width:560px){.yt .play{width:58px;height:58px;top:42%}.yt .play svg{width:22px;height:22px}.yt .cap{padding:28px 14px 10px}.yt .cap b{font-size:15px}.yt .cap small{display:none}}
+.vid-meta{display:flex;flex-wrap:wrap;gap:2px 16px;align-items:center;margin-top:12px;font-size:14px;color:var(--muted)}
+.vid-meta a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-decoration-color:var(--accent-line);text-underline-offset:4px}
 
-/* chips + panels */
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-.chip{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--fg);font:500 15px/1.2 var(--body);box-shadow:0 1px 2px rgba(22,40,44,.04);transition:border-color .2s,background .2s,color .2s}
-.chip:hover{border-color:var(--accent);color:var(--accent-dk)}
-.chip[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
-.chip .d{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
-.chip[aria-expanded="true"] .d{background:#fff}
-@media(max-width:560px){.chips{gap:8px}.chip{font-size:14px;padding:10px 14px}}
-.panel{margin-top:18px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:var(--r);padding:clamp(22px,3.4vw,32px);box-shadow:var(--shadow);position:relative}
-.panel[hidden]{display:none}
-.panel.on{animation:fade .3s ease both}
-@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.panel h3{font-size:clamp(21px,2.6vw,26px);padding-right:48px}
-.panel p{color:var(--fg-2);margin-top:10px}
-.panel ul{margin:14px 0 0;padding-left:20px;color:var(--fg-2);display:grid;gap:6px}
-.panel .x{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;color:var(--muted)}
-.panel .x:hover{border-color:var(--accent);color:var(--accent-dk)}
-.panel .x svg{width:16px;height:16px}
-.panel .links{display:flex;flex-wrap:wrap;gap:0 22px;margin-top:8px}
-.panel .fine{font-size:13px;color:var(--muted);margin-top:12px}
-.poly{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
-.poly img{width:100%;height:150px;object-fit:cover;border-radius:12px;background:var(--band)}
-@media(max-width:560px){.poly img{height:110px}}
-
-/* denture workflow timeline */
-.flow{margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
-.flow h4{margin:0;font:600 18px/1.3 var(--display);letter-spacing:-.01em;color:var(--fg)}
-.flow ol{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;position:relative}
-.flow ol::before{content:"";position:absolute;top:22px;left:10%;right:10%;height:2px;background:var(--accent-line)}
-.flow ol>li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
-.flow .ic{width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;position:relative;z-index:1;box-shadow:0 0 0 5px #fff}
-.flow .ic svg{width:22px;height:22px}
-.flow .st{margin-top:12px;font:600 13px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-dk)}
-.flow .st span{color:var(--muted);font-weight:500;margin-right:4px}
-.flow li ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:6px;font-size:14px;line-height:1.45;color:var(--fg-2)}
-@media(max-width:760px){
-  .flow ol{grid-template-columns:1fr;gap:0}
-  .flow ol::before{top:22px;bottom:22px;left:21px;right:auto;width:2px;height:auto}
-  .flow ol>li{display:grid;grid-template-columns:44px 1fr;column-gap:16px;align-items:start;text-align:left;padding-bottom:20px}
-  .flow ol>li:last-child{padding-bottom:0}
-  .flow .ic{grid-row:1/span 2}
-  .flow .st{margin-top:12px}
-  .flow li ul{margin-top:6px}
+/* accordion */
+.accs{margin-top:36px;border-top:1px solid var(--line)}
+.acc{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;padding:16px 4px;cursor:pointer;font:500 clamp(17px,2vw,19px)/1.35 var(--display);letter-spacing:-.01em;color:var(--fg);transition:color .2s}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary:hover{color:var(--accent-dk)}
+.pm{position:relative;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);flex:none;transition:background .2s,border-color .2s,transform .25s}
+.pm::before,.pm::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.6px;background:var(--accent);transform:translate(-50%,-50%);border-radius:1px;transition:transform .25s}
+.pm::after{transform:translate(-50%,-50%) rotate(90deg)}
+.acc[open] .pm{background:var(--accent);border-color:var(--accent)}
+.acc[open] .pm::before,.acc[open] .pm::after{background:#fff}
+.acc[open] .pm::after{transform:translate(-50%,-50%) rotate(0deg)}
+.acc .body{padding:0 4px 22px;color:var(--fg-2);font-size:16px;animation:drop .25s ease both}
+@keyframes drop{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.acc .body p{max-width:60ch}
+.inl{white-space:nowrap;text-decoration:underline;text-decoration-color:var(--accent-line);text-underline-offset:3px}
+.asks{display:flex;flex-wrap:wrap;align-items:center;gap:0 18px;margin-top:8px}
+.ask{display:inline-flex;align-items:center;gap:6px;min-height:44px;font:600 15px var(--display);color:var(--accent-dk);text-decoration:none}
+.ask:hover{text-decoration:underline;text-underline-offset:4px}
+.ask-alt{display:inline-flex;align-items:center;min-height:44px;font-size:14px;color:var(--muted);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px}
+.fine{font-size:12px;line-height:1.5;color:var(--muted);margin-top:10px;max-width:70ch}
+.poly{display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:center}
+.poly img{width:96px;height:96px;object-fit:cover;border-radius:12px;background:var(--band)}
+.flow{list-style:none;margin:16px 0 4px;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;position:relative}
+.flow::before{content:"";position:absolute;top:17px;left:10%;right:10%;height:1.5px;background:var(--accent-line)}
+.flow li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px}
+.flow .ic{width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;box-shadow:0 0 0 4px #fff;position:relative;z-index:1}
+.flow .ic svg{width:18px;height:18px}
+.flow b{margin-top:6px;font:600 12px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-dk)}
+.flow span:not(.ic){font-size:13px;line-height:1.4;color:var(--muted)}
+@media(max-width:600px){
+  .flow{grid-template-columns:1fr;gap:12px}
+  .flow::before{top:18px;bottom:18px;left:17px;right:auto;width:1.5px;height:auto}
+  .flow li{display:grid;grid-template-columns:36px 76px 1fr;align-items:center;text-align:left;column-gap:12px}
+  .flow b{margin:0}
 }
 
-/* sleep program pricing */
-.prog{margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
-.prog h4{margin:0;font:600 18px/1.3 var(--display);letter-spacing:-.01em;color:var(--fg)}
-.prog p{margin-top:10px}
-.tbl-scroll{margin-top:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:14px}
-.ptbl{width:100%;min-width:520px;border-collapse:collapse;font-size:14px;line-height:1.4;color:var(--fg-2)}
-.ptbl th,.ptbl td{padding:11px 14px;text-align:left;border-top:1px solid var(--line);vertical-align:top}
-.ptbl thead th{border-top:0;font:600 13px var(--body);letter-spacing:.04em;color:var(--muted);background:var(--band)}
-.ptbl tbody th{font-weight:500;color:var(--fg)}
-.ptbl .pt{background:var(--accent-soft);color:var(--fg);font-weight:600;border-left:2px solid var(--accent);border-right:2px solid var(--accent)}
-.ptbl thead .pt{background:var(--accent);color:#fff;border-color:var(--accent)}
-.ptbl tbody tr:last-child .pt{border-bottom:2px solid var(--accent)}
-.ptbl .badge{display:inline-block;margin-left:6px;padding:2px 7px;border-radius:999px;background:#fff;color:var(--accent-dk);font-size:10px;font-weight:700;letter-spacing:.08em;vertical-align:1px}
-@media(max-width:560px){.ptbl{min-width:0;font-size:13px}.ptbl th,.ptbl td{padding:9px 8px}.ptbl thead th{font-size:12px;letter-spacing:.02em}.ptbl .badge{display:block;width:max-content;margin:4px 0 0;font-size:9px;padding:2px 5px}}
-.why{margin-top:14px;background:var(--accent-soft);border-radius:12px;padding:12px 16px;font-size:15px}
-.pty{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:12px;align-items:start}
-@media(max-width:760px){.pty{grid-template-columns:1fr}}
-.keep-card{background:var(--band);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
-.keep-card b.t{display:block;font:600 15px var(--display);color:var(--fg)}
-.keep-card dl{margin:10px 0 0;display:grid;grid-template-columns:1fr auto;gap:6px 12px;font-size:14px;color:var(--fg-2)}
-.keep-card dd{margin:0;text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
-.keep-card .tot{border-top:1px solid var(--line);padding-top:8px;font-weight:600;color:var(--accent-dk)}
-.keep-card small{display:block;margin-top:8px;font-size:12px;color:var(--muted)}
-.prog .support{font-size:15px}
-.prog .fine{line-height:1.5}
-
-/* calculator (from one-case) */
-.calc{margin-top:36px;background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:0 1px 0 rgba(0,0,0,.03),0 24px 60px -30px rgba(22,40,44,.25);overflow:hidden}
-.calc-grid{display:grid;grid-template-columns:1.1fr 1fr}
-@media(max-width:860px){.calc-grid{grid-template-columns:1fr}}
-.inputs{padding:clamp(24px,4vw,44px)}
-.inputs h3{font:600 13px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.field{padding:20px 0;border-bottom:1px solid var(--line)}
-.field:last-of-type{border-bottom:0}
-.field-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
-.field label{font-weight:500;font-size:16px}
-.field .sub{font-size:13px;color:var(--muted);margin-top:2px}
-.val{display:inline-flex;align-items:baseline;gap:2px;font:600 22px var(--display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.val input{width:5.2ch;border:0;background:transparent;font:inherit;text-align:right;color:var(--fg);padding:2px 0;border-bottom:1.5px solid transparent;-moz-appearance:textfield}
+/* calculator, lighter */
+.calc{margin-top:36px;border:1px solid var(--line);border-radius:22px;background:#fff;overflow:hidden}
+.calc-grid{display:grid;grid-template-columns:1.15fr 1fr}
+@media(max-width:820px){.calc-grid{grid-template-columns:1fr}}
+.inputs{padding:clamp(22px,3.6vw,36px)}
+.inputs h3{font:600 12px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.field{padding:16px 0;border-bottom:1px solid var(--line)}
+.field:last-of-type{border-bottom:0;padding-bottom:0}
+.field-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.field label{font-weight:500;font-size:15px}
+.field .sub{display:none}
+.val{display:inline-flex;align-items:baseline;gap:2px;font:600 20px var(--display);font-variant-numeric:tabular-nums}
+.val input{width:5ch;border:0;background:transparent;font:inherit;text-align:right;color:var(--fg);padding:2px 0;border-bottom:1.5px solid transparent;-moz-appearance:textfield}
 .val input::-webkit-outer-spin-button,.val input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 .val input:focus{outline:none;border-bottom-color:var(--accent)}
-.val .unit{font:500 14px var(--body);color:var(--muted);white-space:nowrap}
-input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:transparent;margin-top:10px;cursor:pointer}
-input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(90deg,var(--accent) var(--pct,50%),var(--line) var(--pct,50%))}
-input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:var(--line)}
-input[type=range]::-moz-range-progress{height:4px;border-radius:2px;background:var(--accent)}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:0;margin-top:-11px;box-shadow:0 1px 3px rgba(0,0,0,.25),0 4px 12px rgba(0,0,0,.12)}
-input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:0;box-shadow:0 1px 3px rgba(0,0,0,.25),0 4px 12px rgba(0,0,0,.12)}
-.result{background:var(--night);color:#fff;padding:clamp(24px,4vw,44px);display:flex;flex-direction:column;justify-content:space-between;gap:26px}
-.result .lbl{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--night-muted)}
-.big{font:600 clamp(48px,7vw,78px)/1 var(--display);letter-spacing:-.045em;margin-top:10px;font-variant-numeric:tabular-nums;color:#fff}
-.result .explain{color:var(--night-muted);font-size:15px;margin-top:12px;max-width:36ch}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:18px;border-top:1px solid rgba(255,255,255,.14);padding-top:22px}
-.stat b{display:block;font:600 26px var(--display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.stat span{font-size:13px;color:var(--night-muted)}
-.monthly{background:var(--night-2);border-radius:14px;padding:16px 18px;font-size:15px;line-height:1.45}
-.monthly b{color:#fff;font-variant-numeric:tabular-nums}
-.calc-mail{display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:500;color:#7FD3D9;text-decoration:underline;text-underline-offset:3px}
-.calc-mail:hover{color:#fff}
-.assume{margin-top:18px;text-align:center}
+.val .unit{font:500 13px var(--body);color:var(--muted);white-space:nowrap}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:transparent;margin-top:6px;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:3px;border-radius:2px;background:linear-gradient(90deg,var(--accent) var(--pct,50%),var(--line) var(--pct,50%))}
+input[type=range]::-moz-range-track{height:3px;border-radius:2px;background:var(--line)}
+input[type=range]::-moz-range-progress{height:3px;border-radius:2px;background:var(--accent)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#fff;border:1px solid var(--accent-line);margin-top:-10.5px;box-shadow:0 2px 8px rgba(22,40,44,.15)}
+input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:#fff;border:1px solid var(--accent-line);box-shadow:0 2px 8px rgba(22,40,44,.15)}
+.result{background:var(--accent-soft);padding:clamp(22px,3.6vw,36px);display:flex;flex-direction:column;gap:22px}
+.result .lbl{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-dk)}
+.big{font:600 clamp(44px,6vw,64px)/1 var(--display);letter-spacing:-.04em;margin-top:10px;font-variant-numeric:tabular-nums;color:var(--fg)}
+.monthly{font-size:15px;color:var(--fg-2)}
+.monthly b{font-variant-numeric:tabular-nums}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;border-top:1px solid var(--accent-line);padding-top:18px}
+.stat b{display:block;font:600 21px var(--display);font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted);line-height:1.35}
+.calc-mail{display:inline-flex;align-items:center;min-height:44px;font:600 15px var(--display);color:var(--accent-dk);text-decoration:none}
+.calc-mail:hover{text-decoration:underline;text-underline-offset:4px}
+.assume{margin-top:14px;text-align:center}
 .assume summary{display:inline-flex;align-items:center;min-height:44px;font-size:14px;color:var(--muted);cursor:pointer;list-style:none;padding:6px 14px;border-radius:999px}
 .assume summary::-webkit-details-marker{display:none}
 .assume summary:hover{color:var(--fg);background:rgba(22,40,44,.05)}
-.assume-body{margin:12px auto 0;max-width:860px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:left}
-@media(max-width:820px){.assume-body{grid-template-columns:repeat(2,1fr)}}
+.assume-body{margin:10px auto 0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;text-align:left}
 @media(max-width:480px){.assume-body{grid-template-columns:1fr}}
 .assume-body label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
 .assume-body input{width:100%;font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--band);color:var(--fg)}
 .assume-body input:focus{outline:none;border-color:var(--accent);background:#fff}
 .assume-note{grid-column:1/-1;font-size:13px;color:var(--muted);line-height:1.5}
 
-/* recap (from dandy-one-scroll) */
-.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:32px}
-.grid.four{grid-template-columns:repeat(2,minmax(0,1fr))}
-@media(max-width:560px){.grid.four{grid-template-columns:1fr}}
-.item{display:grid;gap:8px;align-content:start;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 24px;box-shadow:var(--shadow)}
-.item h3{display:flex;align-items:center;gap:10px;font-size:17px}
-.item p{color:var(--muted);font-size:16px;line-height:1.6}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none;opacity:.85}
-.callout{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:var(--r);padding:20px 24px;margin-top:28px;background:var(--accent-soft)}
-.callout p{color:var(--fg-2)}
-.steps{margin-top:32px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
-.step{display:grid;grid-template-columns:84px 1fr;gap:12px;padding:20px 24px;border-bottom:1px solid var(--line);align-items:baseline}
-.step:last-child{border-bottom:0}
-@media(max-width:560px){.step{grid-template-columns:1fr;gap:4px;padding:18px 20px}}
-.step .n{font-family:var(--display);font-weight:600;color:var(--accent)}
-.step p{color:var(--muted);font-size:16px;margin-top:4px}
-.proof{display:grid;gap:16px;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:32px}
-@media(max-width:560px){.proof{grid-template-columns:1fr}}
-.proof>div{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;box-shadow:var(--shadow)}
-.proof .fig{font:600 clamp(34px,5vw,44px)/1 var(--display);letter-spacing:-.03em;color:var(--accent);font-variant-numeric:tabular-nums}
-.proof .cap{color:var(--muted);font-size:15px;margin-top:10px}
-.scanners{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:28px}
-.sc{border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;gap:12px;align-content:start;background:var(--card);box-shadow:var(--shadow)}
-.sc.full{border-color:var(--accent-line);background:var(--accent-soft)}
-.pill{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--card);color:var(--accent-dk);border:1px solid var(--accent-line);width:max-content}
-.sc.partial .pill{background:var(--band);color:var(--muted);border-color:var(--line)}
-.sc ul{margin:0;padding-left:18px;color:var(--muted);font-size:16px;display:grid;gap:4px}
-.recap-video{margin:32px 0 0}
-.recap-video video{width:100%;aspect-ratio:16/9;border-radius:18px;background:#0d1a1d;box-shadow:0 12px 40px rgba(22,40,44,.12)}
-.recap-video figcaption{font-size:13px;color:var(--muted);margin-top:10px}
+/* lab recap */
+.types{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;padding:0;list-style:none}
+.types li{font-size:15px;color:var(--fg-2);border:1px solid var(--line);border-radius:999px;padding:7px 14px}
+.proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px}
+.proof .fig{font:600 clamp(30px,4.4vw,40px)/1 var(--display);letter-spacing:-.03em;color:var(--accent);font-variant-numeric:tabular-nums}
+.proof .cap{color:var(--muted);font-size:14px;margin-top:8px}
+@media(max-width:480px){.proof{grid-template-columns:1fr;gap:22px}}
+.note{font-size:12px;color:var(--muted);margin-top:22px}
 
 /* close */
-.close{text-align:left}
-.close-sub{margin-top:10px;font-size:18px;font-weight:500;color:var(--accent-dk)}
-.contact{margin-top:32px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px 26px;display:flex;gap:18px;align-items:flex-start;max-width:560px;box-shadow:var(--shadow)}
-.contact .av{width:52px;height:52px;border-radius:50%;background:var(--accent-soft);color:var(--accent-dk);display:grid;place-items:center;font:600 17px var(--display);flex:none}
-.contact .nm{font:600 19px var(--display);letter-spacing:-.02em}
-.contact .ti{font-size:15px;color:var(--muted);margin-top:2px}
-.contact .lines{margin-top:6px;display:grid}
-.contact .lines a{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:15px;font-weight:500;color:var(--accent-dk);text-decoration:none;word-break:break-word}
+.close-sub{margin-top:12px;font-size:18px;font-weight:500;color:var(--accent-dk)}
+.cta{display:inline-flex;align-items:center;justify-content:center;min-height:52px;margin-top:30px;padding:14px 28px;background:var(--accent);color:#fff;text-decoration:none;font:600 16px/1.25 var(--display);border-radius:999px;box-shadow:0 8px 22px rgba(10,124,134,.2);transition:background .2s,transform .2s}
+.cta:hover{background:var(--accent-dk);transform:translateY(-1px)}
+.contact{margin-top:44px;padding-top:28px;border-top:1px solid var(--line);display:flex;gap:16px;align-items:flex-start}
+.contact .av{width:48px;height:48px;border-radius:50%;background:#fff;border:1px solid var(--accent-line);color:var(--accent-dk);display:grid;place-items:center;font:600 16px var(--display);flex:none}
+.contact .nm{font:600 18px var(--display);letter-spacing:-.02em}
+.contact .ti{font-size:15px;color:var(--muted)}
+.contact .lines{margin-top:6px;display:flex;flex-wrap:wrap;gap:0 22px}
+.contact .lines a{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-size:15px;font-weight:500;color:var(--accent-dk);text-decoration:none}
 .contact .lines a:hover{text-decoration:underline}
-.contact .lines b{display:inline-block;min-width:22px;white-space:nowrap;font-weight:600;color:var(--muted)}
-@media(max-width:480px){.contact{flex-direction:column;gap:12px}}
-footer{padding:28px 0 48px;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
-footer p+p{margin-top:6px}
-
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.panel.on{animation:none}.cta,.chip{transition:none}}
+.contact .lines b{font-weight:600;color:var(--muted)}
+@media(max-width:480px){.contact .lines{flex-direction:column}}
+footer{padding:28px 0 48px;font-size:13px;color:var(--muted)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.acc .body{animation:none}.cta{transition:none}}
 </style>
 </head>
 <body>
@@ -263,13 +190,11 @@ footer p+p{margin-top:6px}
   </div>
 </header>
 
-<!-- ============ 1 · HERO + VIDEO ============ -->
 <section class="hero" id="top">
   <div class="wrap">
     <div class="eyebrow">Dandy · the digital dental lab</div>
     <h1>Everything Dandy does, in one scroll.</h1>
-    <p class="lead">Start with a real case: a full denture delivered in two appointments. Then tap any topic below.</p>
-
+    <p class="lead">Start with a real case: a full denture delivered in two appointments.</p>
     <div class="yt" id="yt">
       <button type="button" id="ytBtn" aria-label="Play video: Case Study: 2 Appt Denture Workflow (YouTube)">
         <img src="https://i.ytimg.com/vi/aoDJ9Y26Ojw/maxresdefault.jpg" alt="" width="1280" height="720" decoding="async">
@@ -277,176 +202,68 @@ footer p+p{margin-top:6px}
         <span class="cap"><b>Case Study: 2 Appt Denture Workflow</b><small>Dandy · YouTube · tap to play</small></span>
       </button>
     </div>
-    <div class="vid-meta"><span>Case Study: 2 Appt Denture Workflow</span><a class="link" href="https://youtu.be/aoDJ9Y26Ojw" target="_blank" rel="noopener">Watch on YouTube ↗</a></div>
+    <div class="vid-meta"><span>Case Study: 2 Appt Denture Workflow</span><a href="https://youtu.be/aoDJ9Y26Ojw" target="_blank" rel="noopener">Watch on YouTube ↗</a></div>
+  </div>
+</section>
 
-    <!-- ============ 2 · CHIPS ============ -->
-    <div class="chips" id="chips" aria-label="Dandy highlights">
-      <button class="chip" type="button" aria-expanded="false" aria-controls="p-life"><span class="d" aria-hidden="true"></span>Lifetime warranty on crowns</button>
-      <button class="chip" type="button" aria-expanded="false" aria-controls="p-rem"><span class="d" aria-hidden="true"></span>10-year warranty on removables</button>
-      <button class="chip" type="button" aria-expanded="false" aria-controls="p-den"><span class="d" aria-hidden="true"></span>2 Appt Denture case study</button>
-      <button class="chip" type="button" aria-expanded="false" aria-controls="p-poly"><span class="d" aria-hidden="true"></span>Polychromatic shading</button>
-      <button class="chip" type="button" aria-expanded="false" aria-controls="p-sleep"><span class="d" aria-hidden="true"></span>Sleep apnea</button>
-      <button class="chip" type="button" aria-expanded="false" aria-controls="p-mtm"><span class="d" aria-hidden="true"></span>No long-term contracts</button>
-      <button class="chip" type="button" aria-expanded="false" aria-controls="p-5d"><span class="d" aria-hidden="true"></span>5-day crowns</button>
-      <button class="chip" type="button" aria-expanded="false" aria-controls="p-tips"><span class="d" aria-hidden="true"></span>Autoclavable scanner tips</button>
-      <button class="chip" type="button" aria-expanded="false" aria-controls="p-scan"><span class="d" aria-hidden="true"></span>Scanner at no cost</button>
-      <button class="chip" type="button" aria-expanded="false" aria-controls="p-one"><span class="d" aria-hidden="true"></span>Start with one crown</button>
-      <button class="chip" type="button" aria-expanded="false" aria-controls="p-dr"><span class="d" aria-hidden="true"></span>Design review before fabrication</button>
-    </div>
-
-    <div class="panel" id="p-life" role="region" aria-label="Lifetime warranty on crowns" hidden>
-      <button class="x" type="button" aria-label="Close"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
-      <h3>A lifetime warranty on crowns.</h3>
-      <p>Every crown is covered for life, as is all fixed work: bridges, inlays, onlays and veneers. If a restoration needs to be remade, the remake is on us.</p>
-    </div>
-
-    <div class="panel" id="p-rem" role="region" aria-label="10-year warranty on removables" hidden>
-      <button class="x" type="button" aria-label="Close"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
-      <h3>10 years on removables.</h3>
-      <p>Dentures and partials carry a 10-year warranty. Denture designs are stored digitally, so a replacement starts from the file, not from scratch.</p>
-    </div>
-
-    <div class="panel" id="p-den" role="region" aria-label="2 Appt Denture case study" hidden>
-      <button class="x" type="button" aria-label="Close"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
-      <h3>Dentures in two appointments.</h3>
-      <p>Immediate, copy/reference and digital reline dentures: scan at the first visit, seat the finished denture at the second.</p>
-      <ul>
-        <li>Tooth setup and esthetics are reviewed digitally before final processing.</li>
-        <li>Delivery day is a delivery, not a redo.</li>
-      </ul>
-      <div class="links">
-        <a class="link" href="#yt" data-play>Play the case study above</a>
-        <a class="link" href="https://youtu.be/aoDJ9Y26Ojw" target="_blank" rel="noopener">Case Study: 2 Appt Denture Workflow on YouTube ↗</a>
-      </div>
-      <div class="flow">
-        <h4>The Dandy Difference: One Connected Digital Workflow</h4>
-        <ol aria-label="2-appointment denture workflow, 5 steps">
-          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3"/><path d="M4 12h16"/></svg></span><div class="st"><span>1</span>Scan</div><ul><li>Scanning edentulous area.</li><li>Take wash impression on bite rim scan = final impression.</li><li>Utilize Live Scan Review.</li><li>Ability to do Digital Reline.</li></ul></li>
-          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><div class="st"><span>2</span>Order</div><ul><li>Printed or milled.</li><li>Shade of teeth and base.</li><li>Opt into Reimbursement Denture Pricing.</li></ul></li>
-          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/></svg></span><div class="st"><span>3</span>Approve</div><ul><li>Utilize Design Preview to review the setup (masc/fem or characterize the denture itself).</li></ul></li>
-          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></span><div class="st"><span>4</span>Track</div><ul><li>Follow every case in real time.</li></ul></li>
-          <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5l9-4.5 9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5l9 4.5 9-4.5M12 12v9"/></svg></span><div class="st"><span>5</span>Deliver</div><ul><li>90% of dentures are delivered on 2nd appointment.</li><li>If there are issues, 2nd appointment is &ldquo;try-in&rdquo; and patient can leave with teeth and come back for next appointment.</li></ul></li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="panel" id="p-poly" role="region" aria-label="Polychromatic shading" hidden>
-      <button class="x" type="button" aria-label="Close"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
-      <h3>Zirconia strength. Porcelain depth.</h3>
-      <p>Polychromatic Shade&trade; is a patented stain-and-glaze technique that gives solid zirconia lifelike translucency, color gradients and optical depth. Indicated for anterior and posterior.</p>
-      <div class="poly">
-        <img src="../img/poly-pair.jpg" alt="Polychromatic Shade anterior and posterior zirconia crowns" loading="lazy" width="900" height="909">
-        <img src="../img/poly-molar.jpg" alt="Polychromatic Shade zirconia molar crown, color gradient from cervical to occlusal" loading="lazy" width="671" height="1000">
-        <img src="../img/poly-anterior.jpg" alt="Polychromatic Shade anterior zirconia crown showing incisal translucency" loading="lazy" width="900" height="909">
-      </div>
-      <div class="links"><a class="link" href="https://view-su2.highspot.com/viewer/ea88bea189c8682e25df2c84cbe80c45" target="_blank" rel="noopener">Watch: Polychromatic 16 unit zirconia Workflow Video ↗</a></div>
-      <p class="fine">Photos: Dandy</p>
-    </div>
-
-    <div class="panel" id="p-sleep" role="region" aria-label="Sleep apnea" hidden>
-      <button class="x" type="button" aria-label="Close"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
-      <h3>Sleep apnea, inside your hygiene visit.</h3>
-      <ul>
-        <li><b>Training</b> for you and your team on screening and the ordering flow.</li>
-        <li><b>Sleep MD collaboration:</b> a sleep physician reviews each test virtually.</li>
-        <li><b>The Clarity Sleep Ring</b> goes home with the patient for testing, with support for medical billing.</li>
-      </ul>
-      <p>You scan once, Dandy fabricates the appliance, and you deliver and titrate.</p>
-      <div class="links"><a class="link" href="https://view-su2.highspot.com/viewer/a227b041becb3a36b7d7df9f7bd70346" target="_blank" rel="noopener">Open the Dandy Sleep Apnea Hub ↗</a></div>
-      <div class="prog">
-        <h4>Two program options</h4>
-        <div class="tbl-scroll" role="region" aria-label="Sleep program options table" tabindex="0">
-          <table class="ptbl">
-            <thead><tr><th scope="col">Program terms</th><th scope="col" class="pt">Partner<span class="badge">RECOMMENDED</span></th><th scope="col">Independent</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">You price the appliance at</th><td class="pt">$2,500 or less</td><td>Above $2,500</td></tr>
-              <tr><th scope="row">Service fee per appliance</th><td class="pt">$500</td><td>$700</td></tr>
-              <tr><th scope="row">Monthly minimum (non-cancelled tests)</th><td class="pt">4 tests</td><td>None</td></tr>
-              <tr><th scope="row">Fee if the minimum isn't met</th><td class="pt">$100</td><td>N/A</td></tr>
-              <tr><th scope="row">Home sleep tests &amp; telehealth</th><td class="pt">Free</td><td>$100 per patient</td></tr>
-              <tr><th scope="row">Post-treatment sleep studies</th><td class="pt">Free</td><td>$50 each</td></tr>
-              <tr><th scope="row">Extra sleep test rings</th><td class="pt">Free</td><td>$299 each</td></tr>
-              <tr><th scope="row">PMS integration</th><td class="pt">Free at launch</td><td>$100</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="why"><b>Why Partner:</b> our data shows pricing the appliance at $2,500 or less drives 4&times; treatment acceptance versus higher MAD pricing. Partner practices are also eligible for the Path to Yes program.</p>
-      </div>
-      <div class="prog">
-        <h4>Path to Yes (Partner program only)</h4>
-        <div class="pty">
-          <div>
-            <p>Some patients' insurance coverage makes a yes unlikely. Every patient is offered full price first. Only after repeated attempts to encourage treatment do we offer a cash option.</p>
-            <ul>
-              <li><b>We spot the patient.</b> Our data shows how coverage drives acceptance; we flag patients whose coverage is too low.</li>
-              <li><b>We switch them to cash pay.</b> The patient pays you $1,500 directly instead of billing insurance.</li>
-              <li><b>We credit you.</b> The patient hears that you generously lowered your fee to help them get treated.</li>
-            </ul>
-          </div>
-          <div class="keep-card">
-            <b class="t">What you keep per cash case</b>
-            <dl>
-              <dt>Patient pays you</dt><dd>$1,500</dd>
-              <dt>MAD lab fee</dt><dd>&ndash; $599</dd>
-              <dt>Dandy service fee</dt><dd>&ndash; $200</dd>
-              <dt class="tot">You keep at least</dt><dd class="tot">$700</dd>
-            </dl>
-            <small>Paid to you directly by the patient.</small>
-          </div>
-        </div>
-        <p class="support">Program support: <a href="mailto:sleep@meetdandy.com">sleep@meetdandy.com</a></p>
-        <p class="fine">Individual results may vary and are not guaranteed. An evaluation is required to determine whether a patient is a candidate for treatment and what options may be appropriate. Insurance coverage and out-of-pocket costs vary by plan; preauthorization and medical-necessity requirements may apply. Program terms current as of October 2026.</p>
-      </div>
-    </div>
-
-    <div class="panel" id="p-mtm" role="region" aria-label="No long-term contracts" hidden>
-      <button class="x" type="button" aria-label="Close"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
-      <h3>A partnership, not a contract.</h3>
-      <p>Dandy is month to month. Pause or cancel anytime. No software fees and no hidden fees.</p>
-    </div>
-
-    <div class="panel" id="p-5d" role="region" aria-label="5-day crowns" hidden>
-      <button class="x" type="button" aria-label="Close"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
-      <h3>Crowns in 5 days.</h3>
-      <p>Crowns and bridges turn around in 5 business days. Your team tracks every case in the portal and mobile app, without a call to the lab.</p>
-    </div>
-
-    <div class="panel" id="p-tips" role="region" aria-label="Autoclavable scanner tips" hidden>
-      <button class="x" type="button" aria-label="Close"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
-      <h3>Autoclavable scanner tips.</h3>
-      <p>Your scanner arrives with 5 autoclavable scanner tips (150 cycles), included at no cost.</p>
-    </div>
-
-    <div class="panel" id="p-scan" role="region" aria-label="Scanner at no cost" hidden>
-      <button class="x" type="button" aria-label="Close"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
-      <h3>The scanner is placed by Dandy.</h3>
-      <p>Dandy places a 3Shape TRIOS or Dandy Vision scanner at no cost, with the laptop, operatory cart and software included. Already own a TRIOS? We add Dandy to it.</p>
-      <p class="fine">Scanner placement is subject to Dandy's standard Practice Agreement terms.</p>
-    </div>
-
-    <div class="panel" id="p-one" role="region" aria-label="Start with one crown" hidden>
-      <button class="x" type="button" aria-label="Close"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
-      <h3>Start with one crown.</h3>
-      <p>No contract, no software fees. Send a single case and judge fit, contacts and turnaround against what you see today. Keep your current lab while you do.</p>
-    </div>
-
-    <div class="panel" id="p-dr" role="region" aria-label="Design review before fabrication" hidden>
-      <button class="x" type="button" aria-label="Close"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
-      <h3>You approve it before it exists.</h3>
-      <p>Fixed and removable cases get a digital design review before fabrication. See it in 3D, talk it through with the technician making it, and sign off when it's right.</p>
+<section class="band" id="highlights">
+  <div class="wrap">
+    <div class="eyebrow">At a glance</div>
+    <h2>What working with Dandy looks like.</h2>
+    <div class="accs">
+      <details class="acc">
+        <summary><span>Lifetime warranty on crowns</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="body"><p>Every crown is covered for life, along with all fixed work.</p><div class="asks"><a class="ask" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20Lifetime%20warranty%20on%20crowns">Ask what's covered <span aria-hidden="true">&rarr;</span></a><a class="ask-alt" href="sms:6464238981">or text Kristi</a></div></div>
+      </details>
+      <details class="acc">
+        <summary><span>10-year warranty on removables</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="body"><p>Dentures and partials carry a 10-year warranty.</p><div class="asks"><a class="ask" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%2010-year%20warranty%20on%20removables">Ask what's covered <span aria-hidden="true">&rarr;</span></a><a class="ask-alt" href="sms:6464238981">or text Kristi</a></div></div>
+      </details>
+      <details class="acc">
+        <summary><span>2 Appt Denture case study</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="body"><p>Scan at the first visit, seat the finished denture at the second. <a class="inl" href="#yt" data-play>Play the case study</a></p><ol class="flow" aria-label="The Dandy Difference: One Connected Digital Workflow"><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3"/><path d="M4 12h16"/></svg></span><b>Scan</b><span>Bite rim scan = final impression.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><b>Order</b><span>Printed or milled.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/></svg></span><b>Approve</b><span>Review the setup in Design Preview.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></span><b>Track</b><span>Follow every case in real time.</span></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5l9-4.5 9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5l9 4.5 9-4.5M12 12v9"/></svg></span><b>Deliver</b><span>90% of dentures are delivered on 2nd appointment.</span></li></ol><div class="asks"><a class="ask" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%202%20Appt%20Denture%20workflow">Ask for the full case walkthrough <span aria-hidden="true">&rarr;</span></a><a class="ask-alt" href="sms:6464238981">or text Kristi</a></div></div>
+      </details>
+      <details class="acc">
+        <summary><span>Polychromatic shading</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="body"><div class="poly"><img src="../img/poly-pair.jpg" alt="Polychromatic Shade anterior and posterior zirconia crowns" loading="lazy" width="900" height="909"><p>A patented stain-and-glaze technique that gives solid zirconia lifelike translucency and depth. <a class="inl" href="https://view-su2.highspot.com/viewer/ea88bea189c8682e25df2c84cbe80c45" target="_blank" rel="noopener">Watch the 16-unit workflow&nbsp;&#8599;</a></p></div><div class="asks"><a class="ask" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20Polychromatic%20shading">Ask Kristi about Polychromatic Shade <span aria-hidden="true">&rarr;</span></a><a class="ask-alt" href="sms:6464238981">or text Kristi</a></div></div>
+      </details>
+      <details class="acc">
+        <summary><span>Sleep apnea</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="body"><p>Two program options, including one where home sleep tests and telehealth are included. A cash-pay path that helps more patients say yes.</p><div class="asks"><a class="ask" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20Sleep%20apnea%20program%20breakdown">Ask for the program breakdown <span aria-hidden="true">&rarr;</span></a><a class="ask-alt" href="sms:6464238981">or text Kristi</a></div><p class="fine">Individual results may vary and are not guaranteed. An evaluation is required to determine whether a patient is a candidate for treatment and what options may be appropriate. Insurance coverage and out-of-pocket costs vary by plan; preauthorization and medical-necessity requirements may apply. Program terms current as of October 2026.</p></div>
+      </details>
+      <details class="acc">
+        <summary><span>No long-term contracts</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="body"><p>Month to month. Pause or cancel anytime.</p><div class="asks"><a class="ask" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20No%20long-term%20contracts">Ask Kristi how this works <span aria-hidden="true">&rarr;</span></a><a class="ask-alt" href="sms:6464238981">or text Kristi</a></div></div>
+      </details>
+      <details class="acc">
+        <summary><span>5-day crowns</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="body"><p>Crowns and bridges in 5 business days.</p><div class="asks"><a class="ask" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%205-day%20crowns">Ask about turnaround for your cases <span aria-hidden="true">&rarr;</span></a><a class="ask-alt" href="sms:6464238981">or text Kristi</a></div></div>
+      </details>
+      <details class="acc">
+        <summary><span>Autoclavable scanner tips</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="body"><p>5 autoclavable scanner tips (150 cycles), included at no cost.</p><div class="asks"><a class="ask" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20Autoclavable%20scanner%20tips">Ask Kristi how this works <span aria-hidden="true">&rarr;</span></a><a class="ask-alt" href="sms:6464238981">or text Kristi</a></div></div>
+      </details>
+      <details class="acc">
+        <summary><span>Scanner at no cost</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="body"><p>A 3Shape TRIOS or Dandy Vision scanner, placed by Dandy at no cost. Already own a TRIOS? We add Dandy to it.</p><div class="asks"><a class="ask" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20Scanner%20at%20no%20cost">Ask if your practice qualifies <span aria-hidden="true">&rarr;</span></a><a class="ask-alt" href="sms:6464238981">or text Kristi</a></div></div>
+      </details>
+      <details class="acc">
+        <summary><span>Start with one crown</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="body"><p>No contract, no software fees. Send us one case and judge the fit yourself.</p><div class="asks"><a class="ask" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20Start%20with%20one%20crown">Ask about starting with one crown <span aria-hidden="true">&rarr;</span></a><a class="ask-alt" href="sms:6464238981">or text Kristi</a></div></div>
+      </details>
+      <details class="acc">
+        <summary><span>Design review before fabrication</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="body"><p>See the case in 3D and sign off before it&rsquo;s made. Fixed and removable.</p><div class="asks"><a class="ask" href="mailto:kristi.dillon@meetdandy.com?subject=Question%3A%20Design%20review%20before%20fabrication">Ask to see Design Preview <span aria-hidden="true">&rarr;</span></a><a class="ask-alt" href="sms:6464238981">or text Kristi</a></div></div>
+      </details>
     </div>
   </div>
 </section>
 
-<!-- ============ 3 · CALCULATOR (from one-case) ============ -->
-<section class="band" id="cost">
+<section id="cost">
   <div class="wrap">
-    <div class="narrow">
-      <div class="eyebrow">Your number</div>
-      <h2>What are remakes and adjustments costing you a year?</h2>
-      <p class="lead">Drag the sliders to match your practice. The result is your chair time, valued the way you value it.</p>
-    </div>
-
+    <div class="eyebrow">Your number</div>
+    <h2>What are remakes and adjustments costing you a year?</h2>
+    <p class="lead">Drag the sliders to match your practice. The result is your chair time, valued the way you value it.</p>
     <div class="calc">
       <div class="calc-grid">
         <div class="inputs">
@@ -494,25 +311,22 @@ footer p+p{margin-top:6px}
             <input type="range" id="staffwage_r" min="15" max="75" value="28" aria-label="Staff hourly wage in dollars">
           </div>
         </div>
-
         <div class="result" aria-live="polite">
           <div>
             <div class="lbl">Chair + staff time lost per year</div>
             <div class="big"><span id="rDollars">$0</span></div>
-            <p class="explain">From remakes you'd avoid, minutes back at the seat, and staff hours no longer spent chasing a case, at your own numbers.</p>
           </div>
+          <p class="monthly">About <b id="rMonthly">$0</b> a month at the current pace.</p>
           <div class="stats">
             <div class="stat"><b id="rHours">0</b><span>chair hours reclaimed a year</span></div>
             <div class="stat"><b id="rRemakes">0</b><span>remakes you wouldn't do</span></div>
             <div class="stat"><b id="rStaffHours">0</b><span>staff hours reclaimed a year</span></div>
             <div class="stat"><b id="rStaffCost">$0</b><span>front-desk cost avoided a year</span></div>
           </div>
-          <div class="monthly">Every month at the current pace costs about <b id="rMonthly">$0</b> in chair and staff time.</div>
-          <a class="calc-mail" id="calcMail" href="mailto:kristi.dillon@meetdandy.com?subject=My%20Scan%20to%20Seat%20numbers">Send my numbers to Kristi</a>
+          <a class="calc-mail" id="calcMail" href="mailto:kristi.dillon@meetdandy.com?subject=My%20Scan%20to%20Seat%20numbers">Send my numbers to Kristi <span aria-hidden="true">&nbsp;&rarr;</span></a>
         </div>
       </div>
     </div>
-
     <details class="assume">
       <summary>What we're assuming, and how to change it</summary>
       <div class="assume-body">
@@ -527,80 +341,27 @@ footer p+p{margin-top:6px}
   </div>
 </section>
 
-<!-- ============ 4 · RECAP (from dandy-one-scroll) ============ -->
-<section id="recap">
+<section class="band" id="lab">
   <div class="wrap">
-    <div class="eyebrow">Recap · the lab</div>
+    <div class="eyebrow">The lab</div>
     <h2>One lab for crowns, implants, removables and appliances.</h2>
-    <p class="lead">Scan bodies, surgical planning, live scan support and case management, all in one digitally fueled, human-operated lab.</p>
-    <div class="grid four">
-      <div class="item"><h3><span class="dot"></span>Crown &amp; bridge</h3><p>Monolithic zirconia, translucent aesthetic zirconia, PFZ, Emax and layered Emax, bridges.</p></div>
-      <div class="item"><h3><span class="dot"></span>Implants</h3><p>Implant crowns, custom abutments, surgical guides, scan bodies.</p></div>
-      <div class="item"><h3><span class="dot"></span>Removables</h3><p>2-Appointment Dentures, immediate and overdentures, straight-to-finish acrylic, flexible and chrome cobalt partials.</p></div>
-      <div class="item"><h3><span class="dot"></span>Appliances</h3><p>Night guards, splints, retainers, aligners and sleep appliances, all ordered from the same portal.</p></div>
-    </div>
-    <div class="callout">
-      <p><strong>Warranty:</strong> lifetime on crowns and fixed restorations, 10 years on removables. One connected workflow from scan to delivery, no outside partners to manage. Month to month, no long-term contract, no software fees, no hidden fees.</p>
-    </div>
-  </div>
-</section>
-
-<section class="band">
-  <div class="wrap">
-    <div class="eyebrow">Recap · the scanner</div>
-    <h2>Scanner, software, and lab support, all placed by Dandy at no cost.</h2>
-    <p class="lead">We provide a 3Shape TRIOS or a Dandy Vision scanner, or we add Dandy to the TRIOS you already own.</p>
-    <figure class="recap-video">
-      <video controls playsinline preload="none" poster="media/scan-to-seat-poster.jpg" src="media/scan-to-seat-v4.mp4" aria-label="Scan to seat with Dandy, video"></video>
-      <figcaption>Scan to seat with Dandy</figcaption>
-    </figure>
-    <div class="steps">
-      <div class="step"><span class="n">Scan</span><div><h3>AI-guided scanning, full arch in about 45 seconds</h3><p>Real-time prep guidance flags margins, undercuts and clearance while you scan. Autoclavable scanner tips, scanner, laptop and cart are all included.</p></div></div>
-      <div class="step"><span class="n">Review</span><div><h3>Unlimited live scan reviews, under 2 minutes each</h3><p>A lab technician checks the scan while the patient is still in the chair, by chat or video call.</p></div></div>
-      <div class="step"><span class="n">Preview</span><div><h3>Design preview before fabrication</h3><p>You see the case while it is being made and change it before it ships.</p></div></div>
-      <div class="step"><span class="n">Make</span><div><h3>Made in Dandy's US labs</h3><p>The majority of fixed and removable work is manufactured in Lehi, UT and Dallas, TX, with a small number of specialized partner labs.</p></div></div>
-      <div class="step"><span class="n">Seat</span><div><h3>Crowns and bridges in 5 business days</h3><p>Lab tech chat answers in under a minute, with a case portal and mobile app to track every case.</p></div></div>
-    </div>
-    <div class="grid">
-      <div class="item"><h3><span class="dot"></span>Instant Smile Simulator</h3><p>Upload a full-face smile photo, simulate an orthodontic or restorative result, and share a before/after link with the patient.</p></div>
-      <div class="item"><h3><span class="dot"></span>CE-accredited training</h3><p>Live, virtual training for the doctor and the team, with 2 CEs on a Dandy-placed scanner.</p></div>
-      <div class="item"><h3><span class="dot"></span>Clinical support team</h3><p>In-operatory chairside support when you want a second set of eyes on a prep or a scan.</p></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="eyebrow">Our data shows</div>
-    <h2>What offices see once the work is here.</h2>
+    <ul class="types"><li>Crown &amp; bridge</li><li>Implants</li><li>Removables</li><li>Appliances</li></ul>
     <div class="proof">
       <div><div class="fig">5 days</div><div class="cap">crown &amp; bridge turnaround</div></div>
       <div><div class="fig">&lt;2 min</div><div class="cap">live technician scan review</div></div>
       <div><div class="fig">7,000+</div><div class="cap">practices on Dandy</div></div>
     </div>
     <p class="note">Figures are Dandy's internal data. Results vary by office and case mix.</p>
-
-    <div class="eyebrow" style="margin-top:56px">Already have a scanner?</div>
-    <h2>Ask us if we work with your existing scanner.</h2>
-    <div class="scanners">
-      <div class="sc full"><span class="pill">Every feature</span><h3>3Shape TRIOS</h3><ul><li>Same features as a Dandy-placed scanner</li><li>Fixed, removables, implants, appliances</li><li>Live scan review and design previews</li></ul></div>
-      <div class="sc partial"><span class="pill">Fixed restorative only</span><h3>Other scanners (for example iTero)</h3><ul><li>If eligible, can be used for fixed restorative cases</li><li>Ask me and I'll confirm whether yours qualifies</li></ul></div>
-    </div>
-    <div class="callout">
-      <p><strong>What you receive:</strong> Dandy-placed scanner, laptop and operatory cart · CE-accredited training for you and your team · unlimited live scan reviews · lab technician chairside support · design previews · warranty on all products and equipment.</p>
-    </div>
   </div>
 </section>
 
-<!-- ============ 5 · CTA + CONTACT ============ -->
-<section class="band close" id="lab-bill">
+<section id="lab-bill">
   <div class="wrap">
     <div class="eyebrow">Next step</div>
     <h2>Show me your lab bill. I'll show you Dandy.</h2>
     <p class="close-sub">Start with one crown. No contract, no software fees.</p>
     <p class="lead">Send me what you spend with your current lab, or forward a recent invoice, and I'll put together a side-by-side comparison to see if Dandy can beat it.</p>
-    <a class="cta" style="margin-top:26px" href="mailto:kristi.dillon@meetdandy.com?subject=Can%20Dandy%20beat%20my%20lab%20bill%3F&amp;body=Current%20lab%28s%29%3A%20%0D%0AMonthly%20lab%20spend%20%28%24%29%3A%20%0D%0ACrowns%2Funits%20per%20month%3A%20%0D%0AOther%20case%20types%20%28implants%2C%20dentures%2C%20appliances%29%3A%20%0D%0AAttach%20a%20recent%20lab%20invoice%20if%20handy.%0D%0A%0D%0AName%3A%20%0D%0APractice%3A%20%0D%0APractice%20address%3A%20%0D%0ANumber%20of%20doctors%3A%20%0D%0AOperatories%3A%20%0D%0ACurrent%20scanner%20%28if%20any%29%3A%20%0D%0ABest%20email%3A%20%0D%0A">Share my current lab spend</a>
-
+    <a class="cta" href="mailto:kristi.dillon@meetdandy.com?subject=Can%20Dandy%20beat%20my%20lab%20bill%3F&amp;body=Current%20lab%28s%29%3A%20%0D%0AMonthly%20lab%20spend%20%28%24%29%3A%20%0D%0ACrowns%2Funits%20per%20month%3A%20%0D%0AOther%20case%20types%20%28implants%2C%20dentures%2C%20appliances%29%3A%20%0D%0AAttach%20a%20recent%20lab%20invoice%20if%20handy.%0D%0A%0D%0AName%3A%20%0D%0APractice%3A%20%0D%0APractice%20address%3A%20%0D%0ANumber%20of%20doctors%3A%20%0D%0AOperatories%3A%20%0D%0ACurrent%20scanner%20%28if%20any%29%3A%20%0D%0ABest%20email%3A%20%0D%0A">Share my current lab spend</a>
     <div class="contact" id="contact">
       <div class="av" aria-hidden="true">KD</div>
       <div>
@@ -619,7 +380,6 @@ footer p+p{margin-top:6px}
 <footer>
   <div class="wrap">
     <p>Prepared for you by Kristi Dillon, BS, RDH · Account Executive, Dandy</p>
-    <p>Case availability and materials vary by restoration. Ask about the specific case you have in mind.</p>
   </div>
 </footer>
 
@@ -641,22 +401,6 @@ footer p+p{margin-top:6px}
   document.querySelectorAll('[data-play]').forEach(function(a){
     a.addEventListener('click',function(e){e.preventDefault();box.scrollIntoView({behavior:'smooth',block:'center'});play();});
   });
-})();
-
-// ---------- chips: one panel open at a time; click again or × to close ----------
-(function(){
-  var chips=[].slice.call(document.querySelectorAll('.chip'));
-  function closeAll(){chips.forEach(function(c){c.setAttribute('aria-expanded','false');var p=document.getElementById(c.getAttribute('aria-controls'));p.hidden=true;p.classList.remove('on');});}
-  chips.forEach(function(c){
-    var p=document.getElementById(c.getAttribute('aria-controls'));
-    c.addEventListener('click',function(){
-      var open=c.getAttribute('aria-expanded')==='true';
-      closeAll();
-      if(!open){c.setAttribute('aria-expanded','true');p.hidden=false;p.classList.add('on');}
-    });
-    p.querySelector('.x').addEventListener('click',function(){closeAll();c.focus();});
-  });
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){var o=chips.filter(function(c){return c.getAttribute('aria-expanded')==='true';})[0];if(o){closeAll();o.focus();}}});
 })();
 
 // ---------- calculator (from one-case) ----------
