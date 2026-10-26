@@ -7,6 +7,9 @@
 <title>Your lab bill isn&rsquo;t what&rsquo;s costing you. Remakes are. · The Dandy Way</title>
 <meta name="description" content="What remakes and adjustments cost your practice in chair time, how Dandy works from scan to seat, and how to start with one crown. No contract, no software fees.">
 <link rel="canonical" href="https://kristidillon.github.io/one-case/all/">
+<link rel="alternate" hreflang="en" href="https://kristidillon.github.io/one-case/all/">
+<link rel="alternate" hreflang="es" href="https://kristidillon.github.io/one-case/all/es/">
+<link rel="alternate" hreflang="x-default" href="https://kristidillon.github.io/one-case/all/">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
@@ -69,7 +72,14 @@ p{margin:0}
 
 /* top bar */
 .top{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;justify-content:center;min-height:48px}
+.top .wrap{position:relative;display:flex;align-items:center;justify-content:center;min-height:48px}
+.lang{position:absolute;top:50%;right:calc(max(24px,env(safe-area-inset-right,0px)) - 18px);transform:translateY(-50%);display:flex;align-items:center;font:500 var(--t-sm)/1 var(--body);letter-spacing:.06em}
+.lang-cur{display:inline-flex;align-items:center;min-width:44px;min-height:44px;color:var(--fg);font-weight:600}
+.lang-sep{color:var(--muted);opacity:.45;padding:0 1px}
+.lang a{display:inline-flex;align-items:center;min-width:44px;min-height:44px;border-radius:10px;color:var(--accent-dk);text-decoration-line:underline;text-decoration-color:transparent;text-decoration-thickness:1.5px;text-underline-offset:4px;transition:color .18s ease,text-decoration-color .18s ease,background-color .18s ease}
+.lang>:first-child{justify-content:flex-end;padding-right:8px}.lang>:last-child{justify-content:flex-start;padding-left:8px}
+.lang a:focus-visible{outline-offset:-2px}
+@media(max-width:600px){.top .wrap{justify-content:space-between}.lang{position:static;transform:none;margin-right:-18px}}
 .brand{display:inline-flex;align-items:center;min-height:44px;font:600 var(--t-md)/1 var(--display);letter-spacing:-.01em;color:var(--fg);text-decoration:none}
 .brand span{color:var(--muted);font-weight:500;margin-left:6px}
 
@@ -296,6 +306,7 @@ input[type=range]::-webkit-slider-thumb{transition:transform .15s ease,box-shado
   .sheet-x:hover{background-color:var(--band);color:var(--fg)}
   .assume summary:hover{color:var(--fg);background-color:rgba(10,124,134,.06)}
   .lf-alt a:hover{color:var(--accent);text-decoration-thickness:2px}
+  .lang a:hover{color:var(--accent);text-decoration-color:currentColor}
   input[type=range]:hover::-webkit-slider-thumb{transform:scale(1.12);box-shadow:0 2px 8px rgba(22,40,44,.3),0 0 0 6px rgba(10,124,134,.12)}
 }
 /* press / tap feedback (all devices) */
@@ -308,6 +319,7 @@ input[type=range]::-webkit-slider-thumb{transition:transform .15s ease,box-shado
 .sheet-x:active{transform:scale(.92);background-color:var(--band)}
 .assume summary:active{background-color:rgba(10,124,134,.08)}
 .lf-alt a:active{color:var(--accent)}
+.lang a:active{color:var(--accent);text-decoration-color:currentColor;opacity:.75}
 input[type=range]:active::-webkit-slider-thumb{transform:scale(1.15);box-shadow:0 2px 8px rgba(22,40,44,.3),0 0 0 8px rgba(10,124,134,.15)}
 @media(max-width:640px){.acc-btn::before{box-shadow:-12px 0 0 rgba(10,124,134,.06),12px 0 0 rgba(10,124,134,.06)}}
 @media(prefers-reduced-motion:reduce){
@@ -324,6 +336,7 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.15);box-shadow:
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top">The Dandy Way<span>· Kristi Dillon</span></a>
+    <nav class="lang" aria-label="Language"><span class="lang-cur" lang="en" aria-current="page">EN</span><span class="lang-sep" aria-hidden="true">|</span><a href="es/" hreflang="es" lang="es" aria-label="Ver en español" data-keepq>ES</a></nav>
   </div>
 </header>
 
@@ -559,6 +572,8 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.15);box-shadow:
 
 <script>
 document.documentElement.classList.remove('no-js');
+// ---------- language switch keeps the query string (UTMs) ----------
+if(location.search)document.querySelectorAll('a[data-keepq]').forEach(function(a){a.setAttribute('href',a.getAttribute('href').split('?')[0]+location.search);});
 // ---------- accordion ----------
 document.querySelectorAll('.acc').forEach(function(acc){
   var b=acc.querySelector('.acc-btn');
