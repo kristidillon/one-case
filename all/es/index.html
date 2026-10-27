@@ -29,8 +29,8 @@
 <meta name="twitter:description" content="Vea lo que las repeticiones y los ajustes le cuestan en tiempo de sillón y empiece con una sola corona. Sin contrato, sin costos de software.">
 <meta name="twitter:image" content="https://kristidillon.github.io/one-case/all/og-image.jpg?v=1">
 <meta name="twitter:image:alt" content="Lo que le cuesta no es su factura de laboratorio. Son las repeticiones. — coronas de zirconia">
-<link rel="preload" as="image" href="../media/scan-to-seat-poster-m.webp" media="(max-width: 600px)" type="image/webp" fetchpriority="high">
-<link rel="preload" as="image" href="../media/scan-to-seat-poster-768.webp" imagesrcset="../media/scan-to-seat-poster-768.webp 768w, ../media/scan-to-seat-poster.webp 1280w" imagesizes="(max-width: 1028px) 100vw, 980px" media="(min-width: 601px)" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="../media/scan-to-seat-poster-es-m.webp" media="(max-width: 600px)" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="../media/scan-to-seat-poster-es-768.webp" imagesrcset="../media/scan-to-seat-poster-es-768.webp 768w, ../media/scan-to-seat-poster-es.webp 1280w" imagesizes="(max-width: 1028px) 100vw, 980px" media="(min-width: 601px)" type="image/webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
@@ -357,8 +357,8 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.15);box-shadow:
     <div id="heroCtas"><div class="ctas"><a class="btn" href="#lead" data-lead="Lab bill comparison" data-lead-es="Comparación de factura de laboratorio">Comparar mi factura de laboratorio</a><a class="link" data-cal href="https://calendly.com/kristi-dillon-meetdandy" target="_blank" rel="noopener">Agendar una demo<span class="arr" aria-hidden="true">&#8599;</span><span class="sr">(se abre en una pestaña nueva)</span></a></div>
     <p class="small">Empiece con una sola corona. Sin contrato, sin costos de software.</p></div>
     <div class="yt" id="yt">
-      <button type="button" id="ytBtn" aria-label="Reproducir video (en inglés): Scan to seat. The Dandy way. Del escaneo a la colocación.">
-        <picture><source type="image/webp" media="(max-width: 600px)" srcset="../media/scan-to-seat-poster-m.webp"><source type="image/webp" srcset="../media/scan-to-seat-poster-768.webp 768w, ../media/scan-to-seat-poster.webp 1280w" sizes="(max-width: 1028px) 100vw, 980px"><img src="../media/scan-to-seat-poster.jpg" alt="" width="1280" height="720" decoding="async" fetchpriority="high"></picture><span class="vlang" aria-hidden="true">Video en inglés</span>
+      <button type="button" id="ytBtn" aria-label="Reproducir video: Del escaneo a la colocación. A la manera de Dandy.">
+        <picture><source type="image/webp" media="(max-width: 600px)" srcset="../media/scan-to-seat-poster-es-m.webp"><source type="image/webp" srcset="../media/scan-to-seat-poster-es-768.webp 768w, ../media/scan-to-seat-poster-es.webp 1280w" sizes="(max-width: 1028px) 100vw, 980px"><img src="../media/scan-to-seat-poster-es.jpg" alt="" width="1280" height="720" decoding="async" fetchpriority="high"></picture>
       </button>
     </div>
   </div>
@@ -598,10 +598,10 @@ document.querySelectorAll('.acc').forEach(function(acc){
     var v=document.createElement('video');
     // phones (<=600px) get the 4:5 cut with larger type; everything else the 1920x1080 cut
     var m=window.matchMedia('(max-width: 600px)').matches;
-    v.src=m?'../media/scan-to-seat-v5-mobile.mp4':'../media/scan-to-seat-v5-1920.mp4';
-    v.poster=m?'../media/scan-to-seat-v5-frame0-m.webp':'../media/scan-to-seat-v5-frame0.webp'; v.preload='auto';
+    v.src=m?'../media/scan-to-seat-v5-es-mobile.mp4':'../media/scan-to-seat-v5-es-1920.mp4';
+    v.poster=m?'../media/scan-to-seat-v5-es-frame0-m.webp':'../media/scan-to-seat-v5-es-frame0.webp'; v.preload='auto';
     v.controls=true; v.playsInline=true; v.setAttribute('playsinline','');
-    v.title='Scan to seat. The Dandy way. (video en inglés)';
+    v.title='Del escaneo a la colocación. A la manera de Dandy.';
     box.replaceChild(v,btn);
     if(m){
       box.classList.add('yt-portrait');
