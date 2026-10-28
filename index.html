@@ -103,6 +103,7 @@ section{padding:clamp(96px,13vw,168px) 0}
 .hero .lede{max-width:600px;margin:26px auto 0}
 .hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:38px}
 .hero .hint{margin-top:22px;font-size:14px;color:var(--muted)}
+.hero-art{width:min(520px,88%);height:auto;margin:clamp(40px,6vw,64px) auto 0;opacity:.85}
 .hero h1 em{font-style:normal;color:var(--muted);font-weight:500}
 
 /* ---------- pain scenes ---------- */
@@ -216,6 +217,22 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.08)}
 .panel .until{margin-top:20px;background:var(--white);border-radius:18px;padding:16px 20px;font-size:14px;color:var(--ink-2);line-height:1.5}
 .panel .until b{color:var(--ink);font-weight:600}
 /* ---------- scanner ---------- */
+.spec{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:72px;border-top:1px solid var(--hair)}
+@media(max-width:820px){.spec{grid-template-columns:1fr}}
+.spec div{padding:28px 24px;border-bottom:1px solid var(--hair);text-align:left}
+@media(min-width:821px){.spec div:not(:nth-child(3n+1)){border-left:1px solid var(--hair)}}
+.spec b{display:block;font-size:clamp(24px,2.8vw,32px);font-weight:600;letter-spacing:-.035em;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.spec span{display:block;margin-top:10px;font-size:14px;color:var(--muted);line-height:1.45}
+.models{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}
+@media(max-width:640px){.models{grid-template-columns:1fr}}
+.models div{background:var(--ground);border-radius:22px;padding:26px 28px;text-align:left}
+.band .models div{background:var(--white)}
+.models img{width:100%;height:84px;object-fit:contain;object-position:left center;margin-bottom:18px}
+.preview-shot{display:block;width:min(640px,100%);height:auto;background:#fff;margin:clamp(40px,6vw,64px) auto 0;border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.10),0 0 0 1px var(--hair)}
+.scanner-shot{width:min(560px,86%);height:auto;margin:clamp(40px,6vw,64px) auto 0;filter:drop-shadow(0 30px 40px rgba(0,0,0,.12))}
+.models b{display:block;font-size:17px;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.models span{display:block;margin-top:6px;font-size:14px;color:var(--muted);line-height:1.45}
+.scanner-note{margin-top:30px;font-size:13px;color:var(--muted);text-align:center}
 .fn{font-size:.35em;vertical-align:super;margin-left:2px;color:var(--muted)}
 .pick{margin:64px auto 0;max-width:820px;text-align:left;background:var(--white);border-radius:24px;overflow:hidden;border:1px solid var(--hair)}
 .pick-head,.pick-row{display:grid;grid-template-columns:1.3fr 1fr 1fr;align-items:center}
@@ -423,6 +440,7 @@ footer .rep{color:var(--ink);font-weight:500}
       </a>
     </div>
     <p class="hint rv d3">No sign-up. Keep your current lab.<br><span class="sms-line">Prefer to text? <a class="sms-link" href="sms:+18454239166?&amp;body=CROWN">Text CROWN to 845-423-9166</a></span></p>
+    <img class="hero-art rv d3" src="assets/img/teeth-lineart.webp" width="1400" height="1125" alt="" aria-hidden="true" decoding="async">
   </div>
 </header>
 
@@ -1033,6 +1051,15 @@ function carryUtm(sel){
   if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
   const io=new IntersectionObserver((entries)=>{entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
   els.forEach(e=>io.observe(e));
+})();
+
+// ---------- design preview video: play only while on screen ----------
+(function(){
+  const v=document.getElementById('previewVid');
+  if(!v)return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window)){v.controls=true;v.preload='metadata';return;}
+  const io=new IntersectionObserver((entries)=>{entries.forEach(en=>{if(en.isIntersecting){v.play().catch(()=>{v.controls=true;});}else{v.pause();}});},{threshold:.35});
+  io.observe(v);
 })();
 
 // ---------- calculator ----------
