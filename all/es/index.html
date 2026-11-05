@@ -234,6 +234,15 @@ dialog.sheet.tldr{width:min(760px,calc(100% - 32px))}
 .tl-btn{font:600 var(--t-sm)/1 var(--body);color:var(--accent-dk);border:1px solid var(--line);border-radius:999px;padding:10px 16px;background:#fff;cursor:pointer}
 .tl-btn:hover{border-color:var(--accent)}
 @media(max-width:560px){dialog.sheet.tldr{width:100%}.tl-cmp{grid-template-columns:1fr}}
+.promise+.close{padding-top:clamp(var(--s6),6vw,var(--s8))}
+.promise{padding-bottom:clamp(var(--s6),6vw,var(--s8))}
+.pr-grid{list-style:none;padding:0;margin:clamp(var(--s5),5vw,var(--s8)) auto 0;max-width:1080px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3)}
+.pr-grid li{background:var(--band);border:1px solid var(--line);border-radius:20px;padding:var(--s4)}
+.pr-ic{width:44px;height:44px;border-radius:50%;background:var(--accent-soft);color:var(--accent-dk);display:grid;place-items:center;margin-bottom:var(--s2)}
+.pr-ic svg{width:22px;height:22px}
+.pr-grid h3{font:600 var(--t-lg,22px)/1.2 var(--display);letter-spacing:-.015em;margin:0 0 var(--s1)}
+.pr-grid p{color:var(--muted);line-height:1.5;margin:0}
+@media(max-width:760px){.pr-grid{grid-template-columns:1fr}}
 .note{font-size:var(--t-sm);color:var(--muted);margin-top:var(--s6);text-align:center}
 
 /* close */
@@ -576,6 +585,16 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.15);box-shadow:
         <p class="assume-note">La calculadora usa los números que usted ingresa. Los objetivos son supuestos editables basados en la tasa de éxito verificada del flujo de trabajo digital. No asigna un costo a la rotación de personal en sí.</p>
       </div>
     </details>
+  </div>
+</section>
+
+<section class="promise" id="promise" aria-labelledby="promiseTitle">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="promiseTitle">La promesa de Dandy</h2>
+      <p class="sub">Nos ganamos su confianza caso tras caso.</p>
+    </div>
+    <ul class="pr-grid"><li><span class="pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l2.3 1.7 2.9-.1.9 2.7 2.3 1.7-.9 2.7.9 2.7-2.3 1.7-.9 2.7-2.9-.1L12 21.5l-2.3-1.7-2.9.1-.9-2.7-2.3-1.7.9-2.7-.9-2.7 2.3-1.7.9-2.7 2.9.1z"/><path d="M8.5 12.2l2.3 2.3 4.7-4.8"/></svg></span><h3>Perfect Fit Guarantee&trade;</h3><p>Si no está satisfecho con un caso, lo rehacemos gratis hasta que quede contento.</p></li><li><span class="pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/><path d="M9 15l2 2 4-4"/></svg></span><h3>Sin compromisos a largo plazo</h3><p>Dandy es mes a mes. Si no está contento, puede irse, sin dar explicaciones.</p></li><li><span class="pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5a4.5 4.5 0 007 0"/><path d="M9 9.5h.01M15 9.5h.01"/></svg></span><h3>Una persona real a su lado</h3><p>Un capacitador clínico comprometido con su éxito, que le enseña nuevos flujos de trabajo, ajusta sus preferencias y les ayuda a usted y a su personal.</p></li></ul>
   </div>
 </section>
 
